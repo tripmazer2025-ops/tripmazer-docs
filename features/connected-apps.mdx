@@ -1,0 +1,69 @@
+---
+title: "Connected apps"
+description: "Connect Google, Notion, Canva, Todoist and more, or bring your own MCP server, and let Mazer work in them with your approval."
+icon: "plug"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+Connect apps in **Settings → Integrations**. Mazer can then search, open and read in them, and act in them once you approve, usually in a single reply.
+
+## Available apps
+
+| App | What Mazer can do |
+| --- | --- |
+| **Google Calendar** | Read your schedule, add flights, stays and plans |
+| **Gmail** | Find and read emails, draft replies, [auto-import bookings](/features/importing-bookings) (Pro) |
+| **Google Drive** | Find files and folders, read documents, import a file into a trip's Docs, export trip files |
+| **Google Docs** and **Sheets** | Read, create and update documents and spreadsheets |
+| **Notion** | Read and create pages |
+| **Todoist** | Read, create, update and complete tasks |
+| **Canva** | Make designs |
+| **Zoom** | Meetings, recordings and summaries |
+| **Splitwise** | Share group expenses |
+| **LinkedIn** | Read your profile and posts, draft and publish posts, comment on a linked post |
+| **X**, **Reddit**, **YouTube**, **Instagram** | Read posts and profiles, and publish where the app allows |
+
+<Note>Calendar, Gmail and Splitwise sync are part of Pro and Elite. X runs on X's pay-per-use API, so Mazer only uses it when you name X.</Note>
+
+## Approvals
+
+Nothing is sent, added, changed or removed in a connected app without your approval:
+
+- **Web**: a one-tap approval, or "send it" for a saved draft
+- **WhatsApp and Telegram**: a **Confirm** button
+- **Mazer Live**: Mazer reads it back and waits for a clear "yes"
+
+Publishing and deleting posts always go through their own step-by-step confirmation, and are never done by a schedule or routine on its own.
+
+<Prompt text="Find [Rohan]'s email about the visa and draft a reply." />
+
+<Prompt text="Find my [IndiGo] confirmation and add the flight to my calendar." />
+
+<Prompt text="Export the [Bali] budget to a new Google Sheet." />
+
+## Bring your own MCP server
+
+If you use a tool that has an MCP server, such as Linear, you can connect it yourself:
+
+<Steps>
+  <Step title="Open MCP Servers">
+    Go to **Settings → Integrations → MCP Servers** and choose **Add server**.
+  </Step>
+  <Step title="Enter the server">
+    Give it a name and its URL (for example `https://mcp.example.com/mcp`). Add a bearer token only if the server needs one.
+  </Step>
+  <Step title="Authorise">
+    If the server uses sign-in, you're sent to it to approve access.
+  </Step>
+</Steps>
+
+Mazer can then read from the server's tools once you approve them. Anything that changes data asks first.
+
+<Warning>MCP servers aren't built or reviewed by TripMazer. Connect only servers you trust, and remember they can do only what their own tools allow.</Warning>
+
+## When something isn't working
+
+Ask Mazer **"is my Gmail connected?"** or **"why did that fail?"**. It checks which accounts are live or need reconnecting, and tells you the real reason something failed.
+
+To disconnect an app, go to **Settings → Integrations** and choose **Disconnect**.

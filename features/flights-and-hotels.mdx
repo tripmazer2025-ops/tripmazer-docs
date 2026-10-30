@@ -1,0 +1,56 @@
+---
+title: "Booking flights and hotels"
+description: "Search real fares and rooms with Mazer, then book them in TripMazer's own checkout."
+icon: "plane"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+Flights and hotels book inside TripMazer. Mazer searches, compares and explains; **Book** on a flight or hotel card opens our checkout, where you add travellers and extras and pay. Mazer never pays on its own.
+
+## Searching
+
+<Prompt title="Flights" text="Find flights from [Bengaluru] to [Bali] on [12 December], back on [16 December], for 2 adults. No red-eyes." />
+
+<Prompt title="Hotels" text="Hotels in [Seminyak] under [₹8,000] a night, free cancellation, walking distance to the beach." />
+
+How Mazer searches:
+
+- **Return trips are searched one leg at a time**, so you see the best options each way.
+- **Mazer only quotes fares and rooms a search actually returned.** It won't invent a price, airline or currency.
+- **Your budget guides the ranking but isn't a hidden filter.** Only limits you state (like "under ₹8,000 a night") filter results. If everything costs more than your budget, Mazer says so in real numbers and suggests fewer nights, other dates or a cheaper area.
+- **"Nothing free on those dates"** means the hotel has no rooms then, not that the search failed.
+
+## Checkout
+
+<Steps>
+  <Step title="Tap Book">
+    On the card in chat. On WhatsApp and Telegram, Mazer sends a checkout link.
+  </Step>
+  <Step title="Travellers">
+    Add everyone travelling. Names must match passports or IDs.
+  </Step>
+  <Step title="Extras">
+    Choose any extras the fare or room offers.
+  </Step>
+  <Step title="Pay">
+    Pay in the checkout. Your booking appears on the trip's **Bookings** screen with its confirmation.
+  </Step>
+</Steps>
+
+## After you book
+
+- **Bookings** on the trip shows every flight, hotel and activity, including ones [imported from email](/features/importing-bookings).
+- **Free cancellation reminders**: on WhatsApp and Telegram, Mazer reminds you 3 days before a hotel's free cancellation ends.
+- **Cheaper rooms**: if a refundable room you booked with us gets cheaper, it's flagged on **Bookings** for one-tap rebooking.
+- **Changes**: see [Changing a booking](/features/changing-bookings).
+
+## Watching prices
+
+Ask Mazer to watch a fare and it tells you only when the price drops below what you set. Flight price watches are on Pro (10 routes) and Elite (unlimited).
+
+<Prompt title="Watch a fare" text="Watch fares from [BLR] to [DPS] for [December] and tell me if they drop below [₹18,000]." />
+
+## Cancellations and refunds
+
+Each fare and room shows its cancellation terms before you book. TripMazer can't override a non-refundable fare or rate. Hotel refunds come from the hotel provider, usually within 7–10 business days. See the [cancellation and refunds policy](https://tripmazer.com/legal/cancellation-refunds).

@@ -1,0 +1,59 @@
+---
+title: "Memory and preferences"
+description: "What Mazer remembers about you, how to see and change it, and the settings that shape how Mazer helps."
+icon: "brain"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+## Your traveller passport
+
+The profile you fill in at sign-up: passport country, home base, food rules, interests, spending style, pace, body clock and who you travel with. Mazer reads it on every channel.
+
+- **Visa rules**: your passport country is used to check them without you asking.
+- **Food rules and allergies** are treated as strict.
+- **Skipped questions** count as unknown, not as a "no".
+
+Change your answers any time at [tripmazer.com/welcome](https://tripmazer.com/welcome).
+
+## What Mazer learns
+
+<Info>Memory across trips is on **Mazer Pro** and **Elite**.</Info>
+
+Mazer remembers facts you mention, past trips and your preferences, on every channel. Something you say on WhatsApp is known on the web.
+
+- **Facts that change keep one dated value**, such as a loyalty number or your partner's name. Mazer updates it when you tell it, checks it against what you've entered in the app, and asks about old ones in check-ins.
+- **Big changes are confirmed first**: your name, nationality, country of residence, partner or age.
+- **Moving home** makes Mazer re-check your home airport and timezone.
+- **Memories from finished trips are retired**, not deleted.
+
+See, change and undo what Mazer remembers in **Settings → AI Memory**, which keeps a history.
+
+<Prompt text="What do you remember about how I like to travel?" />
+
+<Prompt text="Forget that I'm vegetarian. I eat fish now." />
+
+## Standing reminders
+
+Reminders can wait for a topic instead of a time:
+
+<Prompt text="Next time I mention [Bali], remind me to check my visa." />
+
+Each one fires at most three times, no more than once a day, and expires after 90 days.
+
+## AI Preferences
+
+In **Settings → AI Preferences**:
+
+| Setting | What it does |
+| --- | --- |
+| **How much Mazer does on its own** | **Minimal**: answers when asked. **Balanced**: helps build itineraries and suggests improvements. **Proactive**: flags delays, price drops and alternatives. **Autopilot**: drafts whole itineraries and applies plan changes on its own |
+| **Response detail** | Short, Standard or Detailed |
+| **Explain my picks** | Mazer says why it recommends something |
+| **Voice** | One of eleven voices with real accents. See [Mazer Live](/install/mazer-live#choose-a-voice) |
+| **Write in this voice too** | Written replies carry the voice's rhythm and warmth. Amounts, dates and references always stay plain |
+| **Quiet hours** | When spoken briefings stay quiet |
+
+## Travel Preferences and loyalty
+
+**Settings → Travel Preferences** holds your day-to-day travel choices. Loyalty programmes and saved cards (for lounge access) have their own sections in Settings.

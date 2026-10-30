@@ -1,0 +1,55 @@
+---
+title: "Budget and expenses"
+description: "What your trip will cost, logging what you spend, splitting with friends, and keeping track of card payments and refunds."
+icon: "wallet"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+## What the trip will cost
+
+The trip's **Budget** screen shows the cost by category against your budget, as a likely range. It includes:
+
+- prices for rooms and fares you haven't booked yet, estimated when you open it on Pro and Elite
+- destination fees, such as Dubai's Tourism Dirham
+- your on-trip daily allowance, group shares and who owes whom
+
+From the Budget screen you can book, watch fares, and **fit the trip to your budget**. Mazer suggests real-price swaps, the same thing for less, up to one step down in quality, and applies them only when you approve.
+
+<Prompt text="What will the [Japan] trip cost in total, by category, against my budget?" />
+
+Mazer quotes the same figures the Budget screen shows, rather than adding them up itself.
+
+## Logging spend
+
+On WhatsApp and Telegram, type what you spent or send a receipt photo. Mazer logs it to the active trip and replies with today's balance.
+
+<Prompt title="Typed" text="Tuk tuk [800 LKR]" />
+
+<Prompt title="Several at once" text="Lunch [₹1,200], museum [₹600], auto [₹180]." />
+
+Expenses in any currency are converted to your home currency for the totals.
+
+## Splitting
+
+<Prompt text="Split dinner: [₹4,800] between 4 people, [Arjun] paid." />
+
+<Prompt text="Who owes whom on the [Goa] trip?" />
+
+Mazer runs the maths as a small program, so totals and splits are calculated, not guessed. You can also connect **Splitwise** in **Settings → Integrations** (Pro and Elite).
+
+## Trip money
+
+For trips abroad, the Trip Home has three money tools:
+
+- **Money plan**: the exchange rate, which of your saved cards adds the least in fees, and UPI where it works.
+- **Card payments**: paste a bank SMS or email and it becomes an expense once you tick it. Turn on **Find trip spends and refunds in Gmail** and Mazer reads your bank's own alerts too. With **Add trip spends automatically** on, spends in the trip's country are added straight away, and you can undo them in Budget.
+- **Refunds and claims**: track money you're owed, ticked off when the refund lands. **Chase** asks Mazer to draft a follow-up.
+
+<Prompt text="Which of my cards should I use in [Japan] to pay the least in fees?" />
+
+## Files and charts
+
+<Prompt text="Make me an Excel file of every expense on my [Goa] trip, by category, with a chart of spending per day." />
+
+See [Files, research and browsing](/features/files-research-and-browsing) for what Mazer can make.

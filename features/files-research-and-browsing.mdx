@@ -1,0 +1,53 @@
+---
+title: "Files, research and browsing"
+description: "Mazer can calculate, make files and charts, write cited research reports, and read and use websites for you."
+icon: "file-chart-column"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+## Calculations, charts and files
+
+For anything code does better than prose, Mazer writes and runs a small program. That covers bill splits, expense totals, currency and date maths, and analysing your own trips, expenses, itinerary, bookings, budgets and packing.
+
+It can hand you:
+
+- **charts**, as images in chat (photos on WhatsApp and Telegram)
+- **files**: PDF, Excel or CSV, Word, calendar (`.ics`) and QR codes
+
+<Prompt text="Make me an Excel file of every expense on my [Goa] trip, by category, with a chart of spending per day." />
+
+<Prompt text="Turn my [Japan] itinerary into a calendar file I can import." />
+
+Programs can look up exchange rates, weather, places, events and flight status. They work on a read-only copy of your data and can never send, book, save or delete. Each run lasts about a minute.
+
+| Plan | Runs a day |
+| --- | --- |
+| Free | 5 |
+| Pro | 30 |
+| Elite | 100 |
+
+## Documents you can keep
+
+Ask Mazer to save research, checklists, comparisons, drafts or presentations as documents. You can reopen and revise them later. Mazer edits the document in place and keeps the previous version, so you never need to re-send a file it made.
+
+<Prompt text="Save a packing checklist for [Iceland in February] as a document." />
+
+## Deep research
+
+For questions that need depth, Mazer writes a **cited report** from the live web, your memory and your saved documents, and saves it as a document. On the web it replies with a short answer and the report. On WhatsApp and Telegram the report arrives in the chat 2–5 minutes later, so you don't need to wait.
+
+<Prompt text="Do deep research on the best time to see the northern lights in [Norway] vs [Finland], with costs." />
+
+Ordinary questions get a direct answer, not a research run.
+
+## Reading and using websites
+
+Paste a link and Mazer reads, summarises or compares the page. Give it a goal, with or without a link, and it searches, reads pages across sites, uses menus and site search, and downloads matching files.
+
+<Prompt text="Find [Emirates]' baggage allowance for economy to [Dubai] and summarise it." />
+
+- **Long goals finish in the background.** Anything over about a minute reports back to the same chat when it's done.
+- **Forms are filled only from details you gave.** Mazer shows you what it entered and submits only after you confirm.
+- **It stops at logins, payment, one-time codes and ID details.** On **Elite**, at a login, CAPTCHA or code, Mazer sends you a private 30-minute link to sign in on the live page yourself. Mazer never sees what you type, and continues once you're in. Sessions are saved encrypted in **Settings → Connected Websites**.
+- **Payment always stops with you.**

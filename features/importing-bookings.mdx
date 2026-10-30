@@ -1,0 +1,45 @@
+---
+title: "Importing bookings"
+description: "Bring flights, hotels and tickets you booked elsewhere into your trip: automatically from Gmail, or by forwarding and uploading."
+icon: "inbox-in"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+Bookings you made outside TripMazer belong in your trip too, so Mazer can answer "what time is my check-in?" and plan around them.
+
+## Gmail auto-import
+
+<Info>Gmail auto-import is on **Mazer Pro** and **Elite**.</Info>
+
+Connect Gmail in **Settings → Integrations**. From then on, every ten minutes Mazer files the booking emails it's sure of (airline, hotel, rail and activity confirmations) into the matching trip, creating a trip if there isn't one. Each becomes a booking card, an expense and an itinerary line, never a duplicate.
+
+- **Changes** to a booking update it, and **cancellations** cancel it.
+- **Marketing emails are never imported.** Emails Mazer isn't sure about wait as suggestions for you to confirm.
+- **Each run sends you one message** listing what was added. Any import can be undone for 7 days.
+- **On first connect, Mazer reads two years of email.** Upcoming bookings are filed into trips. Past ones become past trips for you to review on **My Trips** and in Settings.
+
+You can ask Mazer about imports on any channel:
+
+<Prompt title="What came in" text="What did you import from Gmail this week?" />
+
+<Prompt title="Undo" text="Undo the last thing you imported from Gmail." />
+
+<Prompt title="Rescan" text="Rescan my Gmail for bookings." />
+
+## Forward or upload
+
+On any plan:
+
+- **WhatsApp and Telegram**: forward the confirmation email or send the PDF to Mazer.
+- **Web**: attach the PDF or a screenshot in chat, or paste the confirmation text.
+
+<Prompt title="Add a booking" text="Add this booking to my [Goa] trip: [paste the confirmation, or attach the PDF]" />
+
+## Documents
+
+Tickets, vouchers, visas and IDs live on the trip's **Docs** screen, organised per traveller. On the [Android app](/install/android), **Lock Docs** puts them behind your phone's screen lock.
+
+## Disconnecting Gmail
+
+Disconnecting Gmail deletes its inbox-scan previews. Bookings already imported stay in your trips.

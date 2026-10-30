@@ -1,0 +1,68 @@
+---
+title: "Watches, errands, routines and tasks"
+description: "Four ways to have Mazer keep working after the conversation ends, and the Activity log that shows what it did."
+icon: "clock-rotate-left"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+| | Use it when you want Mazer to… | It tells you… |
+| --- | --- | --- |
+| **Watch** | keep an eye on something | only when it changes or your condition is met |
+| **Errand** | work towards an outcome over days | as it makes progress, with next steps to approve |
+| **Scheduled task** | repeat a job on a schedule | every time it runs |
+| **Routine** | redo something you asked for before | when you say its phrase |
+
+## Watches
+
+<Prompt text="Watch fares from [BLR] to [DPS] for [December] and tell me if they drop below [₹18,000]." />
+
+A watch checks on a schedule and messages you **only** when something changes or your condition is met: a fare under your threshold, slots opening up, a rule changing. A quiet watch is still working.
+
+| Plan | How often watches check |
+| --- | --- |
+| Free | Daily |
+| Pro | Every 6 hours |
+| Elite | Every 15 minutes |
+
+Watches that stay quiet for a long time check less often.
+
+## Errands
+
+<Prompt text="Get my refund from [the hotel] for the cancelled night. Follow up until it's sorted." />
+
+An errand is an outcome Mazer works towards over days: a refund, a follow-up with a hotel or airline, a confirmation. It checks on a schedule, reads whole email threads, and prepares next steps (emails, calendar events, Notion, Docs or Drive), each waiting for your approval.
+
+- **Limited steps.** Mazer prepares only the kinds and number of steps you allow: 5 by default, up to 25. Say "give it 5 more" to extend it.
+- **Price limits are firm.** In a negotiation, Mazer never exceeds or reveals your limit, and only you can change it.
+- **It ends on its own** when the goal is met or its end date passes (7 days by default, up to 30). Say "stop that errand" to end it early.
+- **It never posts publicly or pays.**
+
+## Scheduled tasks
+
+<Prompt text="Every Monday at 8 am, send me a digest of deals for [Japan] in [April]." />
+
+Scheduled tasks run on their own and report back: daily, on a chosen weekday, or every few minutes (at least 5). They only read: web search, your memory and past conversations, bookings, events, and Gmail if it's connected. They never send, book, cancel or change anything.
+
+Create, list and cancel them in conversation. They're also listed in **Settings → Agent Tasks**, where you can pause or delete them.
+
+## Routines
+
+<Prompt text="Save this as a routine." />
+
+Mazer proposes the steps from the last few hours with a name and trigger phrases, and saves the routine once you approve. Saying a phrase runs it again; on Telegram, it also gets its own `/command`. Mazer may offer, once, to save something you've done on several days.
+
+A routine pre-approves nothing: steps that send, book, pay or call still ask each time. Keep up to 20 routines, managed in **Settings → Skills**.
+
+## The Activity log
+
+**Settings → Activity** shows the last 30 days of Mazer's work on every channel:
+
+- what it did
+- approvals waiting for you (approve or decline them there or in chat)
+- errands and watches in progress
+- bookings made through Mazer
+
+## Skills
+
+**Settings → Skills** lists Mazer's specialist skills, such as pre-trip readiness, visa and entry, arrival kit, flight disruption monitor, expense reconciler, points and loyalty, call ahead, meeting prep and automatic check-in. Mazer doesn't use a skill you've turned off. Skills that read Gmail, Drive, Docs or Calendar need Pro or Elite.

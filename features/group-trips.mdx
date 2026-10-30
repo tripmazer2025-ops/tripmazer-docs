@@ -1,0 +1,41 @@
+---
+title: "Group trips"
+description: "Plan with friends and family: invite travellers, share the plan, decide together and split the costs."
+icon: "people-group"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+| Plan | Group size |
+| --- | --- |
+| Free | Read-only sharing |
+| Pro | Up to 10 travellers |
+| Elite | Up to 20 travellers |
+
+## Bringing people in
+
+<Prompt title="Invite" text="Give me an invite link so [Priya] can join the [Goa] trip." />
+
+People who join open the trip from their own TripMazer account. The trip's **Group** screen shows who's coming.
+
+To share without inviting, send a read-only link. Anyone can view it without an account, and booking references are never on it.
+
+<Prompt title="Share link" text="Give me a share link for the [Goa] trip." />
+
+<Prompt title="Send the plan" text="Send my [Goa] itinerary to [Mum]." />
+
+## Deciding together
+
+- **Shortlists**: on shared trips, Explore's hearts show who saved what.
+- **Split plans**: when the group wants different things, ask Mazer for a split plan for that day.
+- **Telegram groups**: add @TripMazerBot to the group chat and use `/linktrip`. You get polls (`/newpoll`), `/split`, `/status` and `/who`, and Mazer answers when it's mentioned. See [Telegram](/install/telegram#use-mazer-in-a-telegram-group).
+
+<Prompt text="Half of us want the beach on day [2] and half want the old town. Make a split plan for that day." />
+
+## Money
+
+The Budget screen shows group shares and who owes whom. Log shared costs by telling Mazer who paid, and connect Splitwise if your group already uses it. See [Budget and expenses](/features/budget-and-expenses).
+
+## Photos
+
+Group trips can have a shared album that everyone opts into, with **Leave me out** for anyone who'd rather not be in it, and a group film at the end. See [Memories](/features/memories).

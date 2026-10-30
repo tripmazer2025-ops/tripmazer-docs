@@ -1,0 +1,87 @@
+---
+title: "Troubleshooting"
+description: "Fixes for the problems people run into most often."
+icon: "wrench"
+---
+
+<Tip>
+  Start by asking Mazer **"why did that fail?"** or **"is my Gmail connected?"**. It can check which connected accounts are live, whether a watch or task has stopped, and whether it could reach its tools, then tell you the real reason.
+</Tip>
+
+## Chat and Mazer
+
+<AccordionGroup>
+  <Accordion title="Mazer says it can't do something I've seen it do">
+    Three things to check:
+
+    - **Your plan.** Some features need Pro or Elite. Mazer says so when that's the reason. See [Plans and limits](/plans).
+    - **The channel.** A few things only happen on the web (checkout payment, the Day check buttons, the Memories editor). On WhatsApp and Telegram, Mazer sends a link instead.
+    - **A connection.** If it involves Gmail, Calendar or another app, check **Settings → Integrations**.
+
+    If none of these explains it, email [support@tripmazer.com](mailto:support@tripmazer.com) with what you asked and when.
+  </Accordion>
+  <Accordion title="I've run out of messages">
+    Free accounts get 20 AI messages in the web chat every 5 hours. Mazer saves your trip and shortlist before you run out and tells you when messages reset. Pro and Elite have no cap. Check your usage in **Settings → Usage & Limits**.
+  </Accordion>
+  <Accordion title="Mazer is answering about the wrong trip">
+    Name the trip in your message ("on my Japan trip"). On Telegram, `/trip` sets the active trip.
+  </Accordion>
+  <Accordion title="The conversation has gone off track">
+    Start a new chat. On Telegram, `/new` starts fresh but keeps your trips, memory and watches.
+  </Accordion>
+  <Accordion title="Try in Mazer opened the chat without the prompt">
+    Open the link in the same browser tab you sign in with. If you had to sign in first, the prompt is kept for that tab and appears in a new chat once you're in. In a private window with storage blocked, copy the prompt instead.
+  </Accordion>
+</AccordionGroup>
+
+## WhatsApp and Telegram
+
+<AccordionGroup>
+  <Accordion title="WhatsApp didn't link">
+    The link message expires after 15 minutes. Go back to **Settings → Integrations → WhatsApp**, tap **Connect** again, and send the message exactly as it's typed. Don't edit the code.
+  </Accordion>
+  <Accordion title="The Telegram link won't open">
+    Some networks block `t.me` links. Open Telegram, search for **@TripMazerBot**, and send the `/start` message shown in **Settings → Integrations** (there's a **Copy** button).
+  </Accordion>
+  <Accordion title="Mazer doesn't reply in my Telegram group">
+    In groups, Mazer only answers when you @mention it, reply to one of its messages, or use a `/command`. Make sure the group is linked to the trip with `/linktrip`.
+  </Accordion>
+  <Accordion title="My voice notes come back in the wrong script">
+    Check the voice language in **Settings → AI Preferences**. A stored language can make transcripts appear in that language's script.
+  </Accordion>
+</AccordionGroup>
+
+## Voice
+
+<AccordionGroup>
+  <Accordion title="Mazer Live can't hear me">
+    Allow microphone access for tripmazer.com in your browser's site settings, then start Mazer Live again. On iPhone, use Safari or the home-screen app.
+  </Accordion>
+  <Accordion title="Live Lens won't start">
+    Allow camera access for the site. If your browser doesn't support a live camera stream, take a snapshot instead.
+  </Accordion>
+</AccordionGroup>
+
+## Bookings and imports
+
+<AccordionGroup>
+  <Accordion title="A booking from my email didn't appear">
+    - Gmail auto-import is on Pro and Elite, and runs every ten minutes.
+    - Emails Mazer isn't sure about wait as **suggestions** to confirm.
+    - Marketing emails are never imported.
+    - You can always forward the email to Mazer on WhatsApp or Telegram, or attach the PDF in chat.
+  </Accordion>
+  <Accordion title="I asked to change my hotel dates but they didn't change">
+    Mazer prices a date change; it doesn't make it. Complete it in the trip's **Bookings → Change dates**. See [Changing a booking](/features/changing-bookings).
+  </Accordion>
+  <Accordion title="My changed flight still shows the old time">
+    A changed flight doesn't update by itself. Enter it in **Bookings → Change Flight**, or wait for our team to record it from the partner's confirmation.
+  </Accordion>
+  <Accordion title="I missed a gate change">
+    Gates are checked about 3 hours and 1 hour before departure, so later changes can be missed. Always check the airport screens.
+  </Accordion>
+</AccordionGroup>
+
+## Still stuck?
+
+Email [support@tripmazer.com](mailto:support@tripmazer.com) with your account email, what you were doing, the channel (web, Android, WhatsApp or Telegram) and roughly when it happened.

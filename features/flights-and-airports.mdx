@@ -1,0 +1,55 @@
+---
+title: "Flights, alerts and airports"
+description: "Live Trip, flight status and alerts, Google Wallet passes, and the airport guide with lounge access."
+icon: "plane-departure"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+## Flight status and alerts
+
+| Plan | What you get |
+| --- | --- |
+| Free | — |
+| Pro | Flight status whenever you ask |
+| Elite | Automatic alerts, plus status on demand |
+
+<Prompt title="On demand (Pro)" text="Is my flight to [Delhi] on time?" />
+
+On **Elite**, from 2 days before departure Mazer watches your flights (from Live Trip, bookings and imported confirmations) and alerts you in the app and on Telegram (or WhatsApp, if enabled) for:
+
+- delays of 30 minutes or more, cancellations and diversions
+- take-off and landing
+- gate and baggage belt
+
+Times are in the airport's local time. Gates are checked about 3 hours and 1 hour before departure, so a gate change after that can be missed. Check the airport screens too.
+
+<Note>Mazer only says a flight has departed or landed when airline data reports it.</Note>
+
+## Live Trip
+
+**Live Trip** opens from a trip's Trip Home. On **Pro** it holds your boarding pass, your day to the gate, photos of your bags, and a 21-day and 7-day clock for claiming lost or damaged baggage. **Elite** adds **Where's my plane**.
+
+## Google Wallet passes
+
+On Android and the web, Mazer can turn a trip's flights, stays, activities and transfers into Google Wallet passes. They appear when they're due, work offline, and update with gate or time changes. Passes are rolling out gradually, and aren't available on iPhone yet; if they aren't on for you, Mazer will say so.
+
+<Prompt text="Add my [Bali] trip to Google Wallet." />
+
+## Airport guide
+
+Open **Airports** from the sidebar, or from Live Trip. For each airport you'll find:
+
+- **Lounges**, stamped against the cards you've saved in **Settings → Cards & Lounges**. **Free** means the lounge is on your bank's published list (for example Axis, ICICI and SBI). **Likely** means the bank publishes none, as with HDFC and Priority Pass.
+- Crowd reports, food, shops and essentials
+- Taxis, metro and Uber pickup points
+- Walking times to gates
+- **Remind me to leave** alerts (Elite)
+
+<Prompt title="Lounges" text="Which lounges at [BLR] can I use with my cards?" />
+
+## Morning check-in
+
+On **Pro** and **Elite**, Mazer sends at most one message a day, around 9 AM local time, and only when something needs you. That might be an approval waiting, a passport expiring within nine months, points about to expire, tomorrow's plans, or expenses from a trip that just ended. Inside 30 days of a trip, it only mentions things that need acting on.
+
+On Sundays at 7 PM there's a **Week ahead**. Turn either off in **Settings → Notifications**.

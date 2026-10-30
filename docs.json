@@ -48,6 +48,52 @@
         ]
       },
       {
+        "tab": "Features",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["features/index"]
+          },
+          {
+            "group": "Plan",
+            "pages": ["features/itineraries", "features/explore-and-inspiration"]
+          },
+          {
+            "group": "Book",
+            "pages": [
+              "features/flights-and-hotels",
+              "features/changing-bookings",
+              "features/importing-bookings",
+              "features/auto-check-in"
+            ]
+          },
+          {
+            "group": "Travel",
+            "pages": [
+              "features/flights-and-airports",
+              "features/safety-and-family",
+              "features/travel-helpers",
+              "features/budget-and-expenses",
+              "features/negotiate-for-me",
+              "features/group-trips"
+            ]
+          },
+          {
+            "group": "Remember",
+            "pages": ["features/memories", "features/mazer-cuts-and-creative"]
+          },
+          {
+            "group": "Mazer's toolkit",
+            "pages": [
+              "features/memory-and-preferences",
+              "features/watches-routines-and-tasks",
+              "features/files-research-and-browsing",
+              "features/connected-apps"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Prompting",
         "groups": [
           {
@@ -66,6 +112,15 @@
               "prompting/library/memories",
               "prompting/library/connected-apps"
             ]
+          }
+        ]
+      },
+      {
+        "tab": "Help",
+        "groups": [
+          {
+            "group": "Help",
+            "pages": ["help/troubleshooting", "help/faq", "help/privacy-and-safety"]
           }
         ]
       }

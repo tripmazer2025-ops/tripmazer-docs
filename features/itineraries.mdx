@@ -1,0 +1,65 @@
+---
+title: "Itineraries"
+description: "How Mazer builds the day-by-day plan, the Day check that catches problems, and how to change any day."
+icon: "route"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+Every trip has an itinerary on its **Plan** screen: one card per day, each stop with its time, price and that day's opening hours, and the walk or ride between stops.
+
+## Getting a plan
+
+There are two ways in:
+
+- **Plan in chat, then save.** Work the plan out with Mazer, then say **"save it"**. The day-by-day plan from the chat goes into the trip's itinerary once, as named stops, as long as it fits the trip's dates. It never overwrites days you've already planned.
+- **Let Mazer plan it all.** On a saved trip, say **"plan the whole trip"**. Mazer searches flights, stays and things to do, then fills the days.
+
+<Prompt title="Try it" text="Plan the whole trip." />
+
+## The Day check
+
+Each day has a **Day check** that looks for problems before you hit them:
+
+- clashes and tight connections
+- places that are closed when you'd arrive
+- long routes and overfull days
+- missing meals and no free time
+
+Most problems come with a one-tap fix, and every fix can be undone.
+
+## Pace that follows your energy
+
+Mazer sets each day's pace from your trip's pace, then lightens it for:
+
+- your arrival day
+- the day after a long flight, or a time difference of 5 hours or more
+- the day after heavy days (a trek counts double, a café barely counts)
+- a hot forecast
+- you saying you're low today
+
+On the trip, say **"I'm tired"** or **"my feet hurt"** and Mazer offers to lighten the rest of today. Heavier stops move to the lightest later day or are skipped. Meals, bookings and rest stay put, and nothing changes until you tap to apply it (**Lighten my day** on WhatsApp and Telegram).
+
+<Note>Mazer doesn't read wearables or health apps. Pace comes from your trip and what you tell it.</Note>
+
+## Changing a day
+
+You can change any day yourself on the **Plan** screen, or ask Mazer:
+
+<Prompt title="Move and add" text="Add [Tanah Lot] to day [3] for sunset, and move the [cooking class] to day [4]." />
+
+<Prompt title="Fill free time" text="I have a free afternoon on day [2]. What fits nearby?" />
+
+Mazer's changes arrive as a card showing what will change. Tap to apply it, or choose **Autopilot** in **Settings → AI Preferences** to have them apply on their own.
+
+**Add Places** on a day ranks places that fit that day's free time and are nearby.
+
+## Booking links on stops
+
+When Mazer adds an activity, it attaches a checked booking link from partners such as Viator, Tiqets or Headout where one exists, so you can book the tickets from the stop.
+
+## Sharing and exporting
+
+- **Share a read-only link**: ask "give me a share link for this trip". People can view it without an account.
+- **Calendar**: ask for a calendar (`.ics`) file, or connect [Google Calendar](/features/connected-apps) and ask Mazer to add the trip.
+- **Files**: ask for the itinerary as a PDF or Word document.

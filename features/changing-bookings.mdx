@@ -1,0 +1,45 @@
+---
+title: "Changing a booking"
+description: "What Mazer can do when you need to move a hotel or flight you booked through TripMazer, and what it can't."
+icon: "calendar-arrow-up"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+Mazer can check whether a booking can change and what it would cost. The change itself is always confirmed by you, and for flights, made by the airline or our flight partner.
+
+## Hotels
+
+Hotels can't edit the dates on a booking, so a date change is a **new booking for the new dates**, confirmed before the original is cancelled.
+
+<Steps>
+  <Step title="Ask Mazer to price it">
+    <Prompt text="Can I move my [Bali] hotel to [14–18 December]? What would it cost?" />
+    Mazer checks whether the booking can move and shows the new cost, the expected refund and the difference, with any cancellation fee stated. Estimates are labelled.
+  </Step>
+  <Step title="Make the change">
+    Open the trip's **Bookings** screen and choose **Change dates** on the hotel.
+  </Step>
+</Steps>
+
+Refunds for the original booking come from the hotel provider within 7–10 business days.
+
+<Warning>Pricing a change doesn't make it. Your dates only change once you complete **Change dates**.</Warning>
+
+## Flights
+
+No system lets anyone reissue a ticket automatically, so Mazer never changes a flight itself. It checks your booking and tells you who can change it, and at what cost.
+
+<Prompt text="I need to move my [Delhi] flight to [the next day]. What are my options?" />
+
+Depending on the airline and fare, the options are:
+
+1. **Our flight partner reissues it** for the fare difference, plus the airline's change fee, plus a USD 25 servicing fee, charged only if you accept. Mazer can email the partner's flight desk for you, copying you in, once you approve it on a confirmation card. Replies take up to 72 hours, 48 hours inside three weeks of the flight, and 4–6 hours inside a week.
+2. **Change it yourself on the airline's site.** IndiGo, Akasa, SpiceJet and Air India Express allow this, with no USD 25 fee.
+3. **Some fares can't change**, and within about 48 hours of departure only the airline can help.
+
+TripMazer adds no fee of its own. A changed flight doesn't update by itself: our team records it from the partner's confirmation, or you enter it in **Bookings → Change Flight**.
+
+## Bookings made elsewhere
+
+Bookings you made outside TripMazer (and imported) are changed through whoever sold them.
