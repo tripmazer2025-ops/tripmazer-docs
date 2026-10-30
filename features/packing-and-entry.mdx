@@ -1,0 +1,75 @@
+---
+title: "Packing and entry rules"
+description: "Build a packing list from your real itinerary, keep your own essentials and kits, and check visa and entry rules for your passport."
+icon: "suitcase"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+<Info>Packing lists and entry checks are on **Mazer Pro** and **Mazer Elite**, and you need edit access to the trip. On a group trip, viewers can't change them.</Info>
+
+Open **Packing** from your Trip Home, or just ask Mazer in chat. Both work from the same list, on the web app, Telegram and WhatsApp.
+
+## Build a packing list
+
+Mazer builds your list from the trip itself: the days and activities in your itinerary, the forecast and your bookings. A beach day, a hike or a temple visit changes what's on it.
+
+<Prompt text="Build a packing list for my [Bali] trip." />
+
+<Prompt text="Make a packing list for my [Japan] trip. It's carry-on only and I can do laundry every 3 days." />
+
+If you don't say who's travelling, what bags you're taking or how often you'll do laundry, Mazer uses what you chose last time, or a solo trip with a checked bag and laundry every 3 days. It tells you which it used.
+
+If the trip already has a list, Mazer leaves it alone and saves suggestions for you to review, so nothing you've packed or added is overwritten.
+
+## Add, change and tick off items
+
+<Prompt text="Add sunscreen to my packing list." />
+
+<Prompt text="Mark my passport as packed." />
+
+<Prompt text="Take the hair dryer off my list." />
+
+If a trip has no list yet, adding an item starts one. When you build the full list later, your items stay on it.
+
+## Review suggestions
+
+When your plans change, Mazer can suggest what to add, remove or change, with the reason for each. Nothing changes until you say so, and anything you dismiss isn't suggested again.
+
+<Prompt text="What packing suggestions do you have for this trip?" />
+
+<Prompt text="Add all the suggestions." />
+
+## My Essentials and kits
+
+**My Essentials** are the things you always take, and they go on every new list. Over time, Mazer notices what you keep adding and offers to make it an essential. Items you keep removing stop being suggested.
+
+Kits are reusable groups of items, such as a camera kit.
+
+<Prompt text="Add my [camera] kit to this trip." />
+
+## Shopping list
+
+Keep track of what to buy for a trip, separate from what you're packing.
+
+<Prompt text="Add a universal adapter to my shopping list." />
+
+## Visa and entry rules
+
+Mazer checks the rules for your passport and your destination. It uses the passport you gave during setup, or asks which one you hold.
+
+<Prompt text="Do I need a visa for my [Colombo] trip?" />
+
+<Prompt text="Am I ready for my [Bali] trip?" />
+
+Mazer tells you where each answer comes from:
+
+| Source | What it means |
+| --- | --- |
+| Official rule | Checked against the destination government's own pages. |
+| General dataset | A broad passport dataset that can lag behind recent changes. Mazer says so. Confirm it on the official immigration site. |
+| Not checked | Mazer says the answer is unknown, and won't tell you whether you need a visa. |
+
+Mazer only calls a trip ready when entry rules have been checked, nothing is left to arrange, and your essentials are packed.
+
+<Warning>Entry rules change without much notice. Always confirm with the destination's official immigration site before you travel. Your airline can refuse boarding if you don't have what you need.</Warning>

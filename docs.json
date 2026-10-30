@@ -81,6 +81,7 @@
             "pages": [
               "features/flights-and-airports",
               "features/safety-and-family",
+              "features/packing-and-entry",
               "features/travel-helpers",
               "features/budget-and-expenses",
               "features/negotiate-for-me",
