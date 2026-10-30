@@ -84,7 +84,8 @@
               "features/travel-helpers",
               "features/budget-and-expenses",
               "features/negotiate-for-me",
-              "features/group-trips"
+              "features/group-trips",
+              "features/mazer-match"
             ]
           },
           {
