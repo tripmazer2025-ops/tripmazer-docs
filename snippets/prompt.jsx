@@ -18,7 +18,7 @@ export const Prompt = ({ title, text, why }) => {
   return (
     <div className="not-prose my-4 rounded-2xl border border-gray-950/10 bg-white p-4 dark:border-white/10 dark:bg-white/5">
       {title && (
-        <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
+        <div className="mb-1.5 text-sm font-medium text-gray-500 dark:text-gray-400">
           {title}
         </div>
       )}

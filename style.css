@@ -1,0 +1,47 @@
+/* Type: Geist throughout (set in docs.json), tighter headings, and Geist Mono
+   (which Mintlify already loads) for code. */
+#page-title {
+  letter-spacing: -0.025em;
+}
+
+.mdx-content h2,
+.mdx-content h3 {
+  letter-spacing: -0.015em;
+}
+
+code,
+pre,
+kbd {
+  font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace !important;
+  font-feature-settings: normal;
+}
+
+/* Logo: larger, with a "Docs" label beside it, as on product docs sites. */
+img.nav-logo {
+  height: 2.125rem !important;
+  width: auto !important;
+}
+
+#navbar a:has(> img.nav-logo) {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+#navbar a:has(> img.nav-logo)::after {
+  content: "Docs";
+  display: flex;
+  align-items: center;
+  height: 1.25rem;
+  padding-left: 0.875rem;
+  border-left: 1px solid rgb(17 24 39 / 0.14);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: rgb(75 85 99);
+}
+
+html.dark #navbar a:has(> img.nav-logo)::after {
+  border-left-color: rgb(255 255 255 / 0.16);
+  color: rgb(209 213 219);
+}

@@ -10,18 +10,17 @@
   },
   "fonts": {
     "heading": {
-      "family": "Bricolage Grotesque",
+      "family": "Geist",
       "weight": 600
     },
     "body": {
-      "family": "DM Sans"
+      "family": "Geist"
     }
   },
   "favicon": "/favicon.svg",
   "logo": {
     "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg",
-    "href": "https://tripmazer.com"
+    "dark": "/logo/dark.svg"
   },
   "appearance": {
     "default": "system"
@@ -33,7 +32,12 @@
         "groups": [
           {
             "group": "Get started",
-            "pages": ["index", "quickstart", "concepts", "plans"]
+            "pages": [
+              "index",
+              "quickstart",
+              "concepts",
+              "plans"
+            ]
           },
           {
             "group": "Install",
@@ -52,11 +56,16 @@
         "groups": [
           {
             "group": "Overview",
-            "pages": ["features/index"]
+            "pages": [
+              "features/index"
+            ]
           },
           {
             "group": "Plan",
-            "pages": ["features/itineraries", "features/explore-and-inspiration"]
+            "pages": [
+              "features/itineraries",
+              "features/explore-and-inspiration"
+            ]
           },
           {
             "group": "Book",
@@ -80,7 +89,10 @@
           },
           {
             "group": "Remember",
-            "pages": ["features/memories", "features/mazer-cuts-and-creative"]
+            "pages": [
+              "features/memories",
+              "features/mazer-cuts-and-creative"
+            ]
           },
           {
             "group": "Mazer's toolkit",
@@ -98,7 +110,11 @@
         "groups": [
           {
             "group": "Talking to Mazer",
-            "pages": ["prompting/guide", "prompting/cheat-sheet", "prompting/voice-and-chat"]
+            "pages": [
+              "prompting/guide",
+              "prompting/cheat-sheet",
+              "prompting/voice-and-chat"
+            ]
           },
           {
             "group": "Prompt library",
@@ -120,30 +136,15 @@
         "groups": [
           {
             "group": "Help",
-            "pages": ["help/troubleshooting", "help/faq", "help/privacy-and-safety"]
+            "pages": [
+              "help/troubleshooting",
+              "help/faq",
+              "help/privacy-and-safety"
+            ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Open TripMazer",
-          "href": "https://tripmazer.com/app",
-          "icon": "compass"
-        },
-        {
-          "anchor": "Changelog",
-          "href": "https://tripmazer.com/changelog",
-          "icon": "sparkles"
-        },
-        {
-          "anchor": "Contact support",
-          "href": "mailto:support@tripmazer.com",
-          "icon": "life-ring"
-        }
-      ]
-    }
+    ]
   },
   "navbar": {
     "links": [
@@ -152,18 +153,28 @@
         "href": "https://tripmazer.com/pricing"
       },
       {
-        "label": "Blog",
-        "href": "https://tripmazer.com/blog"
+        "label": "Changelog",
+        "href": "https://tripmazer.com/changelog"
+      },
+      {
+        "label": "Support",
+        "href": "mailto:support@tripmazer.com"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Start planning",
+      "label": "Open TripMazer",
       "href": "https://tripmazer.com/app"
     }
   },
   "contextual": {
-    "options": ["copy", "view", "chatgpt", "claude", "perplexity"]
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity"
+    ]
   },
   "footer": {
     "socials": {
