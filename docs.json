@@ -1,72 +1,124 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "TripMazer Docs",
+  "description": "How to plan, book and travel with Mazer, TripMazer's AI travel companion.",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#6366F1",
+    "light": "#818CF8",
+    "dark": "#4F46E5"
+  },
+  "fonts": {
+    "heading": {
+      "family": "Bricolage Grotesque",
+      "weight": 600
+    },
+    "body": {
+      "family": "DM Sans"
+    }
   },
   "favicon": "/favicon.svg",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://tripmazer.com"
+  },
+  "appearance": {
+    "default": "system"
+  },
   "navigation": {
-    "pages": [
+    "tabs": [
       {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
+        "tab": "Get started",
+        "groups": [
+          {
+            "group": "Get started",
+            "pages": ["index", "quickstart", "concepts", "plans"]
+          },
+          {
+            "group": "Install",
+            "pages": [
+              "install/web-and-iphone",
+              "install/android",
+              "install/whatsapp",
+              "install/telegram",
+              "install/mazer-live"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Prompting",
+        "groups": [
+          {
+            "group": "Talking to Mazer",
+            "pages": ["prompting/guide", "prompting/cheat-sheet", "prompting/voice-and-chat"]
+          },
+          {
+            "group": "Prompt library",
+            "pages": [
+              "prompting/library/index",
+              "prompting/library/dream-and-plan",
+              "prompting/library/book",
+              "prompting/library/on-the-trip",
+              "prompting/library/money",
+              "prompting/library/groups-and-family",
+              "prompting/library/memories",
+              "prompting/library/connected-apps"
+            ]
+          }
         ]
       }
     ],
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Open TripMazer",
+          "href": "https://tripmazer.com/app",
+          "icon": "compass"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Changelog",
+          "href": "https://tripmazer.com/changelog",
+          "icon": "sparkles"
+        },
+        {
+          "anchor": "Contact support",
+          "href": "mailto:support@tripmazer.com",
+          "icon": "life-ring"
         }
       ]
     }
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:support@mintlify.com"
+        "label": "Pricing",
+        "href": "https://tripmazer.com/pricing"
+      },
+      {
+        "label": "Blog",
+        "href": "https://tripmazer.com/blog"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "Start planning",
+      "href": "https://tripmazer.com/app"
     }
   },
   "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
-    ]
+    "options": ["copy", "view", "chatgpt", "claude", "perplexity"]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/TripMazerAI",
+      "instagram": "https://www.instagram.com/tripmazerai",
+      "youtube": "https://youtube.com/@tripmazer",
+      "website": "https://tripmazer.com"
     }
+  },
+  "seo": {
+    "indexing": "navigable"
   }
 }

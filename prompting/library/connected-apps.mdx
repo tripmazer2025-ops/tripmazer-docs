@@ -1,0 +1,57 @@
+---
+title: "Connected apps"
+description: "Prompts for Google Calendar, Gmail, Drive, Sheets, Notion, Todoist, Canva and LinkedIn, once they're connected."
+icon: "plug"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+Connect apps in **Settings → Integrations** first. Mazer reads from them freely; anything that creates, sends, publishes or deletes shows you what it will do and waits for your approval.
+
+## Google Calendar and Gmail
+
+<Prompt title="Flights into your calendar" text="Add my [Bali] flights and hotel check-ins to Google Calendar." />
+
+<Prompt
+  title="Find bookings in Gmail"
+  text="Which travel bookings are in my Gmail for [December]?"
+/>
+
+<Prompt title="Undo an import" text="Undo the last thing you imported from Gmail." />
+
+## Google Drive and Sheets
+
+<Prompt
+  title="Document into the trip"
+  text="Find my [passport scan] in Drive and add it to the [Japan] trip's documents."
+/>
+
+<Prompt title="Budget to Sheets" text="Export the [Bali] budget to a new Google Sheet." />
+
+<Prompt title="Read a sheet" text="Read the [Group trip costs] sheet and tell me who still owes money." />
+
+## Notion and Todoist
+
+<Prompt title="Itinerary to Notion" text="Create a Notion page with the [Japan] itinerary, one section per day." />
+
+<Prompt title="Packing to-dos" text="Add my packing list for [Japan] to Todoist as tasks due [2 April]." />
+
+## Canva and LinkedIn
+
+<Prompt
+  title="A design for the trip"
+  text="Make an Instagram story design in Canva for our [Goa] trip, using [three of my photos]."
+/>
+
+<Prompt
+  title="A LinkedIn post"
+  text="Draft a LinkedIn post about what I learned on my [Japan] trip. Don't publish it yet."
+/>
+
+## Making it a habit
+
+<Prompt
+  title="Save a routine"
+  text="Save this as a routine."
+  why="Mazer proposes the steps you just did, with a name and trigger phrases. Saying the phrase later runs them again."
+/>

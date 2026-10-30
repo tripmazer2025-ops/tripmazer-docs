@@ -1,0 +1,72 @@
+---
+title: "On the trip"
+description: "Prompts for the days themselves: today's plan, tired days, near-me questions, photos, translation and reminders."
+icon: "location-dot"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+These work best on [WhatsApp](/install/whatsapp), [Telegram](/install/telegram) or [Mazer Live](/install/mazer-live), wherever you are.
+
+## The day
+
+<Prompt title="Today" text="What's on today?" />
+
+<Prompt
+  title="Tired day"
+  text="I'm tired. Lighten the rest of today."
+  why="Mazer moves heavier stops to a lighter day or skips them, keeps meals, bookings and rest, and changes nothing until you tap to apply."
+/>
+
+<Prompt title="Running late" text="We're running an hour late. Rework the rest of today." />
+
+<Prompt title="Rain plan" text="It's raining in [Ubud]. What indoor swaps make sense for this afternoon?" />
+
+## Around you
+
+<Prompt
+  title="Food near me"
+  text="Somewhere good for a vegetarian lunch near me, under [₹1,000] for two."
+  why="Share your location first on WhatsApp or Telegram, or allow location on the web."
+/>
+
+<Prompt
+  title="What is this?"
+  text="What is this building?"
+  why="Send it with a photo. Mazer reads any signs, checks places near you, and says so if it can't confirm the name."
+/>
+
+<Prompt title="Read a menu" text="Translate this menu and tell me what's vegetarian." />
+
+<Prompt
+  title="Fair price"
+  text="What's a fair taxi fare from here to [the airport], and how should I bargain?"
+  why="On Telegram, /negotiate starts a bargaining helper."
+/>
+
+## Talking to people
+
+<Prompt
+  title="Live interpreter"
+  text="Be my interpreter between English and [Thai]."
+  why="On Telegram, /interpret English Thai does the same."
+/>
+
+<Prompt title="Phrase pack" text="Give me the 20 phrases I'll actually need in [Vietnam], with pronunciation." />
+
+## Reminders and flights
+
+<Prompt title="Reminder" text="Remind me to check out at [10 am] tomorrow." />
+
+<Prompt title="Flight status (Pro)" text="Is my flight to [Delhi] on time?" />
+
+<Prompt
+  title="Airport time"
+  text="When should I leave the hotel for my [6:40 pm] flight?"
+/>
+
+<Prompt
+  title="Lounge access"
+  text="Which lounges at [BLR] can I use with my cards?"
+  why="Uses the cards saved in Settings → Cards & Lounges."
+/>

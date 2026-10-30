@@ -1,0 +1,58 @@
+---
+title: "Groups and family"
+description: "Prompts for sharing the plan, bringing people into a trip, deciding together and keeping family posted."
+icon: "people-group"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+## Sharing the plan
+
+<Prompt
+  title="Send the itinerary"
+  text="Send my [Goa] itinerary to [Mum]."
+  why="Mazer writes it from your trip (flights, hotels and a read-only itinerary link) as a WhatsApp, Telegram or email draft. Booking references are left out unless you ask."
+/>
+
+<Prompt title="Share link" text="Give me a share link for the [Goa] trip." />
+
+<Prompt title="Invite someone" text="Give me an invite link so [Priya] can join the [Goa] trip." />
+
+## Deciding together
+
+<Prompt
+  title="When the group disagrees"
+  text="Half of us want the beach on day [2] and half want the old town. Make a split plan for that day."
+  why="In a Telegram group, /split does this for the whole group."
+/>
+
+<Prompt
+  title="Plan for everyone"
+  text="Plan day [3] for a group of [six] with [two kids and a grandparent]: nothing over 20 minutes' walk."
+/>
+
+<Prompt
+  title="A group poll (Telegram)"
+  text="/newpoll"
+  why="Send this in a Telegram group that's linked to the trip."
+/>
+
+## Keeping family posted
+
+<Prompt
+  title="Flight updates for family (Elite)"
+  text="Keep [Mum] posted on my flights."
+  why="Mazer sends Mum an invite. Once she accepts, she hears when your flights take off, run late or land. Never your location."
+/>
+
+<Prompt
+  title="A quick check-in"
+  text="Tell [Mum] I've landed."
+  why="On Elite, Mazer sends it straight away to contacts who accepted trip updates. On other plans, it gives you the message to send."
+/>
+
+<Prompt
+  title="A check-in later"
+  text="Tell [Mum] when I reach the hotel."
+  why="Mazer waits up to 12 hours for you to say you've arrived."
+/>

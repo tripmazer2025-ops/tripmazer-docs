@@ -1,0 +1,141 @@
+---
+title: "How to talk to Mazer"
+description: "Eight habits that get you better plans with fewer back-and-forths, with before-and-after examples."
+icon: "message-lines"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+You don't need special phrasing to use Mazer. Talk to it like a well-travelled friend who can also book things. A few habits make a big difference, though, because they give Mazer what it needs to act instead of asking you questions.
+
+## 1. Lead with the five essentials
+
+Most trip requests need the same details. Give the ones you know in your first message, and Mazer can search and plan in one go.
+
+| Essential | Example | If you leave it out |
+| --- | --- | --- |
+| **Where** | *Bali*, *somewhere warm in Europe* | Mazer suggests options first |
+| **When** | *12–16 December*, *a long weekend in March* | Prices and availability are estimates |
+| **Who** | *two adults and a 6-year-old* | Rooms, fares and pace may not fit your group |
+| **Budget** | *around ₹1.5 lakh in total* | Mazer plans anyway, and asks once at the end before saving |
+| **From** | *from Bengaluru* | Your home city from your passport |
+
+Your pace, interests, food rules and travel style come from your [traveller passport](/concepts#memory), so you don't need to repeat them.
+
+<CodeGroup>
+```text Vague
+Plan a trip to Bali.
+```
+
+```text Better
+Plan 5 days in Bali from Bengaluru, 12–16 December, for two of us. Relaxed pace, we love food and beaches, budget around ₹1.5 lakh total.
+```
+</CodeGroup>
+
+## 2. Ask Mazer to do it, not to explain how
+
+Mazer can act: add a stop, move a day, search fares, set a reminder, log an expense. Phrase requests as actions and it will do them, instead of describing how you could.
+
+<CodeGroup>
+```text Advice
+What do you think about visiting Tanah Lot?
+```
+
+```text Action
+Add Tanah Lot to day 3 for sunset, and move the cooking class to day 4.
+```
+</CodeGroup>
+
+Anything that books, pays, sends or deletes still comes back as a card for you to approve. See [Approvals](/concepts#approvals).
+
+## 3. Say "save it", or "plan the whole trip"
+
+These are two different requests, on purpose.
+
+- **"Save it"** or **"make this a trip"** creates the trip and copies the plan from your chat into its itinerary. It doesn't start new searches.
+- **"Plan the whole trip"** runs the full flow: flights, stays, things to do and a day-by-day plan.
+
+Use the first when you've already worked the plan out in chat, and the second when you want Mazer to take it from a blank page.
+
+## 4. Correct in small steps
+
+You don't need to rewrite your request when something's off. Reply with just the change, in plain words, and Mazer adjusts what it already made.
+
+<CodeGroup>
+```text Starting over
+Plan 5 days in Bali again but with cheaper hotels and less temples and a quieter day 3.
+```
+
+```text Small steps
+Cheaper hotels, please.
+Fewer temples overall.
+Make day 3 a quiet beach day.
+```
+</CodeGroup>
+
+## 5. State hard limits as limits
+
+Your trip budget guides what Mazer picks first, but it's never a hidden filter. If something is a real limit, say so, and Mazer will filter on it.
+
+<CodeGroup>
+```text Soft
+Find us a nice hotel in Seminyak.
+```
+
+```text Hard limit
+Hotels in Seminyak under ₹8,000 a night, free cancellation, walking distance to the beach.
+```
+</CodeGroup>
+
+When everything costs more than your budget, Mazer tells you in real numbers and suggests fewer nights, other dates or a cheaper area. It won't quietly drop the options.
+
+## 6. Name the trip when you have more than one
+
+With several trips saved, say which one you mean: "on my Japan trip", "for Goa". On Telegram, `/trip` sets the active trip so you don't have to repeat it.
+
+## 7. Bring what you already have
+
+You don't need to retype anything. Mazer reads:
+
+- **Links**: Instagram reels, YouTube and TikTok videos, articles and hotel pages
+- **Photos**: receipts, menus, signs, buildings, screenshots of bookings
+- **Files**: booking PDFs and confirmation emails
+- **Voice notes**, on WhatsApp and Telegram
+- **Your location**, for "near me" questions
+
+<Prompt
+  title="Example"
+  text="Here's a reel: [paste link]. Pull out the places and add the good ones to my Bali trip."
+/>
+
+## 8. Ask for the format you need
+
+Mazer can answer as a table, a checklist, or a file. It writes and runs small programs for the maths, so totals and splits are calculated, not guessed.
+
+<Prompt
+  title="Example"
+  text="Make me an Excel file of every expense on my Goa trip, by category, with a chart of spending per day."
+/>
+
+Mazer can make PDFs, Excel and CSV files, Word documents, calendar (`.ics`) files, QR codes and charts.
+
+## What Mazer won't do
+
+Knowing the boundaries saves time:
+
+- **Pay for you.** Payment always happens in TripMazer's checkout.
+- **Change a flight ticket itself.** It checks what a change would cost and who can make it, then helps you request it.
+- **Change hotel dates itself.** It prices the change; you complete it in **Bookings → Change dates**.
+- **Guess.** If it can't confirm a fact, such as a place in a photo or a fare that no search returned, it says so instead of inventing one.
+- **Act on your connected apps without asking.** Sending, publishing and deleting always need your approval.
+
+## Next
+
+<CardGroup cols={2}>
+  <Card title="Prompt library" icon="books" href="/prompting/library/index">
+    Ready-made prompts for every stage of a trip.
+  </Card>
+  <Card title="Prompt sheet" icon="file-pdf" href="/prompting/cheat-sheet">
+    The essentials on one page, to print or save on your phone.
+  </Card>
+</CardGroup>

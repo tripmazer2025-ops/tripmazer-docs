@@ -1,0 +1,83 @@
+---
+title: "Book"
+description: "Prompts for flights, hotels and things to do, watching prices, and changing a booking you've made."
+icon: "plane"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+Flights and hotels book inside TripMazer: **Book** on a card opens our checkout, and Mazer never pays on its own. Things to do link to partners such as Viator, Tiqets and Headout.
+
+## Flights
+
+<Prompt
+  title="Search a return trip"
+  text="Find flights from [Bengaluru] to [Bali] on [12 December], back on [16 December], for 2 adults. Morning departures, no red-eyes."
+  why="Mazer searches each leg separately, so you see the best options both ways."
+/>
+
+<Prompt
+  title="Cheapest within a window"
+  text="What's the cheapest week to fly [Mumbai] to [London] between [mid-May and mid-June]?"
+/>
+
+<Prompt
+  title="Watch a fare (Pro)"
+  text="Watch fares from [BLR] to [DPS] for [December] and tell me if they drop."
+/>
+
+## Hotels
+
+<Prompt
+  title="Hotels with real limits"
+  text="Hotels in [Seminyak] for my trip, under [₹8,000] a night, free cancellation, walking distance to the beach."
+/>
+
+<Prompt
+  title="Compare two hotels"
+  text="Compare [hotel A] and [hotel B] for a couple: location, reviews, what's included and cancellation."
+/>
+
+<Prompt
+  title="Family stay"
+  text="A hotel in [Singapore] for [2 adults and a 6-year-old], with a pool, near an MRT station."
+/>
+
+## Things to do
+
+<Prompt
+  title="Fit activities to free time"
+  text="Things to do in [Ubud] that fit my free afternoon on day [2]."
+/>
+
+<Prompt
+  title="Tickets for one place"
+  text="Find skip-the-line tickets for [the Sagrada Família] on [day 3] in the morning."
+/>
+
+## Bookings you already have
+
+<Prompt
+  title="Add an existing booking"
+  text="Add this booking to my [Goa] trip: [paste the confirmation, or attach the PDF]"
+  why="On WhatsApp and Telegram you can forward the email or PDF instead."
+/>
+
+<Prompt
+  title="What did Gmail import? (Pro)"
+  text="What did you import from Gmail this week?"
+/>
+
+## Changing a booking
+
+<Prompt
+  title="Price a hotel date change"
+  text="Can I move my [Bali] hotel to [14–18 December]? What would it cost?"
+  why="Mazer prices the change. You complete it in Bookings → Change dates."
+/>
+
+<Prompt
+  title="Move a flight"
+  text="I need to move my [Delhi] flight to [the next day]. What are my options and what will it cost?"
+  why="Mazer checks the booking and tells you who can change it and at what cost. It never changes a ticket itself."
+/>

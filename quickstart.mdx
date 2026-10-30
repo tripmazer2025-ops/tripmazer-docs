@@ -1,47 +1,71 @@
 ---
 title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+description: "From one sentence to a saved, bookable trip in about five minutes."
+icon: "rocket"
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
+import { Prompt } from "/snippets/prompt.jsx";
 
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
-
-## Prerequisites
-
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+You need a TripMazer account (free, no card) and a trip in mind. Everything below happens in the web app; you can do the same on WhatsApp or Telegram once they're connected.
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
+  <Step title="Create your account">
+    Go to [tripmazer.com/auth/signup](https://tripmazer.com/auth/signup) and sign up with Google, Facebook, Microsoft or email.
 
-    ```bash
-    npm install your-package
-    ```
+    You'll land in a short setup called your **traveller passport**: passport country, home city, food rules and allergies, interests, budget style, pace and who you usually travel with. It takes two minutes and Mazer reads it on every channel, so it's worth filling in.
+
+    <Note>
+      Your passport country lets Mazer check visa rules without asking, and food rules and allergies are treated as strict. You can change any answer later at [tripmazer.com/welcome](https://tripmazer.com/welcome).
+    </Note>
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
 
-    ```bash
-    your-cli init
-    ```
+  <Step title="Ask for a trip">
+    Open [tripmazer.com/app](https://tripmazer.com/app) and describe the trip in one message. The more of **where, when, who and budget** you include, the better the first answer.
+
+    <Prompt
+      title="Try this"
+      text="Plan 5 days in Bali from Bengaluru, 12–16 December, for two of us. Relaxed pace, we love food and beaches, budget around ₹1.5 lakh total."
+    />
+
+    Mazer replies with a day-by-day plan, real prices where it searched them, and photos of the places it mentions. Push back in plain words: "swap day 3 for something quieter", "fewer temples", "cheaper hotel".
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
 
-    ```bash
-    your-cli start
-    ```
+  <Step title="Save it as a trip">
+    When the plan looks right, say **"save it"**. Mazer creates the trip with its destination, dates and budget, and copies the day-by-day plan into the itinerary.
+
+    If Mazer doesn't know your exact dates or total budget yet, it asks for the one missing detail, once.
+  </Step>
+
+  <Step title="Look around your trip">
+    Open the trip from **Trips**. Each trip has a **Trip Home** (what's next, the days, and an Ask Mazer box) plus screens for **Plan**, **Bookings**, **Docs**, **Budget**, **Group** and **Saved**.
+
+    On **Plan**, each day has a **Day check** that flags clashes, tight connections, places that are closed when you arrive and overfull days, with one-tap fixes.
+  </Step>
+
+  <Step title="Book or import">
+    Ask Mazer for flights or hotels. On a flight or hotel card, **Book** opens TripMazer's own checkout: travellers, extras, then payment. Mazer never pays on its own.
+
+    Already booked somewhere else? Forward the confirmation email to Mazer on WhatsApp or Telegram, upload the PDF, or (on Pro) connect Gmail and let Mazer file booking emails into the right trip automatically.
+  </Step>
+
+  <Step title="Take Mazer along">
+    Connect [WhatsApp](/install/whatsapp) or [Telegram](/install/telegram) from **Settings → Integrations**. From then on you can ask "what's on today?", send a receipt photo, or tell Mazer "let Mum know I've landed" from your messaging app.
   </Step>
 </Steps>
 
-<Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
+## What to try next
 
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
-</Tip>
+<CardGroup cols={2}>
+  <Card title="Learn to prompt Mazer" icon="message-lines" href="/prompting/guide">
+    Six habits that get you better plans with fewer back-and-forths.
+  </Card>
+  <Card title="Browse the prompt library" icon="books" href="/prompting/library/index">
+    Prompts for planning, booking, the trip itself, money, groups and memories.
+  </Card>
+  <Card title="Plans and limits" icon="gem" href="/plans">
+    What Free, Pro and Elite include, and how the 7-day trial works.
+  </Card>
+  <Card title="How Mazer works" icon="diagram-project" href="/concepts">
+    Trips, memory, approvals and channels, explained once.
+  </Card>
+</CardGroup>

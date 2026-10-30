@@ -1,0 +1,63 @@
+---
+title: "Money"
+description: "Prompts for logging spend, checking the budget, splitting costs and getting your expenses out as a file."
+icon: "wallet"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+## Logging spend
+
+<Prompt
+  title="Type it"
+  text="Tuk tuk [800 LKR]"
+  why="On WhatsApp and Telegram, Mazer logs it to the active trip and replies with today's balance."
+/>
+
+<Prompt
+  title="Snap it"
+  text="Log this receipt."
+  why="Send it with a photo of the receipt."
+/>
+
+<Prompt title="Several at once" text="Lunch [₹1,200], museum [₹600], auto [₹180]." />
+
+## Budget
+
+<Prompt
+  title="How are we doing?"
+  text="How much have we spent on the [Goa] trip so far, and how much is left per day?"
+/>
+
+<Prompt
+  title="Trip cost against budget"
+  text="What will the [Japan] trip cost in total, by category, against my budget?"
+/>
+
+<Prompt
+  title="Over budget"
+  text="The [Japan] trip is over budget. Where can I save without changing the main plan?"
+/>
+
+## Splitting
+
+<Prompt
+  title="Split a bill"
+  text="Split dinner: [₹4,800] between 4 people, [Arjun] paid."
+/>
+
+<Prompt title="Who owes whom" text="Who owes whom on the [Goa] trip?" />
+
+## Files and charts
+
+<Prompt
+  title="Expense spreadsheet"
+  text="Make me an Excel file of every expense on my [Goa] trip, by category, with a chart of spending per day."
+/>
+
+<Prompt title="Currency maths" text="What's [¥48,000] in rupees today, and is that a good price for a ryokan night?" />
+
+<Prompt
+  title="Which card to use"
+  text="Which of my cards should I use in [Japan] to pay the least in fees?"
+/>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TripMazer prompt sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root { --ink: #12131a; --muted: #5b5e6b; --line: #e4e5ee; --brand: #6366f1; --brand-ink: #3730a3; --wash: #f3f3ff; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { width: 210mm; height: 297mm; padding: 13mm 13mm 11mm; font: 400 8.6pt/1.42 "DM Sans", sans-serif; color: var(--ink); background: #fff; }
+  header { display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 1.5px solid var(--ink); padding-bottom: 4mm; margin-bottom: 5mm; }
+  header img { height: 9mm; }
+  header .t { text-align: right; }
+  h1 { font: 700 19pt/1 "Bricolage Grotesque", sans-serif; margin: 0; letter-spacing: -0.01em; }
+  header p { margin: 1.5mm 0 0; color: var(--muted); font-size: 8.4pt; }
+  h2 { font: 600 10.5pt/1.2 "Bricolage Grotesque", sans-serif; margin: 0 0 2mm; }
+  section { margin-bottom: 4.5mm; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .ess { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2mm; margin-bottom: 2.5mm; }
+  .ess div { border: 1px solid var(--line); border-radius: 2mm; padding: 2mm 2.4mm; }
+  .ess b { display: block; font-weight: 600; color: var(--brand-ink); }
+  .ess span { color: var(--muted); font-size: 7.6pt; }
+  .eg { background: var(--wash); border-radius: 2mm; padding: 2.4mm 3mm; font-size: 8.4pt; }
+  .eg em { font-style: normal; font-weight: 600; color: var(--brand-ink); margin-right: 1.5mm; }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 1.35mm 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td:first-child { font-weight: 600; padding-right: 3mm; white-space: nowrap; }
+  td.tag { font-weight: 500; color: var(--brand-ink); width: 15mm; white-space: nowrap; }
+  ol { margin: 0; padding-left: 4.2mm; }
+  ol li { margin-bottom: 1.1mm; }
+  ol li b { font-weight: 600; }
+  .note { color: var(--muted); font-size: 7.6pt; margin-top: 1.5mm; }
+  footer { position: absolute; left: 13mm; right: 13mm; bottom: 9mm; display: flex; justify-content: space-between; color: var(--muted); font-size: 7.6pt; border-top: 1px solid var(--line); padding-top: 2.5mm; }
+  footer b { color: var(--ink); font-weight: 600; }
+</style>
+</head>
+<body>
+  <header>
+    <img src="../logo/light.svg" alt="TripMazer">
+    <div class="t">
+      <h1>The Mazer prompt sheet</h1>
+      <p>How to get great answers from your AI travel companion</p>
+    </div>
+  </header>
+
+  <section>
+    <h2>Start with the five essentials</h2>
+    <div class="ess">
+      <div><b>Where</b><span>Bali, or "somewhere warm"</span></div>
+      <div><b>When</b><span>Exact dates if you have them</span></div>
+      <div><b>Who</b><span>How many, any kids</span></div>
+      <div><b>Budget</b><span>A total for the trip</span></div>
+      <div><b>From</b><span>Defaults to your home city</span></div>
+    </div>
+    <div class="eg"><em>Try</em>Plan 5 days in Bali from Bengaluru, 12–16 December, for two of us. Relaxed pace, budget around ₹1.5 lakh total.</div>
+  </section>
+
+  <div class="grid">
+    <div>
+      <section>
+        <h2>Phrases that do things</h2>
+        <table>
+          <tr><td>"Save it"</td><td>Creates the trip and copies the plan into its itinerary</td></tr>
+          <tr><td>"Plan the whole trip"</td><td>Flights, stays, things to do and every day</td></tr>
+          <tr><td>"What's on today?"</td><td>Today's plan for the trip you're on</td></tr>
+          <tr><td>"Lighten the rest of today"</td><td>Eases a tired day; nothing changes until you tap</td></tr>
+          <tr><td>"Tuk tuk 800 LKR"</td><td>Logs an expense, shows today's balance</td></tr>
+          <tr><td>"Send my itinerary to Mum"</td><td>A ready-to-send message with a link</td></tr>
+          <tr><td>"Keep Mum posted"</td><td>Flight updates for family (Elite)</td></tr>
+          <tr><td>"Save this as a routine"</td><td>Reuse what you just did with one phrase</td></tr>
+          <tr><td>"How does this work?"</td><td>Your next step, and a replay of the tour</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Six habits that help</h2>
+        <ol>
+          <li><b>Ask for the action.</b> "Add Tanah Lot to day 3", not "what about Tanah Lot?"</li>
+          <li><b>Correct in small steps.</b> "Cheaper hotels." "Make day 3 quieter."</li>
+          <li><b>Say hard limits.</b> "Under ₹8,000 a night", "free cancellation".</li>
+          <li><b>Name the trip</b> when you have more than one.</li>
+          <li><b>Send, don't type:</b> links, photos, receipts, PDFs, voice notes, location.</li>
+          <li><b>Ask for the format:</b> a table, a checklist, an Excel or calendar file.</li>
+        </ol>
+        <p class="note">Mazer asks before anything that books, pays, sends or deletes, and payment always happens in TripMazer's checkout.</p>
+      </section>
+    </div>
+
+    <div>
+      <section>
+        <h2>Prompts to try</h2>
+        <table>
+          <tr><td class="tag">Dream</td><td>Where should we go in March for 5 days from Mumbai, ₹80,000 for two?</td></tr>
+          <tr><td class="tag">Plan</td><td>Day 3 is too packed. Lighten it but keep the sunset.</td></tr>
+          <tr><td class="tag">Plan</td><td>Here's a reel: [link]. Add the good places to my Bali trip.</td></tr>
+          <tr><td class="tag">Plan</td><td>Do I need a visa for Vietnam on my passport?</td></tr>
+          <tr><td class="tag">Book</td><td>Flights Bengaluru–Bali, 12 Dec, back 16 Dec, 2 adults, no red-eyes.</td></tr>
+          <tr><td class="tag">Book</td><td>Hotels in Seminyak under ₹8,000 a night, free cancellation.</td></tr>
+          <tr><td class="tag">Trip</td><td>Somewhere good for a vegetarian lunch near me.</td></tr>
+          <tr><td class="tag">Trip</td><td>What is this building? <i>(send a photo)</i></td></tr>
+          <tr><td class="tag">Trip</td><td>Remind me to check out at 10 tomorrow.</td></tr>
+          <tr><td class="tag">Money</td><td>Split dinner: ₹4,800 between 4, Arjun paid.</td></tr>
+          <tr><td class="tag">Money</td><td>Make an Excel of every expense on the Goa trip.</td></tr>
+          <tr><td class="tag">Group</td><td>Give me an invite link so Priya can join the Goa trip.</td></tr>
+          <tr><td class="tag">Memories</td><td>Write up the days I didn't log on my Bali trip.</td></tr>
+          <tr><td class="tag">Memories</td><td>Make a reel of my Bali trip.</td></tr>
+          <tr><td class="tag">Apps</td><td>Add my Bali flights to Google Calendar.</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Where to find Mazer</h2>
+        <table>
+          <tr><td>Web app</td><td>tripmazer.com/app, or Safari → Add to Home Screen on iPhone</td></tr>
+          <tr><td>WhatsApp, Telegram</td><td>Settings → Integrations → Connect (Pro and Elite)</td></tr>
+          <tr><td>Mazer Live</td><td>Real-time voice from the chat; say "slower" or "shorter" anytime</td></tr>
+        </table>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    <span><b>Ask Mazer</b> at tripmazer.com/app, on WhatsApp, or on Telegram at @TripMazerBot</span>
+    <span>More prompts: <b>docs.tripmazer.com</b></span>
+  </footer>
+</body>
+</html>
