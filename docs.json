@@ -1,12 +1,12 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "aspen",
   "name": "TripMazer Docs",
   "description": "How to plan, book and travel with Mazer, TripMazer's AI travel companion.",
   "colors": {
-    "primary": "#6366F1",
-    "light": "#818CF8",
-    "dark": "#4F46E5"
+    "primary": "#6730EC",
+    "light": "#A78BFA",
+    "dark": "#5520D4"
   },
   "fonts": {
     "heading": {

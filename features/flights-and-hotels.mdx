@@ -5,6 +5,7 @@ icon: "plane"
 ---
 
 import { Prompt } from "/snippets/prompt.jsx";
+import { AppShot } from "/snippets/app-shot.jsx";
 
 Flights and hotels book inside TripMazer. Mazer searches, compares and explains; **Book** on a flight or hotel card opens our checkout, where you add travellers and extras and pay. Mazer never pays on its own.
 
@@ -22,6 +23,8 @@ How Mazer searches:
 - **"Nothing free on those dates"** means the hotel has no rooms then, not that the search failed.
 
 ## Checkout
+
+<AppShot src="/images/app/hotel.webp" alt="A hotel card in chat: Ryokan Kiyomizu in Kyoto, three nights, free cancellation until 28 March, breakfast included, marked Booked" width={380} caption="A hotel card after booking." />
 
 <Steps>
   <Step title="Tap Book">
@@ -50,6 +53,10 @@ How Mazer searches:
 Ask Mazer to watch a fare and it tells you only when the price drops below what you set. Flight price watches are on Pro (10 routes) and Elite (unlimited).
 
 <Prompt title="Watch a fare" text="Watch fares from [BLR] to [DPS] for [December] and tell me if they drop below [₹18,000]." />
+
+On Elite, the **Price Calendar** ([tripmazer.com/tools/price-calendar](https://tripmazer.com/tools/price-calendar)) shows a route's fares for every day of the month, so the cheapest days stand out.
+
+<AppShot src="/images/app/price-calendar.webp" alt="The Price Calendar for Bengaluru to Tokyo in January 2027, with each day's fare and the lowest days highlighted" width={620} caption="Bengaluru to Tokyo, January 2027." />
 
 ## Cancellations and refunds
 
