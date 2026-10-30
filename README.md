@@ -17,12 +17,14 @@ Then open http://localhost:3000.
 - `install/`: web and iPhone, Android, WhatsApp, Telegram, Mazer Live
 - `prompting/`: the prompting guide, prompt sheet, voice tips and the prompt library
 - `snippets/prompt.jsx`: the `<Prompt>` card (Copy + "Try in Mazer", which opens `tripmazer.com/app?prompt=…`)
-- `files/tripmazer-prompt-sheet.pdf`: the printable prompt sheet, rendered from `_build/prompt-sheet.html`
+- `images/tripmazer-prompt-sheet.png`: the prompt sheet as an image, rendered from `_build/prompt-sheet.html`. The PDF lives in the app repo at `public/files/tripmazer-prompt-sheet.pdf` (served at tripmazer.com), because Mintlify serves PDFs only on Enterprise
 
-## Rebuild the prompt sheet PDF
+## Rebuild the prompt sheet
 
 ```bash
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --no-pdf-header-footer --virtual-time-budget=8000 --print-to-pdf=files/tripmazer-prompt-sheet.pdf "file://$PWD/_build/prompt-sheet.html"
+C="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+"$C" --headless=new --hide-scrollbars --force-device-scale-factor=2 --window-size=794,1123 --virtual-time-budget=8000 --screenshot=images/tripmazer-prompt-sheet.png "file://$PWD/_build/prompt-sheet.html"
+"$C" --headless=new --no-pdf-header-footer --virtual-time-budget=8000 --print-to-pdf=/tmp/tripmazer-prompt-sheet.pdf "file://$PWD/_build/prompt-sheet.html"
 ```
 
-Check it is still one page.
+Check the PDF is still one page, then copy it to the app repo's `public/files/`.
