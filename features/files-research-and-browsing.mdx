@@ -49,7 +49,38 @@ Paste a link and Mazer reads, summarises or compares the page. Give it a goal, w
 
 <Prompt text="Find [Emirates]' baggage allowance for economy to [Dubai] and summarise it." />
 
-- **Long goals finish in the background.** Anything over about a minute reports back to the same chat when it's done.
 - **Forms are filled only from details you gave.** Mazer shows you what it entered and submits only after you confirm.
 - **It stops at logins, payment, one-time codes and ID details.** On **Elite**, at a login, CAPTCHA or code, Mazer sends you a private 30-minute link to sign in on the live page yourself. Mazer never sees what you type, and continues once you're in. Sessions are saved encrypted in **Settings → Connected Websites**.
 - **Payment always stops with you.**
+
+The one place Mazer signs in by itself is an approved [Elite cancellation](/features/life-admin#elite-mazer-cancels-it-for-you), with the login you saved in **Settings → Saved Passwords**.
+
+## Web tasks in the background
+
+A goal that takes longer than the reply carries on in the background, for up to about 5 minutes, and posts the answer in the same chat when it's done. You can keep chatting meanwhile.
+
+<Prompt text="On [goindigo.in], find the cabin bag limit for [international flights]." />
+
+- On the web, each step shows with a screenshot, and **Stop** ends the task. On **Elite**, **Watch live** shows the page as Mazer works (you can watch, not control it). On Telegram, progress comes as messages with a **Stop** button.
+- **Files it downloads** go to your **Library**, and arrive as documents on WhatsApp and Telegram.
+- **Ask for a report**, such as "…and give me a PDF" or "…as a Word report", and Mazer turns what it found into a document. A report counts as a document on your plan.
+- Background tasks only read and search. They don't sign in, fill forms or buy anything.
+
+| Plan | Background web tasks a day |
+| --- | --- |
+| Free | The quick read in the reply only |
+| Pro | 5 |
+| Elite | 25 |
+
+## Site watches
+
+Name a site and Mazer watches that page, opening it on every check and messaging you only when what you asked about changes. The first check tells you what it sees now.
+
+<Prompt text="Watch [the visa page on vfsglobal.com] and tell me when [new appointment dates] appear." />
+
+| Plan | Site watches | How often they check |
+| --- | --- | --- |
+| Pro | 2 | Daily |
+| Elite | 10 | Hourly |
+
+Site watches don't count towards your daily web tasks. Each one is listed in **Settings → Agent Tasks** as a **Site watch**, where **Check now** runs it straight away. On Free, or past your limit, Mazer sets up an ordinary [watch](/features/watches-routines-and-tasks#watches) instead and says so.

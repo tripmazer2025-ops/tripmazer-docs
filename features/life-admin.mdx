@@ -1,0 +1,91 @@
+---
+title: "Life Admin"
+description: "Every subscription, free trial, bill and expiring document in one list, read from your mail, with a warning before each one costs you."
+icon: "file-invoice-dollar"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+<Info>Life Admin is on **Mazer Pro** and **Mazer Elite**. Cancelling a subscription for you, all the way, is **Elite**.</Info>
+
+## What it tracks
+
+Open **Tools → Life Admin**. Mazer keeps one list of what will cost you money or lapse:
+
+- **Subscriptions**, with what each costs a month and when it renews
+- **Free trials**, and the date the first charge lands
+- **Bills and dues**, such as card statements, phone and broadband
+- **Documents and IDs**, such as insurance policies and licences, plus the travel documents you've saved
+- **Returns and warranties**, but only when the order email states the window or the end date
+
+The top of the page shows your monthly and yearly subscription total. **Coming up** shows the next two weeks.
+
+## Turn it on
+
+Life Admin reads renewal, trial, bill and expiry mail, which is more personal than booking mail, so it's off until you ask:
+
+1. Connect Gmail, Outlook or another mailbox in **Settings → Integrations**.
+2. On the Life Admin page, tap **Scan my mail**.
+
+The first scan looks back about four months. After that, new mail is read within about 10 minutes of arriving. Mazer keeps only what it read from each email (who, how much, how often, the date), never the email itself.
+
+Mazer never guesses an amount or a date. If an email doesn't say what a plan costs, the row shows no price. An offer to come back, such as "renew with 50% off", isn't counted as your price.
+
+You can also tap **Add one by hand** for anything that never arrives by email.
+
+## Warnings before it costs you
+
+Your [morning check-in](/features/flights-and-airports#morning-check-in) mentions Life Admin only when something is close:
+
+| What | When Mazer tells you |
+| --- | --- |
+| A free trial | 2 days before it charges, and on the day |
+| A yearly renewal | 7 days and 1 day before |
+| A monthly renewal | when the price has gone up, or the charge is large |
+| A bill | 3 days and 1 day before it's due |
+| A document | 90, 30 and 7 days before it expires |
+| A return window | 2 days before it closes |
+
+When a subscription's price goes up, Mazer tells you once, with the old and new price. The Sunday **Week ahead** lists what renews or falls due that week.
+
+Each row has **Paid** or **Done**, and **Not mine** for anything that isn't yours. A row you mark **Not mine** stays hidden, even when more mail about it arrives.
+
+<Prompt text="What am I paying for every month?" />
+
+## Cancelling
+
+Tap **Help me cancel** on a row, or ask in chat. What Mazer does depends on how you pay:
+
+| Paid through | What Mazer does |
+| --- | --- |
+| App Store or Google Play | Gives you the exact steps. Only you can cancel these, in the store. |
+| UPI AutoPay or a card mandate | Gives you the steps to cancel with the service, then to revoke the mandate in your bank or UPI app. |
+| Email | Drafts the cancellation email in the mailbox the bill came from, and sends it only when you approve. |
+| Phone | On **Elite**, calls for you once you approve. The call never agrees to a new charge or gives card details. |
+| The service's website | On **Pro**, gives you the link and the usual path. On **Elite**, cancels it for you. |
+
+<Prompt text="Cancel my [Netflix]." />
+
+### Elite: Mazer cancels it for you
+
+On **Elite**, when a subscription is cancelled on the service's website, Mazer shows you one approval card first, such as **Cancel Netflix?** After you tap it, Mazer:
+
+1. opens the service's own cancel page
+2. signs in with the login you saved in **Settings → Saved Passwords**, or a sign-in it kept from before
+3. declines the offers to stay, and answers or skips the exit survey
+4. confirms the cancellation
+
+Mazer fills your saved password straight into the service's sign-in page. It never sees the password and never shows it to anyone. It tries a saved login once; if that doesn't work, it stops rather than risk locking your account.
+
+If the service asks for a one-time code, shows a robot check, or you have no saved login, Mazer sends you a private link to that page. Enter the code or sign in, tap **Done**, and Mazer carries on with the same cancellation.
+
+<Tip>Save the login for a service in **Settings → Saved Passwords** before you ask, and Mazer can sign in by itself.</Tip>
+
+### What Mazer never does when cancelling
+
+- pay for anything, take an offer or a discount, or switch, pause or downgrade your plan
+- delete your account or change anything else on it
+- type anything except your saved login
+- leave the service's own website
+
+A subscription shows as cancelled only when the service's page or its own email says so. If Mazer pressed cancel but the page didn't confirm it, the row says it's being cancelled until the service's cancellation email arrives.
