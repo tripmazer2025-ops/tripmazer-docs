@@ -55,9 +55,33 @@ An errand is an outcome Mazer works towards over days: a refund, a follow-up wit
 
 <Prompt text="Every Monday at 8 am, send me a digest of deals for [Japan] in [April]." />
 
-Scheduled tasks run on their own and report back: daily, on a chosen weekday, or every few minutes (at least 5). They only read: web search, your memory and past conversations, bookings, events, and Gmail if it's connected. They never send, book, cancel or change anything.
+Scheduled tasks run on their own and report back: daily, on a chosen weekday, or every few minutes (at least 5). They read web search, your memory and past conversations, bookings, events, and your connected apps. Ask for one that prepares changes, like a reply or a calendar entry, and each change waits for your approval.
 
 Create, list and cancel them in conversation. They're also listed in **Settings → Agent Tasks**, where you can pause or delete them.
+
+### Tasks that act on their own
+
+<Info>Tasks that act on their own are on **Mazer Elite**.</Info>
+
+A scheduled task can also make the changes itself, in any app you've connected: Gmail, Outlook, Calendar, Docs, Sheets, Notion, Todoist, LinkedIn, X and the rest, including your own MCP servers. Say you want it done, not just reported.
+
+<Prompt text="Every Friday, label my newsletters [Newsletters] and archive them, and do it without asking." />
+
+<Prompt text="Every evening, add tomorrow's bookings to my calendar and to my [Trips] project in Todoist." />
+
+1. **A dry run first.** Mazer runs the task straight away without changing anything, and shows you what it would have done ("archive 34 emails, add 2 events") and what it may do each time.
+2. **You approve once.** Tap **Let it run** (on WhatsApp, reply **APPROVE**). From the next run it does those things on its own.
+3. **Each run tells you what it did**, with **Undo**. Undo works for 7 days (on WhatsApp, reply **UNDO** within a day).
+
+What it may do is fixed when you approve:
+
+- **Only the same places.** It stays on the label, sheet, page, project or calendar it used in the dry run.
+- **Only people you approved.** It sends or posts only to the people and accounts in the dry run. Anyone new, and any reply to whoever wrote, waits for your OK.
+- **Deletes only if they can be undone**, like archiving or removing a label. A permanent delete always asks.
+- **Never** booking, paying, calling, or anything through the browser.
+- **A limit per run**, about twice what the dry run did. If a run would do far more than usual, Mazer pauses the task and tells you.
+
+Anything outside that waits for your approval, as before. Pause, resume or revoke a task's permission in **Settings → Agent Tasks → Acting on its own**. An approval lasts 90 days, then Mazer asks again.
 
 ## Routines
 
