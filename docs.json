@@ -102,6 +102,7 @@
               "features/memory-and-preferences",
               "features/watches-routines-and-tasks",
               "features/life-admin",
+              "features/my-tools",
               "features/files-research-and-browsing",
               "features/connected-apps"
             ]
