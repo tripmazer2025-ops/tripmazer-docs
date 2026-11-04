@@ -102,7 +102,7 @@
               "features/memory-and-preferences",
               "features/watches-routines-and-tasks",
               "features/life-admin",
-              "features/my-tools",
+              "features/mazer-makes",
               "features/files-research-and-browsing",
               "features/connected-apps"
             ]
@@ -190,5 +190,11 @@
   },
   "seo": {
     "indexing": "navigable"
-  }
+  },
+  "redirects": [
+    {
+      "source": "/features/my-tools",
+      "destination": "/features/mazer-makes"
+    }
+  ]
 }
