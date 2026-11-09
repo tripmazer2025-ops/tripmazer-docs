@@ -4,7 +4,7 @@
 
 - User docs for TripMazer, built on [Mintlify](https://mintlify.com). Pages are MDX with YAML frontmatter; config and navigation live in `docs.json`.
 - The product lives in the app repo (`tripmazer/trip-mazer-v2`). Its `supabase/functions/_shared/capability-manifest.ts` is the most complete statement of what Mazer can do, per channel and plan. Check a claim against it (or the app source) before writing it.
-- Plan limits come from the app's pricing components (`src/components/pricing/`). Don't quote prices here: they vary by country. Link to https://tripmazer.com/pricing.
+- Plan limits come from the app's pricing components (`src/components/pricing/`). Don't quote prices here: they vary by country and store. Don't link to the pricing page or any other way to pay either: the Android app opens these docs, and Google Play forbids pointing app users to another way to pay (2026-11-09).
 
 ## Terminology
 
