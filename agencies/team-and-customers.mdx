@@ -26,16 +26,16 @@ The console works on a phone too: the sidebar folds into a menu at the top left.
 
 If you keep customers or bookings in Excel, Google Sheets or another system, bring them into the console so the assistant and your team start with your whole history. Owners and admins can import.
 
-1. Save the sheet as a CSV file. In Excel: **File → Save As → CSV**. In Google Sheets: **File → Download → CSV**.
-2. In **Customers**, choose **Import**. For bookings, use **Import** in **Quotes → Bookings**. You can switch between customers and bookings in the window.
-3. Choose the file. The console matches your columns to its own, such as **Client Name**, **Mobile No** or **Package Cost**, and shows an example from your file next to each. Change any that are wrong.
+1. In **Customers**, choose **Import**. For bookings, use **Import** in **Quotes → Bookings**. You can switch between customers and bookings in the window.
+2. Choose your Excel file (.xlsx) or a CSV. From Google Sheets, use **File → Download → Microsoft Excel (.xlsx)**. An older .xls file needs saving as .xlsx or CSV first.
+3. If the file has several sheets, pick the one to import; the console opens the first that looks like a table and skips a title line above it. It matches your columns to its own, such as **Client Name**, **Mobile No** or **Package Cost**, and shows an example from your file next to each. Change any that are wrong.
 4. Check how the first rows read, and fix any rows it couldn't read, then choose **Import**.
 
 **Customers:** one row per person, with a name, email or phone, and if you keep them, tags, stage, owner and notes. **Bookings:** one row per trip, with the customer, the trip or destination, dates, total and what they've paid.
 
 What it reads:
 
-- Dates written day first (12/02/2027), with the month in words (12 Feb 2027), or as Excel saves them. If your dates could be read either way, it asks which you use.
+- Date cells from Excel, and dates typed day first (12/02/2027) or with the month in words (12 Feb 2027). If typed dates could be read either way, it asks which you use.
 - Amounts like ₹2,45,000, Rs. 45,000/-, 2.45 L, 3.2 lakhs, 1.2 cr or 45k.
 - Phone numbers with or without +91, spaces or dashes.
 
