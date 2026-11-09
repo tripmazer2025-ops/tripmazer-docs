@@ -188,10 +188,6 @@
   "navbar": {
     "links": [
       {
-        "label": "Pricing",
-        "href": "https://tripmazer.com/pricing"
-      },
-      {
         "label": "Changelog",
         "href": "https://tripmazer.com/changelog"
       },
