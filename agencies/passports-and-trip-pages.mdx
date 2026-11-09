@@ -1,0 +1,38 @@
+---
+title: "Passports and trip pages"
+description: "Check every traveller's passport and visa against the destination's rules, let customers add their own details, and give each booking a trip page with the plan, confirmations and your assistant."
+icon: "passport"
+---
+
+import { AppShot } from "/snippets/app-shot.jsx";
+
+## Travellers and visas
+
+Each booking has a **Travellers & visas** section. For every traveller, it shows their passport country and expiry, and what they need for the destination:
+
+- **Passport validity**, by the destination's rule: valid for three months after leaving the Schengen area, for the whole stay in the US, UK and a few others, and six months after the trip everywhere else.
+- **Visa:** no visa needed, visa on arrival, an e-visa or ETA, or a full visa, and whether the trip is longer than visa-free entry allows.
+
+Each visa fact names its source. Official government rules come first, with the date they were checked. Otherwise the check uses a community passport dataset, marked "confirm with the embassy". Always confirm before your customer travels.
+
+Set the destination country on the booking. Until you do, the check uses the country in the trip's name. Record each traveller's visa as not needed, needed, applied or granted; **granted** clears the warning.
+
+## Let customers add their own details
+
+Use **Copy link** or **WhatsApp** in **Travellers & visas** to send the customer their passport page. They add each traveller's passport country and expiry, and a photo of the passport if you want one, and see straight away if a passport needs renewing. Your team is alerted when they send details. Only your team can open the passport photos.
+
+<AppShot src="/images/agencies/passports.webp" alt="The customer's passport page: Rohan Menon's passport expires 1 May 2027 and needs renewing before the trip" width={300} caption="A passport caught six weeks before the trip." />
+
+## The trip page
+
+Every booking has a trip page for the customer, in your brand. Open it with **Trip page**, or share it with **Copy trip link** or **WhatsApp it**. It shows:
+
+- a countdown, then **Today** during the trip
+- the plan day by day, with every booked stay, transfer and activity on its day, and each confirmation number
+- before they leave: passport details, the official arrival card where one applies, and the voucher
+- emergency numbers and money tips for the country, where TripMazer has them, and your contact details
+- a chat with your assistant, which knows the booking and can answer "what's our hotel's confirmation number?" at any hour. The chat appears when the booking is linked to a customer, as bookings made from an accepted quote are.
+
+After the trip, the page asks the customer for a rating from 1 to 5 and a note. You're alerted, and the rating shows on the booking. Customers who give 4 or 5 are pointed to your review page, if you add one in **Settings → Company → How customers reach you**.
+
+<AppShot src="/images/agencies/trip.webp" alt="The customer's trip page on day 3 of 6: today's sunset dolphin cruise with its confirmation number, then the plan day by day" width={300} caption="Day 3 of the trip, on the customer's phone." />

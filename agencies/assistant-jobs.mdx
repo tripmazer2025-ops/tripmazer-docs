@@ -1,0 +1,44 @@
+---
+title: "The assistant's jobs"
+description: "What your assistant does on its own (quote drafts, follow-ups, passport checks, trip pages, supplier reminders and the morning brief), how far each may go, and how to undo it."
+icon: "list-check"
+---
+
+import { AppShot } from "/snippets/app-shot.jsx";
+
+Every 15 minutes your assistant looks over your agency and does the jobs below. You choose each job's level on the **Jobs** page (owners and admins). **Ask first** puts the work on Home for one click; **Send** lets the assistant act alone.
+
+| Job | What it does | Starts on |
+| --- | --- | --- |
+| **Draft quotes from enquiries** | When a chat says where, roughly when and who's going, drafts a quote from your packages. Prices only come from a package; with no match, it leaves them blank and says so | Draft |
+| **Follow up on quotes** | A quote not opened in a day, or opened and not accepted in two, gets one short email in your agency's name | Ask first |
+| **Passports and visas** | For trips in the next 90 days, checks every traveller and flags problems. From 45 days out, asks customers for missing passport details, and again two weeks before | Ask first |
+| **Trip companion** | Sends the customer their trip page 1 to 3 days before departure, and asks how it went 1 to 3 days after they're back | Ask first |
+| **Chase suppliers** | One reminder to a supplier who hasn't answered in a day; after five days the request lapses | Ask first |
+| **Morning brief** | Between 8:30 and 11 your time, owners and admins get the day: who's waiting, new enquiries, drafts to send, opened quotes, deposits to check, passports to sort, supplier answers, money due and who travels. Quiet mornings send nothing | On |
+
+Each job can also be turned **Off**.
+
+<AppShot src="/images/agencies/jobs.webp" alt="The Jobs page: each job with Off, Ask first or Send" width={560} />
+
+## Ready for you
+
+What the assistant got ready waits on **Home**, under **Ready for you**, with one button each:
+
+- a drafted quote: **Review and send** opens it in the quote editor, or **Discard draft**
+- an email waiting for an OK: **Send the email**, read it first with **See the email**, or **Not now**
+- a passport or visa problem, or a supplier's answer: **Open booking**, or **Got it**
+
+Problems that are fixed, and drafts that are sent, leave the list by themselves.
+
+<AppShot src="/images/agencies/ready.webp" alt="Home: a drafted quote, a follow-up email waiting for an OK and a passport problem, each with one button" width={420} />
+
+## Undo
+
+You can undo what the assistant changed for seven days: notes and tasks it added, a lead it moved, a quote it drafted, supplier requests it sent, and a confirmation number a supplier's answer filled in. Use **Undo** on Home, in the copilot, or in the log on the **Jobs** page.
+
+If someone on your team has changed the thing since, it stays as they left it. Emails can't be unsent, so they have no undo.
+
+## The log
+
+The bottom of the **Jobs** page lists everything the assistant did, newest first: what it drafted, sent, flagged or was asked to do, and what was undone.

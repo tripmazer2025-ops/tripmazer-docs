@@ -136,6 +136,41 @@
         ]
       },
       {
+        "tab": "Agencies",
+        "groups": [
+          {
+            "group": "TripMazer for Agencies",
+            "pages": [
+              "agencies/index",
+              "agencies/getting-started",
+              "agencies/plans-and-billing"
+            ]
+          },
+          {
+            "group": "With your customers",
+            "pages": [
+              "agencies/website-chat",
+              "agencies/quotes-and-bookings",
+              "agencies/passports-and-trip-pages"
+            ]
+          },
+          {
+            "group": "With your team",
+            "pages": [
+              "agencies/team-and-customers",
+              "agencies/suppliers"
+            ]
+          },
+          {
+            "group": "Your assistant",
+            "pages": [
+              "agencies/assistant-jobs",
+              "agencies/copilot"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Help",
         "groups": [
           {
