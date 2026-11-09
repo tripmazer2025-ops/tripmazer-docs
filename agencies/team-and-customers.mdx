@@ -1,6 +1,6 @@
 ---
 title: "Your team and customers"
-description: "Home, the Inbox, the Pipeline, customers, broadcasts, performance, team roles and alerts in the agency console."
+description: "Home, the Inbox, the Pipeline, customers, importing your existing list, broadcasts, performance, team roles and alerts in the agency console."
 icon: "users"
 ---
 
@@ -12,7 +12,7 @@ icon: "users"
 | **Inbox** | Customers who asked for a person. Reply right in their chat, then hand it back to the assistant |
 | **Pipeline** | Every lead from **New** to **Quoted**, **Accepted**, **Paid**, **Travelling** and **Done** (or **Lost**), with its owner, tags, notes and tasks. Sending and accepting a quote, and a first payment, move the lead for you |
 | **Conversations** | Every chat your assistant has had with a customer |
-| **Customers** | Everyone who talked to your assistant, with the name, phone and email they gave. **Download CSV** exports the list |
+| **Customers** | Everyone who talked to your assistant, with the name, phone and email they gave. **Import** brings in the list you already keep; **Download CSV** exports it |
 | **Quotes** | Quotes and bookings. See [Quotes and bookings](/agencies/quotes-and-bookings) |
 | **Packages** | The trips your assistant offers, at your prices |
 | **Broadcasts** | Offers and news by email to the customers who'd want them, chosen by stage or tag, with templates. Each email carries an unsubscribe link (owners and admins) |
@@ -21,6 +21,34 @@ icon: "users"
 | **Your assistant**, **Jobs**, **Channels** | Who your assistant is, what it does on its own, and the website chat (owners and admins) |
 
 The console works on a phone too: the sidebar folds into a menu at the top left.
+
+## Bring your customers and bookings across
+
+If you keep customers or bookings in Excel, Google Sheets or another system, bring them into the console so the assistant and your team start with your whole history. Owners and admins can import.
+
+1. Save the sheet as a CSV file. In Excel: **File → Save As → CSV**. In Google Sheets: **File → Download → CSV**.
+2. In **Customers**, choose **Import**. For bookings, use **Import** in **Quotes → Bookings**. You can switch between customers and bookings in the window.
+3. Choose the file. The console matches your columns to its own, such as **Client Name**, **Mobile No** or **Package Cost**, and shows an example from your file next to each. Change any that are wrong.
+4. Check how the first rows read, and fix any rows it couldn't read, then choose **Import**.
+
+**Customers:** one row per person, with a name, email or phone, and if you keep them, tags, stage, owner and notes. **Bookings:** one row per trip, with the customer, the trip or destination, dates, total and what they've paid.
+
+What it reads:
+
+- Dates written day first (12/02/2027), with the month in words (12 Feb 2027), or as Excel saves them. If your dates could be read either way, it asks which you use.
+- Amounts like ₹2,45,000, Rs. 45,000/-, 2.45 L, 3.2 lakhs, 1.2 cr or 45k.
+- Phone numbers with or without +91, spaces or dashes.
+
+How it handles what you already have:
+
+- People already in the console are matched by email, then phone, then an exact name. What's missing is filled in; nothing is overwritten. The same person on two rows becomes one customer.
+- Uploading the same file again adds nothing twice.
+- People without a stage go to **Done** on the Pipeline, so **New** stays for fresh enquiries. A customer whose trips were all cancelled goes to **Lost**.
+- Past trips are filed as completed. Upcoming trips get passport checks and trip pages as **Jobs** says, just like bookings made in the console.
+- Imported bookings and payments stay out of **Performance**, so this month's sales show this month's work.
+- Nobody is messaged by an import.
+
+Changed your mind? **Undo** (in the import window, under **Recent uploads**) removes what an upload added, for a week. Anything your team has worked on since stays, and customers it moved on the Pipeline go back where they were. One upload takes up to 5,000 rows.
 
 ## Team and roles
 
