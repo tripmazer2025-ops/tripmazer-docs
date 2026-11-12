@@ -1,6 +1,6 @@
 ---
 title: "Quotes and bookings"
-description: "Add your packages, send branded quotes with options and a day-by-day plan the assistant can draft, take deposits straight to your account, and track bookings, payments, vouchers and margins."
+description: "Add your packages, send branded quotes with flights, options and a day-by-day plan the assistant can draft, take deposits straight to your account, and track bookings, payments, vouchers and margins."
 icon: "file-invoice"
 ---
 
@@ -18,11 +18,35 @@ Starter includes up to 20 packages; Growth and Custom have no limit.
 
 Write a quote from **Quotes**, or with **Write a quote** from a customer's conversation. A quote can have:
 
+- **flights**, typed in or pasted from your GDS or an airline's email
+- a price **per traveller**, for adults, children and infants
 - price lines, or lines taken from a package or a supplier's rate
 - **options** for the customer to choose between, each with its own price
 - a **day-by-day plan**
 - what's included and not, and how long the price holds
 - a **deposit**, as a percentage
+
+### Flights
+
+Add each flight under **Flights**: the airline, the flight number, the airport codes it leaves from and lands at, and the local times on the ticket. You can also add the cabin, the checked baggage, the terminal and the PNR. The city appears under each airport code, and the flying time is worked out from the airports' time zones, so you never type either.
+
+To save typing, choose **Paste a booking** and paste:
+
+- an Amadeus, Sabre or Travelport screen, read on the page as you paste it
+- an airline's confirmation email, which the assistant reads
+- simple lines like *EK601 KHI-DXB 15 Nov 11:55 13:20*
+
+Check the flights it reads before you send. A flight that leaves from the airport the last one landed at, within a day, is a connection, and the customer sees the wait between them. A trip that comes back to where it started shows as **Outbound** and **Return**. **Add the return** starts the way back for you.
+
+The customer sees each flight with its times, cities, flying time, airline and PNR, on the quote page, in the quote **PDF** and on the voucher.
+
+### Prices per traveller, and your costs
+
+**Price per traveller** sets a price each for adults (12 and over), children (2 to 11) and infants (under 2). It opens by itself when a quote has flights, counting the travellers you've typed. The customer sees, for example, *2 adults × AED 1,200*. Travellers you count here fill in an empty **Travellers** field.
+
+Mark what each price line is, a stay, a transfer, a visa, insurance and so on, with the small icon at the start of the line. The customer sees the word beside the line.
+
+**Show your costs** adds your cost to each line and each traveller's price, and shows your cost and margin under the total. A supplier's rate comes in at your cost plus your default markup. Costs stay in the console: they never appear on the quote page, in a PDF or on the voucher.
 
 ### Draft the days
 
@@ -32,7 +56,7 @@ The draft never includes prices. It names a hotel, airline or tour company only 
 
 Send it by copying the link, on WhatsApp, by email, or straight into the customer's website chat. The customer opens a page with your logo, chooses an option and accepts it, and you're told the moment they do. You can see when a quote was opened, and a quote you change after sending becomes a new version.
 
-**PDF** makes a branded PDF of the quote, with its options or price, the day-by-day plan and what's included, plus a link to accept it online. On a computer it downloads; on a phone it opens the share sheet so you can send it straight on WhatsApp.
+**PDF** makes a branded PDF of the quote, with its flights, its options or price, the day-by-day plan and what's included, plus a link to accept it online. On a computer it downloads; on a phone it opens the share sheet so you can send it straight on WhatsApp.
 
 On the Growth and Custom plans, and during a trial, the button is **Itinerary PDF**: a photo itinerary in your colours, with a cover, a page for the options and what's included, a photo for each day and your contact details at the end. Day photos are chosen from map data when you use **Draft the days** or **Add photos**: the place a day names, or one of the destination's scenic spots. Map photos print their photographer's credit. To change a day's photo, select it to pick another, search for a different place or upload your own.
 
@@ -56,7 +80,7 @@ Your assistant answers payment, cancellation and refund questions from these ter
 
 From an accepted quote, choose **Make a booking**. Half an hour after you add it, the customer gets **You're booked** with their trip page, as the **Trip companion** job says. A booking holds:
 
-- **What's booked:** each stay, transfer, flight or activity, with its supplier, your cost and its confirmation number. These make up the customer's **voucher**, which shows no prices.
+- **What's booked:** each stay, transfer, flight or activity, with its supplier, your cost and its confirmation number. These make up the customer's **voucher**, which shows no prices. The voucher also lists the flights from the quote, with their PNRs.
 - **Payments:** money in from the customer, and out to suppliers. The first payment in moves the lead to **Paid**.
 - **Balance due by:** when the rest is due. Leave it empty to use the days before travel set in **Settings → Company → How customers pay you**. With **Balance reminders** on in **Jobs**, the customer is reminded a week before and on the day.
 - **The margin:** what the customer pays, less your costs. With a default markup set in **Your assistant → Prices**, the booking suggests what the customer pays from its costs, and **Use** fills it in.
