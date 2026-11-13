@@ -165,3 +165,16 @@ On **Bookings**, an owner or admin chooses **Export to Tally**, picks a month or
 In TallyPrime, open your company, choose **Import → Masters** with file 1, then **Import → Transactions** with file 2. Import each period once, then check the Day Book.
 
 Under **Your names in Tally**, set the names your accountant uses for the sales, GST, TCS, bank and cash ledgers. These ledgers must already exist in Tally; the export lists the ones it needs. Cancelled invoices and payments in other currencies are left out, and the export says which.
+
+
+### Zoho Books
+
+In **Settings → Integrations → Accounting**, an owner or admin chooses **Connect Zoho Books** and signs in to the agency's own Zoho account. From then on, every ten minutes (or straight away with **Sync now**):
+
+- **Invoices** go to Zoho under their own numbers, with the customer, place of supply and GST. Cancel an invoice here and it's voided in Zoho, unless a payment is already on it; then you're told to sort it out in Zoho.
+- **Payments received** go to Zoho, applied to their invoice. Anything over the invoice stays as the customer's credit.
+- **Customers** are matched by name, or made in Zoho the first time.
+
+Choose where to start with **Send invoices and payments from**. Under **Taxes in Zoho**, pick which of your Zoho taxes each GST rate uses, within your state and for other states. TripMazer suggests the obvious ones. If your Zoho Books isn't set up for GST, invoices without GST still go, and invoices with GST wait until you turn it on in Zoho.
+
+Invoices with TCS and payments in other currencies don't go to Zoho; add them yourself. Anything that didn't go is listed with Zoho's reason.
