@@ -78,6 +78,24 @@ Your assistant can draft quotes for you too. See [The assistant's jobs](/agencie
 
 Deposits go straight to you: add your UPI ID, or a payment page of your own (Razorpay, PayU or your bank's), in **Settings → Company → How customers pay you**. The quote shows the amount and how to pay. When the customer taps **I've paid**, your team is alerted to check and record it. TripMazer never holds your customers' money.
 
+### Payments that record themselves
+
+Connect your own Razorpay or Stripe account in **Settings → Integrations → Payments**, and customers can pay online:
+
+- **From the quote**, once they accept it: **Pay online** asks for the deposit, or the whole price if the quote has no deposit.
+- **From their trip page**, which lists the balance still to pay.
+- **From a link you send**: **Copy payment link** on a booking. The link always asks for what's owed when it's opened, so an old link never asks for the wrong amount.
+- **From balance reminders**, which link to the same page.
+
+When a customer pays, the money goes straight to your account. The payment is recorded on the booking with its reference, and the booking is made from the quote if there isn't one yet. Your team is alerted, and the customer gets a receipt in your name. A payment is recorded once, even if the customer pays and closes the page straight away.
+
+To connect:
+
+- **Razorpay:** paste the key ID and key secret (**Account & Settings → API keys**). Then, recommended, add a webhook in Razorpay with the address shown, tick *payment_link.paid* and *refund.processed*, and paste its secret back. Without the webhook, a payment still records when the customer comes back from paying, or within the hour.
+- **Stripe:** paste the secret key (**Developers → API keys**). Payment notifications are set up for you.
+
+Test keys work for trying it out, and the pay page says so. Only owners and admins can connect or disconnect. A refund made in Razorpay or Stripe alerts your team, so you can record it on the booking.
+
 ## Booking terms
 
 Add your payment and cancellation terms once, in **Settings → Company → Your booking terms**. They're printed in your quote PDFs; the Itinerary PDF gives them a page of their own. On the quote page they sit under **Booking terms**, and the customer is told that accepting means agreeing to them. A blank line starts a new paragraph, and a short first line, like *Cancellations*, prints as its heading in the Itinerary PDF.
