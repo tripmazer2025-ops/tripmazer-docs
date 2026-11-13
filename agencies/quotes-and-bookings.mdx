@@ -151,3 +151,17 @@ For each invoice:
 Invoices are numbered in order through the financial year, like **INV/26-27/0001**, and can't be edited once made. An owner or admin can cancel one; it stays on record marked cancelled, and its number isn't used again. **Open** shows the invoice, ready to save as a PDF. **Link** copies a link for the customer.
 
 TripMazer prepares the invoice; the rate, SAC and place of supply are yours to decide. Check them with your accountant.
+
+### Export to Tally
+
+On **Bookings**, an owner or admin chooses **Export to Tally**, picks a month or any dates, and downloads two files for TallyPrime:
+
+1. **Customers and suppliers:** a ledger for each customer invoiced or paid, with their GSTIN and state, and each supplier you paid.
+2. **Invoices and payments:**
+   - Each invoice becomes a sales entry, with CGST, SGST or IGST and TCS on their own ledgers.
+   - Each payment received goes against its booking's invoice; anything above the invoice goes on account.
+   - Each payment to a supplier goes in too. You can turn this off.
+
+In TallyPrime, open your company, choose **Import → Masters** with file 1, then **Import → Transactions** with file 2. Import each period once, then check the Day Book.
+
+Under **Your names in Tally**, set the names your accountant uses for the sales, GST, TCS, bank and cash ledgers. These ledgers must already exist in Tally; the export lists the ones it needs. Cancelled invoices and payments in other currencies are left out, and the export says which.
