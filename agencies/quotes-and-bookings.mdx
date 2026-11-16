@@ -63,6 +63,16 @@ Rates move, so a quote with live rates is checked again **before it goes out**. 
 
 Your assistant can do the same: *Find a 4-star in Seminyak with breakfast, 12 to 15 Feb, 2 adults*. Each option comes with a code, like H2 or F1, and *Add H2 and F1 to Sara's quote* puts them on, after you press **Yes**. Each agency has up to 100 live searches a day.
 
+### Book through TripMazer
+
+Live hotel rooms and flights on an accepted quote can be booked from the booking, under **Book through TripMazer**:
+
+1. Choose **Book now** on a room or a flight. The price is checked again first; if it moved, you see the new one before you go on.
+2. For a room, fill in the guest's name. For a flight, fill in each traveller's name, gender, date of birth and nationality, and their passport for an international flight.
+3. Pay your TripMazer price with your company card in the secure payment form.
+
+The confirmation, or the airline's booking reference, lands on the booking and the customer's voucher by itself, and the cost is recorded as a payment out. When a customer pays you online for a quote with live rates, your team is told **Book it now**, and owners and admins are reminded after 30 minutes if it's still not booked. You keep your markup; the customer pays you, never TripMazer.
+
 ### A second currency
 
 **Also show in**, under the total, shows the price in a second currency as well, for example for a customer abroad. The rate fills in from your exchange rates, and you can change it for this quote. It's saved with the quote, so the figure never moves after you send it. The quote page, the PDF and the Itinerary PDF show, for example, *About AED 2,737 at 1 AED = 22.65 INR*, and under each option's price when there are options.
@@ -126,7 +136,7 @@ They're printed where a paper document is signed: *For* your agency, the signatu
 From an accepted quote, choose **Make a booking**. Half an hour after you add it, the customer gets **You're booked** with their trip page, as the **Trip companion** job says. A booking holds:
 
 - **What's booked:** each stay, transfer, flight or activity, with its supplier, your cost and its confirmation number. These make up the customer's **voucher**, which shows no prices. The voucher also lists the flights from the quote, with their PNRs.
-- **Payments:** money in from the customer, and out to suppliers. The first payment in moves the lead to **Paid**.
+- **Payments:** money in from the customer, out to suppliers, and **Refunds** given back to the customer. The first payment in moves the lead to **Paid**. A refund comes off what was received.
 - **Balance due by:** when the rest is due. Leave it empty to use the days before travel set in **Settings → Company → How customers pay you**. With **Balance reminders** on in **Jobs**, the customer is reminded a week before and on the day.
 - **The margin:** what the customer pays, less your costs. With a default markup set in **Your assistant → Prices**, the booking suggests what the customer pays from its costs, and **Use** fills it in.
 - **Travellers & visas**, the customer's **trip page**, and **Files** for tickets, visas and insurance. See [Passports and trip pages](/agencies/passports-and-trip-pages).
@@ -172,9 +182,12 @@ Under **Your names in Tally**, set the names your accountant uses for the sales,
 In **Settings → Integrations → Accounting**, an owner or admin chooses **Connect Zoho Books** and signs in to the agency's own Zoho account. From then on, every ten minutes (or straight away with **Sync now**):
 
 - **Invoices** go to Zoho under their own numbers, with the customer, place of supply and GST. Cancel an invoice here and it's voided in Zoho, unless a payment is already on it; then you're told to sort it out in Zoho.
-- **Payments received** go to Zoho, applied to their invoice. Anything over the invoice stays as the customer's credit.
-- **Customers** are matched by name, or made in Zoho the first time.
+- **Payments received** go to Zoho, applied to their invoice. Anything over the invoice stays as the customer's credit. A payment made through your own Razorpay waits in a **Razorpay balance** account until Razorpay settles it.
+- **Supplier payments** go to Zoho as expenses, the cost of the trip, against the supplier. They're paid through your bank account in Zoho, or **Petty Cash** until you add one.
+- **Refunds** become a credit note against the booking's invoice, spread over its lines with their GST, and the money going back.
+- **Razorpay settlements**, when your Razorpay is connected under **Payments**: each moves the money to your bank account in Zoho, with Razorpay's fee and the GST on it shown separately.
+- **Customers and suppliers** are matched by name, or made in Zoho the first time.
 
 Choose where to start with **Send invoices and payments from**. Under **Taxes in Zoho**, pick which of your Zoho taxes each GST rate uses, within your state and for other states. TripMazer suggests the obvious ones. If your Zoho Books isn't set up for GST, invoices without GST still go, and invoices with GST wait until you turn it on in Zoho.
 
-Invoices with TCS and payments in other currencies don't go to Zoho; add them yourself. Anything that didn't go is listed with Zoho's reason.
+Invoices with TCS (and refunds against them) and payments in other currencies don't go to Zoho; add them yourself. Anything that didn't go is listed with Zoho's reason. If you connected Zoho Books before 16 November 2026, connect it again to allow supplier payments, refunds and settlements.
