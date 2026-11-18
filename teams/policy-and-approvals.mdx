@@ -1,0 +1,104 @@
+---
+title: "Policy and approvals"
+description: "Grades and what each may book, hotel caps by city group, the daily allowance, who approves and the chain after the manager, budgets, and departments, cost centres and projects."
+icon: "shield-check"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+Mazer checks every trip against the traveller's grade before anyone sees it, and says what's inside the policy and what isn't. Travel admins set the policy on **Policy**. Everyone else reads it on **Your policy**, or under **Your policy** on **Book**, or asks Mazer:
+
+<Prompt title="Your policy" text="What's my hotel cap in [Pune]?" why="Mazer answers from your company's policy for your grade, in your company's currency." />
+
+Changes apply from the next request.
+
+## Grades
+
+A grade is the policy for a group of people, such as *Staff* and *Leadership*. A new company starts with one grade, **Everyone**. **Add a grade** copies the one you're looking at; give it a **Grade name** and save it. Each person's grade is set on **People**.
+
+### Flights
+
+- **Cabin:** Economy, Premium economy or Business.
+- **Fare may be above the cheapest by** a percentage, **or by this much, whichever is more**. The cheapest is the cheapest fare leaving within the hours you set in **Cheapest counted within**, either side of the chosen flight.
+- **Book at least** so many days ahead.
+- **One checked bag included.**
+
+### Hotels, per night
+
+A cap for each group of cities, and **Stars, at most**:
+
+| | In India | Outside India |
+| --- | --- | --- |
+| Top cap | **Metros** | **Major cities** |
+| Second | **Tier 2 cities** | **Other cities** |
+| Third | **Tier 3 cities** | |
+| Outside your country | **Abroad** | **Abroad** |
+
+- **In India**, cities follow the government's X, Y and Z classification: Delhi, Mumbai, Bengaluru, Chennai, Hyderabad, Kolkata, Pune and Ahmedabad are metros; cities like Jaipur, Kochi and Lucknow are tier 2; other places are tier 3.
+- **Outside India**, your country's major cities get the top cap, such as Dubai, Abu Dhabi and Sharjah in the United Arab Emirates, or London, Manchester, Edinburgh and Birmingham in the United Kingdom. The rest of your country gets the second.
+- **Abroad** is anywhere outside your company's country.
+
+### Daily allowance
+
+- **Meals and local travel, in** your company's country, in your currency.
+- **Abroad, in US dollars**, converted into your currency when a claim is checked.
+
+It covers each day's meals, local travel and small costs, not hotels, flights, visas or client entertainment. Your company either checks claims against it or pays it as a per diem. See [The daily allowance](/teams/expenses-and-claims#the-daily-allowance).
+
+## Who approves
+
+Under **Who approves**, choose when a person has to say yes:
+
+- **Every trip:** the manager sees each one. New companies start here.
+- **Only trips outside the policy:** trips inside it are approved at once. Trips abroad still go to the manager.
+- **Nothing:** trips inside the policy are approved at once. A trip outside it still goes to the manager, with the traveller's reason.
+
+Each person's manager approves their trips. People without a manager go to the **Travel admin** you choose here, and nobody approves their own trip. A travel admin can also decide any trip that's waiting on someone else.
+
+If the manager hasn't answered, they're reminded after the hours in **Remind the manager after** (4 to start), and the trip goes to the travel admin after **Then send it to the travel admin after** (24 to start). Choose **Save timings** after changing them.
+
+### After the manager
+
+**After the manager** adds steps for bigger trips, trips abroad and project spend:
+
+- **Trips over** an amount also go to finance, the department head, or someone you name.
+- **Trips abroad also go to** someone you name.
+- **Project spend goes to the project's owner:** when a trip names a project, its owner approves too.
+- **Over a budget goes to its owner:** when a trip takes a department's, cost centre's or project's budget over, its owner approves too. This is on to start.
+
+A trip goes through the steps in that order, and the approver sees which step it's on, such as *Step 2 of 3*. The traveller hears as each step approves. Nobody is asked twice, and nobody approves their own trip.
+
+### When an approver is away
+
+In **Your details → When you're away**, an approver sets the dates (**From** and **Back after**) and **Who decides meanwhile**. Their approval steps go to that person until they're back, including any already waiting. **I'm back** ends it early. A travel admin can set it for someone else by asking Mazer on the desk: *"Set Rohan away next week with Meghna deciding."* See [Ask Mazer on the desk](/teams/slack-and-mazer#ask-mazer-on-the-desk).
+
+## Departments, cost centres and projects
+
+In **Setup**, travel admins describe how the company is organised. Trips and expenses are filed under it, and approvals follow its owners.
+
+- **Departments:** who people work for. The owner is the department head.
+- **Cost centres:** where the spend is charged. Each person has one, and a trip can name another.
+- **Projects:** the clients or projects a trip is for. The owner approves project spend when that rule is on.
+
+Each can have a **Code**, an **Owner** and a **Budget** a month, a quarter or a year. Approved and booked trips count against a budget, and quarters and years run April to March. The approver sees how much of the budget is used, and how much with this trip. **Archive** hides one you no longer use.
+
+### On every trip
+
+Under **On every trip**, make **Purpose**, **Cost centre** or **Project** required, and keep your list of **Purposes**, like *Client meeting*. Mazer asks for anything missing in chat before the trip goes to the approver, and **Book** asks for it in the review. A traveller's own cost centre is used unless they name another.
+
+### Offices and legal entities
+
+- **Offices:** where people are based, with a city and an address. Each person can have one, and **Book** finds hotels near an office.
+- **Legal entities:** the companies your trips are billed to, with a legal name and a registered address, and one marked **Default**. A trip is billed to the traveller's office's entity, else the default. In India, each entity has its GSTIN and state, and a trip is billed to the entity in its state first.
+
+### GL codes
+
+**GL codes** sets the account each kind of spend goes to: **Flights**, **Hotels**, **Meals**, **Local travel** and **Other expenses**. Zoho Books matches the account code, and the month's file for your accountant lists it on every line. In India, TallyPrime uses it as the ledger name. See [Reports and books](/teams/reports-and-books).
+
+## More on Policy
+
+- **Monday summary:** each Monday morning, the travel admins get what's waiting on them, who's away that week and what's been booked this month. On to start.
+- **Savings rewards:** the traveller's share of what a trip comes in under the policy, from 0 (off) to 50%. When a trip inside the policy is booked for less than the policy allowed, the traveller earns that share of the saving. You pay it through payroll; TripMazer keeps count on **Reports**.
+- **SOS reaches the travel admins:** when someone on a work trip sends an SOS from TripMazer, the travel admins hear too, as well as the traveller's emergency contact. Off to start; tell your team before you turn it on.
+- **Paying for bookings:** the travel admin with the company card, or the traveller with their own. See [Who books and pays](/teams/booking-trips#who-books-and-pays).
+- **Expenses on trips:** a daily allowance (per diem) and mileage rates. See [Expenses and claims](/teams/expenses-and-claims#per-diem-and-mileage).

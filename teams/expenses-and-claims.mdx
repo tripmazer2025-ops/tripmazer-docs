@@ -1,0 +1,79 @@
+---
+title: "Expenses and claims"
+description: "Add what you paid yourself on a work trip from a bill's photo or in chat, claim a trip in one go, and how approvers and finance decide, ask, pay back, settle advances and make the payroll file."
+icon: "receipt"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+**Expenses** holds what you paid yourself on work trips. Add each one as you go, then claim the whole trip in one go. Approvers decide the claims sent to them on the same page, and finance pays them.
+
+## Add an expense
+
+On **Expenses**, choose **Add an expense**:
+
+- **Start from a photo of the bill:** the amount, the merchant and the date are read from the photo, and in India the GST on it. Check them, then **Save expense**.
+- Or fill in the **Amount**, **Currency**, **Date** and **What for**: meals, local travel, lodging, flights, visa, phone and internet, client entertainment, mileage or other. **Trip** is the trip on that date, if any, or **Not on a trip**.
+- **Mileage:** for driving your own car or motorbike, enter the **Kilometres**, the **Vehicle**, and **From and to**. The amount is worked out at your company's rates.
+
+Or send the bill to Mazer on WhatsApp, Telegram, Slack or the app, or just tell Mazer what you spent. It's added to your work trip on that date.
+
+<Prompt title="An expense in chat" text="Add a cab fare of [450] for today, from the airport to the [client's office]." />
+
+### Split a bill
+
+A hotel bill with a minibar or a personal dinner on it can be split. Choose **Split**, add each line with what it was and how much, and tick **Personal** on the ones the company shouldn't pay. Personal lines aren't paid back.
+
+## Claim a trip
+
+Under **To claim**, your expenses are grouped by trip. Choose **Claim** on a trip to send them all at once. The claim goes to your manager, or the travel admin if you don't have one. After a trip ends, Mazer reminds you once if anything from it is still unclaimed. You can claim in chat too:
+
+<Prompt title="Claim in chat" text="Claim my [Pune] expenses." />
+
+**Your claims** shows where each stands: **Waiting**, **Approved, to pay**, **Paid** or **Declined**. A declined claim's expenses go back to **To claim**, so you can fix them and send again.
+
+If finance asks about a claim or a bill, the question reaches your chat and waits at the top of **Expenses** under **Finance asks**. Answer there, or reply to Mazer, or send a photo of the bill.
+
+## The daily allowance
+
+Each grade has a daily allowance for meals, local travel and small costs, in your country and abroad. See [Daily allowance](/teams/policy-and-approvals#daily-allowance). How it's used depends on your company.
+
+### Checked against bills
+
+By default, each day's meals, local travel and other small costs on a claim are added up and checked against the allowance. The approver sees which days went over, and by how much. A day split across two claims is judged as one day, and never counted twice.
+
+### Per diem and mileage
+
+On **Policy → Expenses on trips**, a travel admin can choose:
+
+- **Pay a daily allowance (per diem):** every day of a trip is paid at the grade's daily allowance, added to the claim when it's sent. Meal bills on the trip aren't paid back.
+- **Mileage:** what you pay a kilometre for a **Car**, a **Motorbike** or **Other** vehicles. Leave one empty to not pay mileage for it.
+
+## Advances
+
+Need cash before a trip starts? Open the approved trip on **Trips**, choose **Ask for an advance**, and say how much and what for. Finance pays it to you, and it comes off your claim for that trip. If you spend less than the advance, the claim shows what you owe back.
+
+## Deciding claims
+
+An approver opens a claim from its message or under **Claims to decide** on **Expenses**. The claim shows each expense with its photo, the days over the allowance, any advance already paid, and what's left to pay. **Approve** or **Decline**, with a note if you like. Finance and travel admins can also decide any claim that's waiting. Nobody decides or pays their own claim.
+
+## The finance queue
+
+Finance and travel admins see every claim on **Expenses**, by where it stands: **To review**, **Asked the traveller**, **Approved, to pay**, **To pay back**, **Paid** and **Declined**, and **Advances**.
+
+- Filter with **Over the allowance**, **Missing receipts**, **Had an advance** and, in India, **GST not claimable**.
+- Group **By traveller**, **By department** or **By cost centre**, choose the **Columns**, and keep a filter as a **Saved view**.
+- Open a claim to see it beside the list, with next and previous. **Ask** puts a question to the traveller about the claim or one bill, in their chat.
+- Select several claims to approve them, or mark them paid, all at once. Add a **Payment reference** when you mark one paid.
+
+On **Advances**, pay or decline each request, with a payment reference if you like. A paid advance comes off the traveller's claim for the trip. When they spent less and owe some back, the claim waits under **To pay back** until you choose **Mark … returned** on it.
+
+### Finance's files
+
+- **Payroll file:** the approved claims to pay, with each person's employee ID, cost centre, what they claimed, any advance, and what to pay or what's owed back. **Download the payroll file**, then once payroll has run, select the claims and mark them paid.
+- **Company card statement:** upload the card's statement as a CSV. Each line is matched to a booking paid with the card or a claimed bill of the same amount within three days, and you see what's on the card but not on the desk, and what was booked on the card but isn't on this statement.
+- **For your accountant:** a month's bookings and claimed expenses in one file, with your GL codes.
+
+### GST on bills, in India
+
+For companies in India, the GST on each bill is read from its photo, with the seller's GSTIN and the GSTIN it was billed to. When the bill names one of your company's GSTINs, your company can claim the GST; when it doesn't, the bill is marked **not claimable**. **Download the GST list** gives the month's bills with their GST for your accountant.

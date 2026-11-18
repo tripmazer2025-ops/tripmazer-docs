@@ -171,6 +171,39 @@
         ]
       },
       {
+        "tab": "Teams",
+        "groups": [
+          {
+            "group": "Mazer for Teams",
+            "pages": [
+              "teams/index",
+              "teams/getting-started",
+              "teams/plans-and-billing"
+            ]
+          },
+          {
+            "group": "Work trips",
+            "pages": [
+              "teams/policy-and-approvals",
+              "teams/booking-trips"
+            ]
+          },
+          {
+            "group": "Expenses and finance",
+            "pages": [
+              "teams/expenses-and-claims",
+              "teams/reports-and-books"
+            ]
+          },
+          {
+            "group": "Mazer at work",
+            "pages": [
+              "teams/slack-and-mazer"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Help",
         "groups": [
           {

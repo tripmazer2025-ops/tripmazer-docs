@@ -1,0 +1,60 @@
+---
+title: "Mazer and Slack"
+description: "Ask Mazer on the desk for yourself or about the company, have it act after a click, message Mazer in Slack DMs and channels, get approvals there, and how questions on the company are counted."
+icon: "comments"
+---
+
+import { Prompt } from "/snippets/prompt.jsx";
+
+Everyone on a company desk talks to the same Mazer they use for their own travel. Mazer knows they're on the desk, so a work trip goes through your policy and approvals, and a question about the policy is answered from your company's policy, for their grade.
+
+## Ask Mazer on the desk
+
+Open Mazer from **Ask Mazer** at the top of the menu, or with **⌘K** (**Ctrl K** on Windows), from any page. It opens beside the page on a wide screen, and over it on a phone. It knows which page you're on and suggests what fits there.
+
+### For me
+
+Everyone has **For me**: the same Mazer as in chat, in a **Travel desk** conversation kept with your other chats. Ask about your trips, find flights and hotels inside your policy, send a trip for approval, add an expense or claim a trip. Anything Mazer books or sends waits for your yes, with **Approve** and **Not now**.
+
+<Prompt title="For me" text="What's left to do for my next trip?" />
+
+### Company
+
+Travel admins and finance also have **Company**, which answers from the desk's own trips, bookings, claims and people:
+
+- "Which approved trips still need booking?"
+- "Who is travelling next week?"
+- "Which claims have no receipts?"
+- "What did we spend on flights this month?"
+- "Who has no manager set?"
+
+It can also do things for you: message someone, approve or decline a trip, approve, decline or mark a claim paid, find flights for a new date, set someone away with a colleague deciding meanwhile, and send a month to Zoho Books or, in India, make the month's file for Tally. Say it the way you'd say it: *"Approve Meghna's trip to Pune"* or *"Set Rohan away next week with Meghna deciding"*. Each comes back as a card, and nothing happens until you choose **Confirm**. It never decides your own trip or claim.
+
+## Mazer in Slack
+
+A travel admin adds Mazer to your Slack workspace on **People → Slack**:
+
+1. Choose **Add to Slack** and approve it in Slack. The app is called **Mazer AI**.
+2. Choose **The desk's channel**, where the desk posts its news. For a private channel, or one the app isn't in, type `/invite @Mazer AI` in that channel first.
+
+People are matched by their Slack email, so each person needs the same address on the desk. Someone Slack can't match is told to ask their travel admin for an invite. One Slack workspace connects to one company. **Disconnect** removes it.
+
+### In a direct message
+
+Message Mazer AI in Slack the way you would on WhatsApp: ask for a work trip, ask about your policy or your trips, or send a photo or PDF of a bill and it becomes an expense, read from the bill. If finance asked about a bill, the photo goes to them as your answer. Anything Mazer holds for your yes comes with buttons. The conversation is kept in a **Slack** chat in TripMazer.
+
+### In a channel
+
+Mention **@Mazer AI** in a channel and it answers in a thread. Because colleagues can read it, Mazer stays in work mode there: it talks only about your work trips on the desk, and leaves out your personal trips, profile and memories. Each channel has its own chat in TripMazer.
+
+### Approvals and the desk's channel
+
+Approvers get each trip and claim waiting for them as a Slack message with **Approve** and **Decline**. The desk's channel gets new requests, trips approved and waiting to be booked, flight problems and emergencies.
+
+<Note>Can't install apps in your Slack? Under **Or post through an incoming webhook**, paste the address of a Slack incoming webhook. The desk then posts in that channel, with no buttons and no messages to Mazer.</Note>
+
+## Questions on the company
+
+While your company is on its free trial or the Team plan, questions to Mazer in Slack and on the desk don't use the employee's own message allowance: they're on the company, up to 100 a person a day. Past that, or while the desk is paused, they count against the person's own TripMazer plan, and so do questions on WhatsApp, Telegram and in the app's chat. See [Plans](/plans).
+
+When someone's own messages run out in Slack, Mazer tells them when they come back.
