@@ -1,12 +1,12 @@
 ---
 title: "Policy and approvals"
-description: "Grades and what each may book, hotel caps by city group, the daily allowance, who approves and the chain after the manager, budgets, and departments, cost centres and projects."
+description: "Grades and what each may book, hotel caps by city group and by place, what happens outside the policy, your own written rules, who approves and the chain after the manager, budgets, and departments, cost centres and projects."
 icon: "shield-check"
 ---
 
 import { Prompt } from "/snippets/prompt.jsx";
 
-Mazer checks every trip against the traveller's grade before anyone sees it, and says what's inside the policy and what isn't. Travel admins set the policy on **Policy**. Everyone else reads it on **Your policy**, or under **Your policy** on **Book**, or asks Mazer:
+Mazer checks every trip against the traveller's grade before anyone sees it, and says what's inside the policy and what isn't. Travel admins set the policy on **Policy**, in four tabs: **Grades**, **Approvals**, **Payments and expenses** and **Your rules**. Everyone else reads it on **Your policy**, or under **Your policy** on **Book**, or asks Mazer:
 
 <Prompt title="Your policy" text="What's my hotel cap in [Pune]?" why="Mazer answers from your company's policy for your grade, in your company's currency." />
 
@@ -14,12 +14,13 @@ Changes apply from the next request.
 
 ## Grades
 
-A grade is the policy for a group of people, such as *Staff* and *Leadership*. A new company starts with one grade, **Everyone**. **Add a grade** copies the one you're looking at; give it a **Grade name** and save it. Each person's grade is set on **People**.
+A grade is the policy for a group of people, such as *Staff* and *Leadership*. On **Grades**, the list on the left shows each grade and how many people are in it. A new company starts with one grade, **Everyone**. **Add a grade** copies the one you're looking at; give it a **Grade name** and save it. While a grade has unsaved changes, a bar at the foot of the page offers to save them. Each person's grade is set on **People**.
 
 ### Flights
 
 - **Cabin:** Economy, Premium economy or Business.
-- **Fare may be above the cheapest by** a percentage, **or by this much, whichever is more**. The cheapest is the cheapest fare leaving within the hours you set in **Cheapest counted within**, either side of the chosen flight.
+- **A better cabin on long flights:** Premium economy or Business when one flight of the trip is at least the hours you set. Mazer checks the cabin of every flight against it.
+- **Fare above the cheapest:** a percentage, or an amount, whichever is more. The cheapest is the cheapest fare leaving within the hours you set in **Cheapest counted within**, either side of the chosen flight.
 - **Book at least** so many days ahead.
 - **One checked bag included.**
 
@@ -31,12 +32,13 @@ A cap for each group of cities, and **Stars, at most**:
 | --- | --- | --- |
 | Top cap | **Metros** | **Major cities** |
 | Second | **Tier 2 cities** | **Other cities** |
-| Third | **Tier 3 cities** | |
+| Third | **Other cities** | |
 | Outside your country | **Abroad** | **Abroad** |
 
 - **In India**, cities follow the government's X, Y and Z classification: Delhi, Mumbai, Bengaluru, Chennai, Hyderabad, Kolkata, Pune and Ahmedabad are metros; cities like Jaipur, Kochi and Lucknow are tier 2; other places are tier 3.
 - **Outside India**, your country's major cities get the top cap, such as Dubai, Abu Dhabi and Sharjah in the United Arab Emirates, or London, Manchester, Edinburgh and Birmingham in the United Kingdom. The rest of your country gets the second.
 - **Abroad** is anywhere outside your company's country.
+- **Your own cities and countries:** a cap for one place, such as *Mumbai* or *Japan*, used there instead of its group's cap.
 
 ### Daily allowance
 
@@ -45,13 +47,34 @@ A cap for each group of cities, and **Stars, at most**:
 
 It covers each day's meals, local travel and small costs, not hotels, flights, visas or client entertainment. Your company either checks claims against it or pays it as a per diem. See [The daily allowance](/teams/expenses-and-claims#the-daily-allowance).
 
+### When a trip is outside the policy
+
+Each grade chooses what happens to a trip outside its policy:
+
+- **Send it for approval:** the approver sees what's outside and why. New grades start here.
+- **Book it, with a reason:** no sign-off just for being outside; the traveller's reason is kept with the trip.
+- **Don't allow it:** it can't be sent, and Mazer points to the options inside the policy.
+
+## Your rules
+
+Most companies already have a written travel policy. On **Your rules**, a travel admin adds it: **Upload** a PDF or text file, or **Paste text**. Mazer reads it and shows what it found, for you to check before anything changes:
+
+- **Settings** it can check exactly, like the cabin, hotel caps, a cap for a named city and the daily allowance, go into the grade you choose. Amounts in another currency are left out.
+- **Everything else** is kept as a rule, close to your document's own words, such as *No overnight flights before a client meeting.*
+
+You can also write a rule yourself. For each rule, choose who it's for (everyone, or one grade) and whether Mazer checks it. When a trip may break a rule Mazer checks, or the rule asks for more on a trip like it, the approver sees the rule next to the trip, and the trip waits for their yes. Travellers see your rules on **Your policy**, and Mazer knows them when it answers questions about the policy.
+
+<Prompt title="Your rules" text="Can I take the late flight the night before my client meeting?" why="Mazer answers from your grade's settings and your company's own rules." />
+
 ## Who approves
 
-Under **Who approves**, choose when a person has to say yes:
+On **Approvals**, under **Who approves**, choose when a person has to say yes:
 
 - **Every trip:** the manager sees each one. New companies start here.
 - **Only trips outside the policy:** trips inside it are approved at once. Trips abroad still go to the manager.
-- **Nothing:** trips inside the policy are approved at once. A trip outside it still goes to the manager, with the traveller's reason.
+- **Nothing:** trips inside the policy are approved at once.
+
+A trip outside the policy follows the grade's choice under [When a trip is outside the policy](#when-a-trip-is-outside-the-policy), and a trip that one of [your rules](#your-rules) applies to goes to the approver whichever you choose.
 
 Each person's manager approves their trips. People without a manager go to the **Travel admin** you choose here, and nobody approves their own trip. A travel admin can also decide any trip that's waiting on someone else.
 
@@ -70,11 +93,11 @@ A trip goes through the steps in that order, and the approver sees which step it
 
 ### When an approver is away
 
-In **Your details → When you're away**, an approver sets the dates (**From** and **Back after**) and **Who decides meanwhile**. Their approval steps go to that person until they're back, including any already waiting. **I'm back** ends it early. A travel admin can set it for someone else by asking Mazer on the desk: *"Set Rohan away next week with Meghna deciding."* See [Ask Mazer on the desk](/teams/slack-and-mazer#ask-mazer-on-the-desk).
+In **Your details → When you're away**, an approver sets the dates (**From** and **Back after**) and **Who decides meanwhile**. Their approval steps go to that person until they're back, including any already waiting. **I'm back** ends it early. A travel admin can set it for someone else by asking Mazer on the desk: *"Set Daniel away next week with Mei deciding."* See [Ask Mazer on the desk](/teams/slack-and-mazer#ask-mazer-on-the-desk).
 
 ## Departments, cost centres and projects
 
-In **Setup**, travel admins describe how the company is organised. Trips and expenses are filed under it, and approvals follow its owners.
+In **Settings → Structure**, travel admins describe how the company is organised. Trips and expenses are filed under it, and approvals follow its owners.
 
 - **Departments:** who people work for. The owner is the department head.
 - **Cost centres:** where the spend is charged. Each person has one, and a trip can name another.
@@ -84,7 +107,7 @@ Each can have a **Code**, an **Owner** and a **Budget** a month, a quarter or a 
 
 ### On every trip
 
-Under **On every trip**, make **Purpose**, **Cost centre** or **Project** required, and keep your list of **Purposes**, like *Client meeting*. Mazer asks for anything missing in chat before the trip goes to the approver, and **Book** asks for it in the review. A traveller's own cost centre is used unless they name another.
+In **Settings → Trip fields and codes**, under **On every trip**, make **Purpose**, **Cost centre** or **Project** required, and keep your list of **Purposes**, like *Client meeting*. Mazer asks for anything missing in chat before the trip goes to the approver, and **Book** asks for it in the review. A traveller's own cost centre is used unless they name another.
 
 ### Offices and legal entities
 
@@ -93,12 +116,17 @@ Under **On every trip**, make **Purpose**, **Cost centre** or **Project** requir
 
 ### GL codes
 
-**GL codes** sets the account each kind of spend goes to: **Flights**, **Hotels**, **Meals**, **Local travel** and **Other expenses**. Zoho Books matches the account code, and the month's file for your accountant lists it on every line. In India, TallyPrime uses it as the ledger name. See [Reports and books](/teams/reports-and-books).
+**GL codes**, in **Settings → Trip fields and codes**, sets the account each kind of spend goes to: **Flights**, **Hotels**, **Meals**, **Local travel** and **Other expenses**. Zoho Books matches the account code, and the month's file for your accountant lists it on every line. In India, TallyPrime uses it as the ledger name. See [Reports and books](/teams/reports-and-books).
 
 ## More on Policy
 
+On **Approvals**, under **Notices**:
+
 - **Monday summary:** each Monday morning, the travel admins get what's waiting on them, who's away that week and what's been booked this month. On to start.
-- **Savings rewards:** the traveller's share of what a trip comes in under the policy, from 0 (off) to 50%. When a trip inside the policy is booked for less than the policy allowed, the traveller earns that share of the saving. Trips booked for guests earn none. You pay it through payroll; TripMazer keeps count on **Reports**.
 - **SOS reaches the travel admins:** when someone on a work trip sends an SOS from TripMazer, the travel admins hear too, as well as the traveller's emergency contact. Off to start; tell your team before you turn it on.
+
+On **Payments and expenses**:
+
+- **Savings rewards:** the traveller's share of what a trip comes in under the policy, from 0 (off) to 50%. When a trip inside the policy is booked for less than the policy allowed, the traveller earns that share of the saving. Trips booked for guests earn none. You pay it through payroll; TripMazer keeps count on **Reports**.
 - **Paying for bookings:** the travel admin with the company card, or the traveller with their own. See [Who books and pays](/teams/booking-trips#who-books-and-pays).
 - **Expenses on trips:** a daily allowance (per diem) and mileage rates. See [Expenses and claims](/teams/expenses-and-claims#per-diem-and-mileage).
