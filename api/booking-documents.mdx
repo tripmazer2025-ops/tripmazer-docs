@@ -1,0 +1,24 @@
+---
+title: "Booking documents"
+description: "Any flight or hotel booking in; a branded e-ticket or voucher PDF and a Google Wallet pass out."
+icon: "file-lines"
+---
+
+Booking documents turns a booking made anywhere into an e-ticket or hotel voucher PDF under your account's name, and a Google Wallet pass for each flight or stay.
+
+```bash
+curl -X POST "$BASE/v1/jobs?wait=40" \
+  -H "Authorization: Bearer $TRIPMAZER_KEY" -H "Content-Type: application/json" \
+  -d '{ "kind": "booking_documents", "input": { "kind": "flight", "booking": {
+        "confirmation": "QX7Z2M", "airline": "IndiGo",
+        "passengers": [ { "name": "Asha Rao", "seat": "12C" } ],
+        "legs": [ { "flight_number": "6E 1451", "from": "BOM", "to": "DXB",
+                    "departs": "2026-11-28T09:20", "arrives": "2026-11-28T11:15", "terminal": "2" } ] } } }'
+```
+
+| Booking | Fields |
+| --- | --- |
+| Flight | `confirmation`, `airline`, `passengers` (`name`, `ticket_number`, `seat`), `legs` (`flight_number`, `from`, `to`, `departs` and `arrives` as local times, `terminal`, `cabin`), `baggage`, `fare` |
+| Hotel | `confirmation`, `hotel_name`, `address`, `check_in`, `check_out`, `guests` (`name`), `rooms`, `room_type`, `board`, `phone` |
+
+The result has `pdf` (`url`, a private link valid for 7 days, and `filename`) and `wallet.save_url`, one link that adds every pass. Set `"wallet": false` to skip the passes.

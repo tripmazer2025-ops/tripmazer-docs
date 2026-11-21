@@ -1,0 +1,23 @@
+---
+title: "Airport brief"
+description: "An airport and the traveller's cards in; the lounges they open, from the banks' own lists, with terminals."
+icon: "couch"
+---
+
+Airport brief lists an airport's lounges and says, for each, whether the traveller's cards get them in: **free**, **likely**, **restricted** (a spend rule or visit cap), **other side** of security, or **not listed**. Verdicts come from the issuers' published lounge lists for Indian cards and from Priority Pass, LoungeKey and DragonPass, with the source and the date it was checked.
+
+```bash
+curl -X POST "$BASE/v1/jobs?wait=30" \
+  -H "Authorization: Bearer $TRIPMAZER_KEY" -H "Content-Type: application/json" \
+  -d '{ "kind": "airport_brief", "input": { "airport": "BLR", "cards": ["Axis Magnus", "HDFC Infinia"], "side": "domestic" } }'
+```
+
+| Input | |
+| --- | --- |
+| `airport` | IATA code |
+| `cards` | Up to 10 cards as people name them ("Axis Magnus", "Priority Pass"); none is fine |
+| `terminal`, `side` | Optional: `departures`, `arrivals`, `domestic` or `international` |
+
+The result has the airport, the cards it recognised (and any it didn't, with what they might be), up to 12 lounges with their verdict, the card that opens them, visits and spend rules, and terminals with gates and essentials where we hold the map.
+
+<Note>Card names are matched exactly to a bank's product; a card we don't hold the terms for comes back in `cards.unmatched` rather than as a guess.</Note>

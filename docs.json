@@ -234,6 +234,10 @@
               "api/jobs",
               "api/reel-to-trip",
               "api/watch-a-trip",
+              "api/route-india",
+              "api/weather-plan-b",
+              "api/airport-brief",
+              "api/booking-documents",
               "api/mcp",
               "api/webhooks",
               "api/errors"

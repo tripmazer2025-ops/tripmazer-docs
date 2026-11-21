@@ -1,0 +1,23 @@
+---
+title: "Weather Plan B"
+description: "A day's plan and the forecast in; the stops that rain or a hazard would spoil moved or swapped for an indoor place."
+icon: "cloud-rain"
+---
+
+Weather Plan B checks the hourly forecast and hazard alerts for a day's stops. A stop in the rain is moved to a clear hour, or swapped for a nearby indoor place picked from Google Maps. Booked stops are never moved; they're flagged to check instead.
+
+```bash
+curl -X POST "$BASE/v1/jobs?wait=40" \
+  -H "Authorization: Bearer $TRIPMAZER_KEY" -H "Content-Type: application/json" \
+  -d '{ "kind": "weather_plan_b", "input": { "city": "Munnar", "date": "2026-11-23",
+        "stops": [ { "name": "Tea Museum", "time": "10:00", "duration_minutes": 90 },
+                   { "name": "Mattupetty Dam", "time": "14:00", "duration_minutes": 120 } ] } }'
+```
+
+| Input | |
+| --- | --- |
+| `city` or `lat` + `lng` | Where the day is |
+| `date` | `YYYY-MM-DD`, within the next 7 days (the forecast's reach) |
+| `stops` | 1 to 15: `name`, optional `time` (`HH:MM` local), `duration_minutes`, `category`, `booked`, `lat`/`lng` |
+
+The result has the `risk` (`low`, `watch` or `act`, with its kind and reasons, the affected stops and the clear hours), the `strategy` (`none`, `retime`, `replace` or `mixed`), each `change` (`moved_time`, `replaced`, `check_booking` or `no_alternative`, with the replacement place), the stops left as they were, and the hourly forecast. With nothing to fear, the strategy is `none` and the plan stands.

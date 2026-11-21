@@ -1,0 +1,24 @@
+---
+title: "Route (India)"
+description: "The fastest, cheapest and overnight ways between two Indian cities, by train, bus and air."
+icon: "route"
+---
+
+Route reads the train timetables, FlixBus and live fares for a day and picks the **fastest**, **cheapest** and **overnight** ways between two Indian cities, with the top trains, buses and flights behind each pick.
+
+```bash
+curl -X POST "$BASE/v1/jobs?wait=30" \
+  -H "Authorization: Bearer $TRIPMAZER_KEY" -H "Content-Type: application/json" \
+  -d '{ "kind": "route_india", "input": { "from": "Bengaluru", "to": "Chennai", "date": "2026-11-25", "adults": 1 } }'
+```
+
+| Input | |
+| --- | --- |
+| `from`, `to` | City names, inside India |
+| `date` | `YYYY-MM-DD`, up to 120 days ahead |
+| `adults` | 1 to 9 (default 1) |
+| `from_airport`, `to_airport` | Optional IATA codes, for a city with more than one airport |
+
+The result has `picks` (`fastest`, `cheapest`, `overnight`, each a full option or `null`), `trains`, `buses` and `flights` (top 5 each), `links` to book on IRCTC and redBus, and `sources` saying which source answered. Each option has its mode, name or number, from and to, local departure and arrival times, duration, changes, the price per adult as listed, and a booking link where there is one. Fastest counts flying time only; allow time for the airport.
+
+<Note>Train seats aren't checked and nothing is booked: Route shows what runs and what it costs. Prices are what each source lists at the time.</Note>
