@@ -14,17 +14,17 @@ The Mazer API is pay as you go. There's no subscription or minimum: you add cred
 
 ## Adding credit
 
-In the console, open **Credit & billing → Add credit**. Rupee accounts pay by UPI, card or netbanking; each top-up includes GST and gets a tax invoice by email. Dollar accounts pay by card, Apple Pay or Google Pay through Polar, who add any sales tax or VAT and email the receipt; the credit appears within a minute of paying.
+In the console, open **Credit & billing → Add credit**. Rupee accounts pay by UPI, card or netbanking; each top-up includes GST and gets a tax invoice by email. To bill a company, add its legal name, GSTIN and address in **Account settings → Billing details**; invoices from then on carry them, with IGST or CGST and SGST by the GSTIN's state, and every invoice is listed there too. Dollar accounts pay by card, Apple Pay or Google Pay through Polar, who add any sales tax or VAT and email the receipt; the credit appears within a minute of paying.
 
 ## Low credit
 
 When a charge leaves your available credit under its low line, the account's owners and admins get an email and your webhooks get one `wallet.low` event. It won't repeat until you add credit.
 
-To move the line or turn the warning off, open **Settings → Low-credit warning** in the console.
+To move the line or turn the warning off, open **Account settings → Low-credit warning** from the account menu at the foot of the console's sidebar.
 
 ## Daily spend caps
 
-In **Settings → Daily spend caps**, give any live key a most it may spend in a day (UTC). Once a key reaches its cap, new jobs from it get `402 daily_cap_reached` until midnight UTC; jobs already running finish. Test keys never spend, so they have no cap.
+In **Account settings → Daily spend caps**, give any live key a most it may spend in a day (UTC). Once a key reaches its cap, new jobs from it get `402 daily_cap_reached` until midnight UTC; jobs already running finish. Test keys never spend, so they have no cap.
 
 ## Movements
 
