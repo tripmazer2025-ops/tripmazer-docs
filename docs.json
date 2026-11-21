@@ -233,6 +233,8 @@
             "pages": [
               "api/jobs",
               "api/reel-to-trip",
+              "api/watch-a-trip",
+              "api/mcp",
               "api/webhooks",
               "api/errors"
             ]

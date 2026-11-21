@@ -1,0 +1,50 @@
+---
+title: "MCP server"
+description: "Give an AI agent the Mazer jobs as tools: Claude, ChatGPT, Cursor or any MCP client."
+icon: "robot"
+---
+
+The Mazer MCP server offers the live jobs as tools. It speaks MCP over streamable HTTP and uses your API key, so test and live mode, credit, limits and the request log work exactly as they do over REST.
+
+**Server URL:** `https://wiunqzjefneakwtlbgpp.supabase.co/functions/v1/mazer-mcp`
+**Auth:** `Authorization: Bearer tm_test_…` (or a live key)
+
+## Tools
+
+| Tool | What it does |
+| --- | --- |
+| `reel_to_trip` | Every place in a travel video, checked on the map |
+| `watch_trip` | Watch a traveller's flights until they land; flights or itinerary text in |
+| `trip_status` | A watched trip now: flights, times, gates and what happened |
+| `find_options` | Other ways there for a trip's flight |
+
+More jobs join as they go live.
+
+## Connect
+
+<Tabs>
+  <Tab title="Claude Code">
+```bash
+claude mcp add --transport http mazer https://wiunqzjefneakwtlbgpp.supabase.co/functions/v1/mazer-mcp \
+  --header "Authorization: Bearer $TRIPMAZER_KEY"
+```
+  </Tab>
+  <Tab title="Cursor">
+```json
+{
+  "mcpServers": {
+    "mazer": {
+      "url": "https://wiunqzjefneakwtlbgpp.supabase.co/functions/v1/mazer-mcp",
+      "headers": { "Authorization": "Bearer tm_test_…" }
+    }
+  }
+}
+```
+  </Tab>
+</Tabs>
+
+Start with a test key: `watch_trip` then opens a simulated trip, and nothing is charged.
+
+<Note>
+Sign-in with OAuth, for clients that can't send a header, and listings in the AI directories come next.
+</Note>

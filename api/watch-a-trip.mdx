@@ -1,0 +1,98 @@
+---
+title: "Watch a trip"
+description: "Send a booking; we watch every flight until it lands and tell you, and the traveller, what changes."
+icon: "plane"
+---
+
+Watch a trip takes a booking as flight numbers, a pasted itinerary, a booking email or a PDF. Each flight is checked against live status before the trip opens, so a typo can't become a watched trip. From then on every change arrives as an event: on the trip, on your webhooks, and by email to the traveller if you ask.
+
+When a flight is cancelled, diverted or delayed by two hours or more, the trip also gets **other ways there**: flights for that day and the next, ranked by arrival, and trains and buses when both airports are in India.
+
+## Request
+
+```bash
+curl -X POST "$BASE/v1/trips?wait=30" \
+  -H "Authorization: Bearer $TRIPMAZER_KEY" \
+  -H "Content-Type: application/json" \
+  -H "Idempotency-Key: booking-881" \
+  -d '{
+    "flights": [{ "number": "EK 501", "date": "2026-11-22" }],
+    "traveller": { "name": "Asha Rao", "email": "asha@example.com" },
+    "reference": "booking-881"
+  }'
+```
+
+`POST /v1/trips` is a shortcut for `POST /v1/jobs` with `"kind": "watch_trip"`. Send exactly one of:
+
+| Field | What to send |
+| --- | --- |
+| `flights` | Up to 8 flights: `number` like `EK 501` and `date`, the **local** departure date |
+| `text` | An itinerary as pasted, GDS lines included (`6E 2134 BLR-DEL 03 Dec 07:45`) |
+| `email` | `{ "subject", "from", "body" }`, where `body` is the booking email's text or HTML |
+| `pdf` | `{ "base64", "filename" }`, the booking PDF, up to 5 MB |
+
+Optional: `traveller` (`name`, `email`), `notify_traveller` (on when an email is given), and `reference`, your own id, sent back with every event.
+
+## Response
+
+The job's `result` is the trip:
+
+```json
+{
+  "id": "trip_c81fef0e45cb41c2aed8bba8df2770bb",
+  "object": "trip",
+  "mode": "live",
+  "status": "watching",
+  "reference": "booking-881",
+  "page_url": "https://tripmazer.com/trip-status/SGq-HTHnvMQljP6AMsSqe4Bt",
+  "flights": [{
+    "number": "EK501", "airline": "Emirates", "date": "2026-11-22", "status": "scheduled", "delay_minutes": 0,
+    "from": { "iata": "BOM", "city": "Mumbai", "terminal": "2", "gate": null, "utc_offset": "+05:30" },
+    "to": { "iata": "DXB", "city": "Dubai", "terminal": null, "gate": null, "baggage_belt": null, "utc_offset": "+04:00" },
+    "departure": { "scheduled": "2026-11-21T22:45:00+00:00", "estimated": null, "actual": null },
+    "arrival": { "scheduled": "2026-11-22T02:10:00+00:00", "estimated": null, "actual": null }
+  }]
+}
+```
+
+Times are instants in UTC; `utc_offset` gives each airport's local time. `page_url` is a page you can share with the traveller: it carries your account's name, their first name, the flights and what happened, and refreshes itself.
+
+If a flight can't be found on that date the job fails with `flight_not_found` and nothing is charged.
+
+## Events
+
+Each change is stored on the trip and sent to your [webhooks](/api/webhooks):
+
+| Event | When |
+| --- | --- |
+| `trip.watching` | The trip opened |
+| `flight.delayed` | Departure or arrival moved; `data.delay_minutes` is the new delay |
+| `flight.gate_changed` | A terminal, gate or baggage belt was assigned or changed (`data.from`, `data.to`) |
+| `flight.cancelled` | Cancelled; `trip.options` follows |
+| `flight.diverted` | Diverted; `trip.options` follows |
+| `flight.departed` | Took off |
+| `flight.landed` | Landed |
+| `trip.options` | Other ways there: `data.flights` and `data.ground` |
+| `trip.completed` | Every flight has landed, or the watch ended |
+
+Each webhook carries `trip_id`, your `reference`, `flight` (the flight now) and `data`.
+
+## Read, test and stop
+
+| Request | What it does |
+| --- | --- |
+| `GET /v1/trips` | Your recent trips for the key's mode |
+| `GET /v1/trips/{id}` | The trip now, with its events, newest first |
+| `POST /v1/trips/{id}/options` | Other ways there for one of its flights, now |
+| `POST /v1/trips/{id}/simulate` | Send a pretend `delayed`, `cancelled`, `diverted`, `gate_changed` or `landed` through the trip |
+| `POST /v1/trips/{id}/stop` | Stop watching |
+
+A simulated event is recorded and sent like a real one with `"simulated": true`; the flight's stored status doesn't change. Option searches and simulations are limited to 10 a trip a day.
+
+<Tip>
+With a test key you get a simulated trip: its gate, a delay, take-off and landing play out over the next few minutes, so you can build your webhook handler without waiting for a real flight. Test trips never email anyone.
+</Tip>
+
+## How often we look
+
+Each flight is checked a day and six hours before departure, three hours and one hour before, after take-off, and every 15 minutes from shortly before landing until it lands. A trip ends three hours after its last arrival with no word.

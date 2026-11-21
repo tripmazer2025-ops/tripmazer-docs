@@ -4,11 +4,10 @@ description: "The jobs and tools planned for the Mazer API."
 icon: "road"
 ---
 
-These jobs are planned. They'll use the same keys, credit, job object and webhooks as Reel to Trip, so an integration built today covers them as they arrive. Plans can change; this page shows what's planned now.
+These jobs are planned. They'll use the same keys, credit, job object and webhooks as the live jobs, so an integration built today covers them as they arrive. Plans can change; this page shows what's planned now.
 
 | Job | What it will do |
 | --- | --- |
-| **Watch a trip** | Send a booking email, PDF or flight numbers; get delay, gate, cancellation and schedule-change events until landing, with options when a flight breaks |
 | **Call a business** | Mazer phones a hotel, restaurant or airline in the local language with your questions and returns the answers and transcript |
 | **Web errand** | A task on a real website, finished with sources and screenshots |
 | **Route** | The fastest, cheapest and overnight ways across flights, trains and buses in India |
@@ -22,4 +21,4 @@ These jobs are planned. They'll use the same keys, credit, job object and webhoo
 
 ## MCP
 
-Every job will also be an MCP tool, so an AI agent in Claude, ChatGPT, Cursor or any MCP client can start a job and wait for its result.
+The [MCP server](/api/mcp) is live for the live jobs; each new job joins it as a tool. Sign-in with OAuth and listings in the AI directories come next.
