@@ -1,0 +1,56 @@
+---
+title: "Call a business"
+description: "Mazer phones a hotel, restaurant or airline with your questions, in the local language, and returns the answers and the transcript."
+icon: "phone"
+---
+
+Call a business places a real phone call. Mazer introduces itself as an assistant calling for your traveller, asks your questions (in English unless you set `language`), gets through the hotel's phone menu to a person, and hangs up politely. You get each answer, a one-line outcome and the full transcript.
+
+```bash
+curl -X POST "$BASE/v1/jobs" \
+  -H "Authorization: Bearer $TRIPMAZER_KEY" -H "Content-Type: application/json" \
+  -d '{ "kind": "call_business", "input": {
+        "business": { "name": "Taj Malabar Resort & Spa", "city": "Kochi" },
+        "on_behalf_of": "Asha Rao",
+        "questions": [ "Can I check in early, around 10 am on 1 December?",
+                       "Do you offer an airport pickup, and what does it cost?" ],
+        "facts": [ "The booking is under Asha Rao, 1 to 3 December, one room." ],
+        "max_minutes": 5 } }'
+```
+
+| Input | |
+| --- | --- |
+| `business` | `name` and `city`; optional `phone`, which must be the number Google Maps lists for it |
+| `on_behalf_of` | The traveller's name, said at the start of the call |
+| `questions` | 1 to 8 questions |
+| `facts` | Up to 10 things the business may need, like the booking name and dates |
+| `language` | Optional; otherwise the business's local language |
+| `max_minutes` | 2 to 10 (default 6) |
+
+A call takes a few minutes, so the job answers `202` and finishes later: wait for the `job.succeeded` webhook or read `GET /v1/jobs/{id}`. The result:
+
+```json
+{
+  "business": { "name": "Taj Malabar Resort & Spa, Cochin", "phone": "+91…" },
+  "status": "answered",
+  "outcome": "Spoke to the front desk; early check-in is possible from 10 am if a room is ready.",
+  "answers": [
+    { "question": "Can I check in early, around 10 am on 1 December?", "answer": "Yes, from 10 am if a room is ready." },
+    { "question": "Do you offer an airport pickup, and what does it cost?", "answer": null }
+  ],
+  "transcript": [ { "speaker": "agent", "text": "Hello, this is an assistant calling on behalf of Asha Rao…" } ],
+  "seconds": 153,
+  "charge": { "minutes": 3, "basis": "standard" }
+}
+```
+
+`status` is `answered`, `automated_menu`, `voicemail` or `no_answer`. Only an answered call is charged by the minute; the rest cost nothing, or the phone line's own cost when the line picked up. A call that couldn't be placed fails the job with nothing charged, and the same business isn't rung twice within 15 minutes.
+
+## The rules Mazer keeps
+
+- **Businesses only.** Mazer dials the number Google Maps lists for the business you name, and only when the name matches. It won't call a number you type unless it is that listing's number.
+- **Honest about what it is.** It opens as an assistant calling on your traveller's behalf, and if anyone asks whether it's an AI, it says yes straight away. It never pretends to be a person.
+- **Asks, never commits.** It doesn't book, change, cancel or agree to pay, and never reads out card details. If the business needs a payment, it says the traveller will follow up.
+- **Where it calls today:** India, the US and Canada, the UK, Singapore, Australia, Malaysia, Thailand and Indonesia.
+
+<Tip>A test key never dials: you get a sample call with a made-up transcript, so you can build against the result safely.</Tip>
