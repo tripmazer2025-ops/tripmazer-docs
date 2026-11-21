@@ -239,6 +239,9 @@
               "api/weather-plan-b",
               "api/airport-brief",
               "api/booking-documents",
+              "api/trip-story",
+              "api/audio-guide",
+              "api/check-on-me",
               "api/mcp",
               "api/webhooks",
               "api/errors"

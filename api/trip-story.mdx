@@ -1,0 +1,52 @@
+---
+title: "Trip story"
+description: "An itinerary, photos and the traveller's own words in; a written travel story, ready to post, out."
+icon: "book-open"
+---
+
+Trip story writes the trip up: a title, a short intro, one section per day with its photos placed, and a closing line. You get the parts to lay out yourself and the whole story as Markdown.
+
+```bash
+curl -X POST "$BASE/v1/jobs?wait=55" \
+  -H "Authorization: Bearer $TRIPMAZER_KEY" -H "Content-Type: application/json" \
+  -d '{ "kind": "trip_story", "input": {
+        "destination": "Colombo",
+        "days": [
+          { "day": 1, "title": "Fort and the seafront", "stops": ["Old Dutch Hospital", "Pettah Market", "Galle Face Green"] },
+          { "day": 2, "stops": [{ "name": "Gangaramaya Temple", "notes": "rain after lunch" }, "Barefoot Cafe"] } ],
+        "photos": [ { "url": "https://example.com/galle-face.jpg", "day": 1, "caption": "Sunset" } ],
+        "notes": [ "Kottu at midnight was the best thing I ate" ],
+        "length": "short" } }'
+```
+
+| Input | |
+| --- | --- |
+| `destination` | Where the trip was |
+| `days` | 1 to 30 days: `day`, optional `date` and `title`, and `stops` (names, or `{ name, time, notes }`) |
+| `photos` | Optional, up to 12: a public `https` `url`, and optional `caption` and `day` |
+| `notes` | Optional, up to 20: the traveller's own words; the story quotes or paraphrases them |
+| `voice` | `first_person` (default, the traveller telling it) or `third_person` with `traveller_name` |
+| `length` | `short`, `medium` (default) or `long` |
+| `language` | Optional; English by default |
+
+The result:
+
+```json
+{
+  "title": "Two Days in Colombo",
+  "intro": "…",
+  "days": [ { "day": 1, "heading": "Fort and Markets", "text": "…", "photos": [1] } ],
+  "closing": "…",
+  "markdown": "# Two Days in Colombo\n\n…",
+  "words": 193,
+  "photos": [ { "index": 1, "url": "https://…", "scene": "A wide coastal view of a grassy promenade by the sea." } ],
+  "language": "English"
+}
+```
+
+## What it keeps to
+
+- **Only what you sent.** Places, food and events come from the plan, the photos and the traveller's notes. It never invents a place, a meal, a person or an incident, and a thin day gets a short section rather than filler.
+- **People.** It names someone only when the notes name them, and never describes anyone's looks; photo descriptions are of the setting.
+
+<Tip>A test key returns a sample story shaped like the real one.</Tip>

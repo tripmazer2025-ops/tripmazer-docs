@@ -1,0 +1,50 @@
+---
+title: "Audio guide"
+description: "A place or a trip in; narrated chapters as a private podcast feed and MP3 links out."
+icon: "headphones"
+---
+
+Audio guide narrates a trip, stop by stop, in its plan's order: a welcome, a chapter for each day or stop, and a goodbye. Facts come from Wikipedia and Google Places and are checked before the chapter is voiced. You get a private podcast feed, the whole guide as one MP3 with chapter marks, and each chapter on its own.
+
+```bash
+curl -X POST "$BASE/v1/jobs" \
+  -H "Authorization: Bearer $TRIPMAZER_KEY" -H "Content-Type: application/json" \
+  -d '{ "kind": "audio_guide", "input": {
+        "destination": "Fort Kochi, Kerala",
+        "stops": ["Chinese fishing nets", "St. Francis Church", "Santa Cruz Cathedral Basilica"],
+        "traveller_name": "Asha Rao",
+        "interests": ["history"] } }'
+```
+
+| Input | |
+| --- | --- |
+| `destination` | The place, with its region or country for clarity |
+| `stops` | One place: up to 12 stops in it, in order |
+| `days` | A trip, instead of `stops`: 1 to 14 days, each with `stops` (names, or `{ name, time, category, lat, lng }`) and optional `date` and `title` |
+| `title` | Optional; the guide's name |
+| `language` | Optional: `en` (default), `hi`, `es`, `fr`, `de`, `it`, `pt`, `nl`, `ar`, `ja`, `ko`, `id`, `ta`, `te`, `bn`, `th`, `ru` or `tr`, or the language's name |
+| `traveller_name` | Optional; the guide welcomes them by first name |
+| `interests` | Optional, up to 8, like `food` or `history`; they steer which stories are told |
+
+Send no `stops` or `days` and the guide covers the destination itself. Dates you give are spoken; without them the guide just follows your order.
+
+A guide takes a few minutes to write and voice, so the job answers `202` and finishes later: wait for the `job.succeeded` webhook or read `GET /v1/jobs/{id}`. The result:
+
+```json
+{
+  "title": "Fort Kochi audio guide",
+  "language": "en",
+  "seconds": 412,
+  "feed_url": "https://…/audio-guide-feed/<token>.xml",
+  "episode_url": "https://…/audio-guide-feed/<token>/<guide>.mp3",
+  "chapters": [
+    { "index": 1, "kind": "intro", "title": "Welcome to Fort Kochi", "day": null, "seconds": 71, "audio_url": "https://…/0.mp3" }
+  ]
+}
+```
+
+The links don't expire: each one hands out a fresh signed audio link when it's opened. The feed works in Apple Podcasts, Pocket Casts and Overcast (Spotify doesn't take private feeds), and is kept out of podcast directories. Anyone with the link can listen, so share it only with your traveller.
+
+A guide that can't be made fails the job, and nothing is charged.
+
+<Tip>A test key returns a sample result with placeholder links; nothing is voiced.</Tip>

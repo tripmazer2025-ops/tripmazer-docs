@@ -11,6 +11,7 @@ Add a webhook in the console under **Webhooks**: an `https://` URL on a public d
 | `job.succeeded` | A job finished. `data` holds the job, its result and the charge |
 | `job.failed` | A job couldn't finish. `data.error` says why; nothing was charged |
 | `wallet.low` | A charge left your credit under its low line. Sent once until you add credit |
+| `checkin.due`, `checkin.alert`, `checkin.fine`, `checkin.all_clear` | A check-in came due, went unanswered, or was answered. See [Check on me](/api/check-on-me#what-happens) |
 | `trip.watching`, `flight.delayed`, `flight.gate_changed`, `flight.cancelled`, `flight.diverted`, `flight.departed`, `flight.landed`, `trip.options`, `trip.completed` | A watched trip changed. See [Watch a trip](/api/watch-a-trip#events) |
 
 ```json

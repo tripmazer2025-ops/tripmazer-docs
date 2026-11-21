@@ -1,0 +1,65 @@
+---
+title: "Check on me"
+description: "A traveller's safety timer: when it's due they're asked if they're OK; with no answer, their contacts are told."
+icon: "shield-heart"
+---
+
+Check on me is a safety timer for a traveller heading somewhere alone: a late walk back, a hike, a first night in a new city. When it's due, the traveller is asked whether they're OK. If they don't answer in time, their contacts are told, with the place if one was shared. When the traveller answers after that, the contacts hear they're OK.
+
+```bash
+curl -X POST "$BASE/v1/checkins" \
+  -H "Authorization: Bearer $TRIPMAZER_KEY" -H "Content-Type: application/json" \
+  -d '{ "traveller": { "name": "Asha Rao" },
+        "contacts": [ { "name": "Meera" }, { "name": "Arjun" } ],
+        "minutes": 90,
+        "timezone": "Asia/Kolkata",
+        "location": { "lat": 9.965, "lng": 76.242, "label": "Fort Kochi beach" } }'
+```
+
+`POST /v1/checkins` is the same as `POST /v1/jobs` with kind `check_on_me`.
+
+| Input | |
+| --- | --- |
+| `traveller` | `name` |
+| `contacts` | 1 to 5 people, each with a `name` |
+| `minutes` | 15 to 1440: when it's due, from now. Or `due_at`, an ISO time with its offset |
+| `answer_minutes` | Optional, 5 to 60 (default 10): how long the traveller has to answer |
+| `timezone` | Optional IANA name, for the times in messages; UTC otherwise |
+| `location` | Optional `{ lat, lng, label }`: the place contacts are sent if there's no answer |
+| `note` | Optional, like "walking back to the homestay"; contacts see it with the alert |
+| `reference` | Optional; your own id |
+
+## Everyone opts in themselves
+
+Mazer messages people only on a chat they opened with us themselves; that's WhatsApp's rule for our number, and a Telegram bot can't write to anyone first. So the check-in comes back with a Telegram link and a WhatsApp link for the traveller and for each contact. Send each person their own links, in your app or however you reach them. Someone who never links isn't messaged; you still get the webhooks, so you can reach them your own way.
+
+```json
+{
+  "object": "checkin",
+  "id": "chk_ee24b271a81642c49a6c539c776695ac",
+  "status": "armed",
+  "due_at": "2026-12-12T13:00:00Z",
+  "answer_minutes": 10,
+  "traveller": { "name": "Asha Rao", "linked": false, "channels": [],
+    "links": { "telegram_url": "https://t.me/TripMazerBot?start=chk_…", "telegram_app_url": "tg://resolve?…", "telegram_command": "/start chk_…", "whatsapp_url": "https://wa.me/…?text=CHECK%20…" } },
+  "contacts": [ { "name": "Meera", "linked": false, "channels": [], "alerted_at": null, "links": { … } } ]
+}
+```
+
+`telegram_app_url` opens the Telegram app directly, which helps where `t.me` is blocked; `telegram_command` is what to type to the bot if no link opens. Messages come from TripMazer's bot and number, under your account's name. A contact can reply STOP at any time.
+
+## What happens
+
+| Status | |
+| --- | --- |
+| `armed` | Waiting for the due time |
+| `prompted` | Due: the traveller was asked "are you OK?" and can reply FINE. You get `checkin.due` |
+| `alerted` | No answer in time: the linked contacts were told. You get `checkin.alert` |
+| `fine` | The traveller answered. You get `checkin.fine`, or `checkin.all_clear` after an alert, when the contacts who were told also hear they're OK |
+| `cancelled` | You cancelled it before it was answered |
+
+If your app asks the traveller itself, report the answer: `POST /v1/checkins/{id}/fine`. Cancel with `POST /v1/checkins/{id}/cancel`. Read one with `GET /v1/checkins/{id}`, or list them with `GET /v1/checkins`.
+
+<Warning>Check on me is a convenience, not an emergency service. If someone may be in danger, contact local emergency services.</Warning>
+
+<Tip>A test key makes a real check-in in test mode, free: the links work and the timer runs, and every message says it's a test check-in.</Tip>
