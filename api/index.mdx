@@ -1,0 +1,42 @@
+---
+title: "Mazer API"
+description: "Finished travel jobs for your app or AI agent: send one request, Mazer does the work on our side and reports back. You pay per finished job."
+icon: "code"
+---
+
+The Mazer API gives your app the travel work search APIs can't do. Each **job** runs on our side, from watching a travel video to placing a call, and reports back with what it found and what it cost.
+
+## Jobs
+
+| Job | What it does | Status |
+| --- | --- | --- |
+| **Reel to Trip** | Every place in an Instagram reel, TikTok or YouTube video, checked on the map | Live |
+| **Watch a trip** | Delays, gates and cancellations until landing, with the way out already found | Next |
+| **Call a business** | Mazer phones a hotel or airline in the local language and returns the answers | Next |
+| **Web errand** | A task on a real website, finished with sources and screenshots | Next |
+| **Route** | The fastest, cheapest and overnight ways across flights, trains and buses in India | Next |
+| **Price watch** | A webhook the moment a fare falls below your line | Next |
+
+Jobs marked **Next** are planned and not callable yet. See [Coming next](/api/coming-next).
+
+## How a job runs
+
+1. **Sent:** you POST the job with your API key.
+2. **Working:** Mazer does the work on our side. Your app waits on nothing.
+3. **Finished:** the result arrives by [webhook](/api/webhooks), or you read it with `GET /v1/jobs/{id}`.
+4. **Charged:** only now, and only for a finished job. A job that fails costs nothing.
+
+## Base URL
+
+```text
+https://wiunqzjefneakwtlbgpp.supabase.co/functions/v1/agent-api
+```
+
+## Get started
+
+<CardGroup cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/api/quickstart">Your first request in two minutes, with a free test key.</Card>
+  <Card title="Reel to Trip" icon="film" href="/api/reel-to-trip">The live job: input, output and errors.</Card>
+  <Card title="Webhooks" icon="webhook" href="/api/webhooks">Signed events when a job finishes or fails.</Card>
+  <Card title="Credit" icon="wallet" href="/api/credit">Pay as you go from prepaid credit.</Card>
+</CardGroup>

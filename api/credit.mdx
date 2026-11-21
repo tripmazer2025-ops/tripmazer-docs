@@ -1,0 +1,25 @@
+---
+title: "Credit"
+description: "Pay as you go from prepaid credit: holds, charges, top-ups and the low-credit warning."
+icon: "wallet"
+---
+
+The Mazer API is pay as you go. There's no subscription or minimum: you add credit, and each finished live job is taken from it. `GET /v1/prices` and the console's **Jobs** page show each job's price in your currency.
+
+- **New accounts** start with free credit, once per person.
+- **Test keys** never use credit.
+- **A live job** holds its price when it starts and is charged when it finishes. A job that fails releases the hold and costs nothing.
+- **At zero**, new live jobs answer `402 insufficient_balance`. Test keys keep working.
+- **Credit lasts 12 months** from when it was added.
+
+## Adding credit
+
+In the console, open **Credit & billing → Add credit**. Rupee accounts pay by UPI, card or netbanking; each top-up includes GST and gets a tax invoice by email. Dollar top-ups are coming.
+
+## Low credit
+
+When a charge leaves your available credit under its low line, the account's owners and admins get an email and your webhooks get one `wallet.low` event. It won't repeat until you add credit.
+
+## Movements
+
+**Credit & billing** lists every movement: free credit, top-ups, charges with the job each paid for, and refunds. `GET /v1/wallet` returns the same.

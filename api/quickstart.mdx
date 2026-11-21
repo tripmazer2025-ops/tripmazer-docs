@@ -1,0 +1,32 @@
+---
+title: "Quickstart"
+description: "Make a free test key, send a reel, and read back its places."
+icon: "rocket"
+---
+
+<Steps>
+  <Step title="Create your developer account">
+    Open the [developer console](https://tripmazer.com/developers/console) and sign in with your TripMazer account. Name your account and choose dollars or rupees. New accounts start with free credit.
+  </Step>
+  <Step title="Make a test key">
+    In **API keys**, make a **Test** key and copy it. You see the full key once. Test keys return sample results and never use credit.
+  </Step>
+  <Step title="Send a reel">
+    ```bash
+    BASE=https://wiunqzjefneakwtlbgpp.supabase.co/functions/v1/agent-api
+    curl -X POST "$BASE/v1/reels?wait=30" \
+      -H "Authorization: Bearer tm_test_…" \
+      -H "Content-Type: application/json" \
+      -H "Idempotency-Key: my-first-reel" \
+      -d '{"url":"https://www.instagram.com/reel/DcgPweuuYEM/"}'
+    ```
+    With a test key the job finishes at once and returns sample places.
+  </Step>
+  <Step title="Go live">
+    Make a **Live** key and send a real reel. Live jobs watch the video and are charged when the places come back. You can also try both modes in the console's **Playground** without a key.
+  </Step>
+</Steps>
+
+## Read the result
+
+`?wait=1` to `?wait=60` holds the response until the job finishes, up to that many seconds. Without it you get `202` and the job's id at once; read it later with `GET /v1/jobs/{id}` or add a [webhook](/api/webhooks).

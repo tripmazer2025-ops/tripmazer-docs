@@ -216,6 +216,40 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "API",
+        "groups": [
+          {
+            "group": "Mazer API",
+            "pages": [
+              "api/index",
+              "api/quickstart",
+              "api/authentication"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "api/jobs",
+              "api/reel-to-trip",
+              "api/webhooks",
+              "api/errors"
+            ]
+          },
+          {
+            "group": "Billing",
+            "pages": [
+              "api/credit"
+            ]
+          },
+          {
+            "group": "Roadmap",
+            "pages": [
+              "api/coming-next"
+            ]
+          }
+        ]
       }
     ]
   },

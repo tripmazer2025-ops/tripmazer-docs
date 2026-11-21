@@ -1,0 +1,25 @@
+---
+title: "Keys and modes"
+description: "Test and live API keys, how to send them, and how to revoke one."
+icon: "key"
+---
+
+Every request carries a key in the `Authorization` header:
+
+```text
+Authorization: Bearer tm_test_…
+```
+
+`X-Api-Key: tm_test_…` works too.
+
+| Key | Starts with | What it does |
+| --- | --- | --- |
+| **Test** | `tm_test_` | Runs every job at once with sample results. Never uses credit |
+| **Live** | `tm_live_` | Runs the real job and charges your credit when it finishes |
+
+- Make and revoke keys in the console under **API keys**. A key is shown once, when you make it; we keep only a hash.
+- Only owners and admins of the account can make or revoke keys.
+- A revoked key stops working at once and answers `401 unauthorized`.
+- Each key may send up to 120 requests a minute.
+
+The **Test** and **Live** switch at the top of the console shows that mode's runs and request log. Credit is always the live balance.

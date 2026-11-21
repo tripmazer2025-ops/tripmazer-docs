@@ -1,0 +1,51 @@
+---
+title: "Webhooks"
+description: "Signed events when a job finishes or fails, and when credit runs low."
+icon: "webhook"
+---
+
+Add a webhook in the console under **Webhooks**: an `https://` URL on a public domain and the events you want. You see its signing secret once.
+
+| Event | When |
+| --- | --- |
+| `job.succeeded` | A job finished. `data` holds the job, its result and the charge |
+| `job.failed` | A job couldn't finish. `data.error` says why; nothing was charged |
+| `wallet.low` | A charge left your credit under its low line. Sent once until you add credit |
+
+```json
+{
+  "event": "job.succeeded",
+  "org_id": "…",
+  "occurred_at": "2026-11-21T12:41:08Z",
+  "data": { "id": "job_…", "kind": "reel_to_trip", "mode": "test", "status": "succeeded", "result": { … }, "charged": 0, "currency": null }
+}
+```
+
+## Verify the signature
+
+Each request carries `X-TripMazer-Signature: t=<unix seconds>,v1=<hex>`. `v1` is the HMAC-SHA256 of `<t>.<raw body>` with your signing secret.
+
+<CodeGroup>
+```js Node
+import crypto from "node:crypto";
+
+function verify(rawBody, header, secret) {
+  const { t, v1 } = Object.fromEntries(header.split(",").map((p) => p.split("=")));
+  const expected = crypto.createHmac("sha256", secret).update(`${t}.${rawBody}`).digest("hex");
+  const fresh = Math.abs(Date.now() / 1000 - Number(t)) < 300;
+  return fresh && crypto.timingSafeEqual(Buffer.from(v1), Buffer.from(expected));
+}
+```
+
+```python Python
+import hashlib, hmac, time
+
+def verify(raw_body: bytes, header: str, secret: str) -> bool:
+    parts = dict(p.split("=", 1) for p in header.split(","))
+    expected = hmac.new(secret.encode(), f"{parts['t']}.".encode() + raw_body, hashlib.sha256).hexdigest()
+    fresh = abs(time.time() - int(parts["t"])) < 300
+    return fresh and hmac.compare_digest(parts["v1"], expected)
+```
+</CodeGroup>
+
+Answer with any `2xx` within 10 seconds. Anything else is retried up to seven times over about a day (after 1 minute, 5 minutes, 30 minutes, then 2, 6 and 12 hours); the console's **Webhooks** page lists recent deliveries and their responses. Redirects aren't followed.

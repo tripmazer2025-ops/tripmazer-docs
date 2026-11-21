@@ -1,0 +1,53 @@
+---
+title: "Jobs"
+description: "Start a job, wait for it or come back later, and read the job object."
+icon: "list-check"
+---
+
+## Endpoints
+
+| Endpoint | What it does |
+| --- | --- |
+| `POST /v1/jobs` | Starts a job: `{ "kind": "reel_to_trip", "input": { … } }` |
+| `POST /v1/reels` | Shorthand for Reel to Trip: `{ "url": "…" }` |
+| `GET /v1/jobs/{id}` | One job |
+| `GET /v1/jobs` | Your latest jobs in the key's mode, `?limit=1` to `100` |
+| `GET /v1/prices` | Each job's price in your account's currency |
+| `GET /v1/wallet` | Balance, held and available credit, and recent movements |
+| `GET /v1/me` | Your account, the key's mode and the wallet |
+
+## Waiting
+
+A new job answers `202` with `status: "queued"`. Add `?wait=` with up to 60 seconds to hold the response until it finishes; if it's still running then, you get `202` and can poll or wait for the webhook.
+
+## Safe retries
+
+Send an `Idempotency-Key` header with any value up to 255 characters. Repeating the same request with the same key returns the first job instead of starting another. The same key with a different request answers `409 idempotency_key_reused`.
+
+## The job object
+
+```json
+{
+  "id": "job_a5a6eb3ae00f4c34ad8a655c82424276",
+  "object": "job",
+  "kind": "reel_to_trip",
+  "mode": "live",
+  "status": "succeeded",
+  "input": { "url": "https://www.instagram.com/reel/DcgPweuuYEM/" },
+  "result": { "destination": "Colombo", "places": [ … ] },
+  "error": null,
+  "price": { "currency": "USD", "amount": "…", "micros": … },
+  "charged": { "currency": "USD", "amount": "…", "micros": … },
+  "created_at": "2026-11-21T10:23:39.652Z",
+  "finished_at": "2026-11-21T10:23:42.159Z"
+}
+```
+
+| Status | Meaning |
+| --- | --- |
+| `queued` | Waiting to start |
+| `running` | Working on our side |
+| `succeeded` | Finished; `result` is set and the price was charged |
+| `failed` | Couldn't finish; `error` says why and nothing was charged |
+
+A job whose upstream is briefly unavailable is retried once before it fails.

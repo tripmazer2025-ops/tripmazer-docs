@@ -1,0 +1,41 @@
+---
+title: "Reel to Trip"
+description: "Send a travel video link; get back every place in it, checked on the map."
+icon: "film"
+---
+
+Reel to Trip watches a travel video: the picture, what's said, the caption and on-screen text. It returns every place it names, each checked against Google Places.
+
+## Request
+
+```bash
+curl -X POST "$BASE/v1/reels?wait=30" \
+  -H "Authorization: Bearer tm_live_…" \
+  -H "Content-Type: application/json" \
+  -d '{"url":"https://www.instagram.com/reel/DcgPweuuYEM/"}'
+```
+
+`url` is an `https://` link to an Instagram reel, a TikTok or a YouTube video.
+
+## Result
+
+| Field | What it holds |
+| --- | --- |
+| `status` | `ready` when places were found, `none` when the video has no places to put on a map |
+| `destination` | The place the video is about, such as `Colombo` |
+| `places[]` | `name`, `what` (one line from the video), `city`, `kind`, `place_id` (Google), `address`, `lat`, `lng` and `evidence` (how the video names it, with the moment) |
+| `unconfirmed[]` | Names the video mentions that couldn't be found on the map |
+| `prices_quoted[]` | Prices said or shown in the video. They are what the video quoted, never current prices |
+| `video` | The link, the platform, and the title and thumbnail when the platform gives them |
+
+A video read before comes back in seconds. A new one takes longer while Mazer watches it.
+
+## Errors
+
+| Code | Meaning |
+| --- | --- |
+| `400 unsupported_url` | Not a YouTube, TikTok or Instagram video link |
+| `not_read` (job failed) | The video couldn't be watched: private, deleted or very long |
+| `upstream_error` (job failed) | The video couldn't be read just then. Try again later |
+
+A failed job is never charged.

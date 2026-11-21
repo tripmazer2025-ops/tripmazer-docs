@@ -1,0 +1,26 @@
+---
+title: "Errors"
+description: "Error codes the Mazer API returns."
+icon: "triangle-exclamation"
+---
+
+Errors come back as JSON with a code you can switch on and a sentence you can show:
+
+```json
+{ "error": { "code": "insufficient_balance", "message": "Top up your wallet to run this job." } }
+```
+
+| Status and code | Meaning |
+| --- | --- |
+| `400 invalid_json` | The body isn't a JSON object |
+| `400 unknown_kind` | No job by that kind. `GET /v1/prices` lists them |
+| `400 invalid_input` | The job's input is missing or malformed |
+| `400 unsupported_url` | Reel to Trip: not a YouTube, TikTok or Instagram video link |
+| `401 unauthorized` | Missing, unknown or revoked key |
+| `402 insufficient_balance` | Not enough credit for a live job |
+| `402 daily_cap_reached` | The key reached its daily spend cap |
+| `404 not_found` | No such job or endpoint |
+| `409 idempotency_key_reused` | The same Idempotency-Key was sent with a different request |
+| `413 too_large` | The body is over 64 KB |
+| `429 rate_limited` | More than 120 requests a minute on one key |
+| `500 internal` | Something went wrong on our side. Retry with the same Idempotency-Key |
