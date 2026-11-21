@@ -20,6 +20,12 @@ In the console, open **Credit & billing → Add credit**. Rupee accounts pay by 
 
 When a charge leaves your available credit under its low line, the account's owners and admins get an email and your webhooks get one `wallet.low` event. It won't repeat until you add credit.
 
+To move the line or turn the warning off, open **Settings → Low-credit warning** in the console.
+
+## Daily spend caps
+
+In **Settings → Daily spend caps**, give any live key a most it may spend in a day (UTC). Once a key reaches its cap, new jobs from it get `402 daily_cap_reached` until midnight UTC; jobs already running finish. Test keys never spend, so they have no cap.
+
 ## Movements
 
 **Credit & billing** lists every movement: free credit, top-ups, charges with the job each paid for, and refunds. `GET /v1/wallet` returns the same.
