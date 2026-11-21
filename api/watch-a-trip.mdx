@@ -45,6 +45,7 @@ The job's `result` is the trip:
   "status": "watching",
   "reference": "booking-881",
   "page_url": "https://tripmazer.com/trip-status/SGq-HTHnvMQljP6AMsSqe4Bt",
+  "updates_in_chat": { "whatsapp_url": "https://wa.me/…?text=TRIP%20236F9F05", "telegram_url": "https://t.me/TripMazerBot?start=trip_236F9F05", "whatsapp": false, "telegram": false },
   "flights": [{
     "number": "EK501", "airline": "Emirates", "date": "2026-11-22", "status": "scheduled", "delay_minutes": 0,
     "from": { "iata": "BOM", "city": "Mumbai", "terminal": "2", "gate": null, "utc_offset": "+05:30" },
@@ -76,6 +77,17 @@ Each change is stored on the trip and sent to your [webhooks](/api/webhooks):
 | `trip.completed` | Every flight has landed, or the watch ended |
 
 Each webhook carries `trip_id`, your `reference`, `flight` (the flight now) and `data`.
+
+## Updates in a chat
+
+Besides email, travellers can get the same updates on **WhatsApp** or **Telegram**. Only the traveller can turn this on: messaging apps don't let anyone be messaged first. Each trip carries two links in `updates_in_chat`, also shown on the trip page and in the first email:
+
+| Link | What the traveller does |
+| --- | --- |
+| `whatsapp_url` | Opens WhatsApp with a short message ("TRIP 236F9F05") to send to TripMazer's number |
+| `telegram_url` | Opens TripMazer's Telegram bot; they tap **Start** |
+
+Updates arrive under your account's name, with a link to the trip page. Replying **STOP** turns them off. `updates_in_chat.whatsapp` and `.telegram` say whether a chat is linked.
 
 ## Read, test and stop
 
