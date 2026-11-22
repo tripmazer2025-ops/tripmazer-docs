@@ -1,0 +1,81 @@
+---
+title: "Moving from Amadeus Self-Service"
+description: "What the Mazer API covers of the Amadeus Self-Service APIs, what it doesn't, and how to move."
+icon: "right-left"
+---
+
+Amadeus closed its Self-Service developer portal on 17 July 2026 and archived its Self-Service code libraries; its Enterprise APIs continue under contract. This page says plainly which of those calls the Mazer API can take over.
+
+The two are different kinds of API. Amadeus Self-Service answered searches: send a query, get offers or facts back. The Mazer API runs **finished jobs**: send the task, get the result or a stream of events. It doesn't search, price or book flights or hotels. Most teams pair it with a booking API and use it for everything that happens around the booking.
+
+## What we cover
+
+| You used | Use instead | What changes |
+| --- | --- | --- |
+| On Demand Flight Status | [Watch a trip](/api/watch-a-trip) | You send the flight once. Gates, delays, cancellations, take-off, landing and the belt arrive as [webhooks](/api/webhooks), so there's nothing to poll |
+| Flight Delay Prediction | [Watch a trip](/api/watch-a-trip), in part | Delays as they're reported, and other ways there once a delay is long. No prediction before the day |
+| Flight Order Management, for showing a booking | [Booking documents](/api/booking-documents) | An e-ticket PDF under your name and a Google Wallet pass, from a booking made with any supplier |
+| Hotel Booking, for the confirmation | [Booking documents](/api/booking-documents) | A hotel voucher PDF under your name |
+| Points of Interest, Tours and Activities, as content | [Audio guide](/api/audio-guide), [Reel to Trip](/api/reel-to-trip) | A narrated guide to a place, or every place in a travel video with coordinates. Not a catalogue you can query |
+| Travel Recommendations, for a wet day | [Weather Plan B](/api/weather-plan-b) | A day's plan and the forecast in; indoor places in for the stops rain would spoil |
+
+## What has no Amadeus equivalent
+
+[Call a business](/api/call-a-business), [Trip reel](/api/trip-reel), [Trip story](/api/trip-story), [Airport brief](/api/airport-brief), [Check on me](/api/check-on-me) and [Route (India)](/api/route-india).
+
+## What we don't cover
+
+| You used | Look for |
+| --- | --- |
+| Flight Offers Search, Price, Create Orders, SeatMap Display, Availabilities, Branded Fares | A flight booking API, such as Duffel, or Amadeus Enterprise |
+| Flight Inspiration Search, Cheapest Date Search, Flight Price Analysis | A fare data API |
+| Hotel List, Hotel Search, Hotel Booking | A hotel API, such as LiteAPI |
+| Hotel Ratings, Location Score | A reviews or location data API |
+| Transfer Search, Booking and Management | A transfers API |
+| Tours and Activities, to sell | A tours API, such as Viator |
+| Airport and City Search, Nearest Airport, Airline Code Lookup, Check-in Links, Airport Routes | An open airport and airline dataset |
+| Most Booked, Most Traveled, Busiest Period, On-Time Performance, Trip Purpose and Flight Choice predictions | Amadeus Enterprise, or an airline data provider |
+
+## Move a flight status check
+
+Before, you polled a flight and compared the answers yourself:
+
+```js
+await amadeus.schedule.flights.get({
+  carrierCode: "SQ", flightNumber: "128", scheduledDepartureDate: "2026-11-22",
+});
+```
+
+Now you open a watch once, and add a webhook for the events you want:
+
+```bash
+curl -X POST "$BASE/v1/trips" \
+  -H "Authorization: Bearer tm_test_…" \
+  -H "Content-Type: application/json" \
+  -H "Idempotency-Key: booking-7KQ4MZ" \
+  -d '{ "flights": [{ "number": "SQ 128", "date": "2026-11-22" }], "reference": "booking-7KQ4MZ" }'
+```
+
+You can also send the airline's confirmation email or PDF instead of flight numbers, so a booking made anywhere can be watched.
+
+## What's different to build against
+
+| | Amadeus Self-Service | Mazer API |
+| --- | --- | --- |
+| **Sign-in** | A client id and secret exchanged for a token | One key in the `Authorization` header |
+| **Test data** | A test host with cached data | A test key on the same address, with sample results and simulated trips |
+| **Results** | In the response | In the response, or by [signed webhook](/api/webhooks) when the job takes longer |
+| **Retries** | Your own checks | An `Idempotency-Key` makes any retry safe |
+| **Charging** | Per call over a monthly free quota | Per finished job from prepaid [credit](/api/credit). A failed job costs nothing |
+| **Description** | One OpenAPI file per API | One, at `GET /v1/openapi.json` |
+
+## Move in an afternoon
+
+<Steps>
+  <Step title="List the calls you make">Mark each with the tables above: covered, pair with a booking API, or no longer needed.</Step>
+  <Step title="Make a test key">Follow the [Quickstart](/api/quickstart). Test keys are free and need no card.</Step>
+  <Step title="Open a simulated trip">With a test key, a watch plays out a gate change, a delay, take-off and landing over a few minutes. Point your [webhook](/api/webhooks) at it.</Step>
+  <Step title="Switch to a live key">Nothing else changes. Set a daily limit on the key while you watch the first trips.</Step>
+</Steps>
+
+Amadeus, Duffel, LiteAPI and Viator are named so you can find your way; they aren't connected to TripMazer's API. If a call you relied on is missing here, [tell us](https://tripmazer.com/contact).

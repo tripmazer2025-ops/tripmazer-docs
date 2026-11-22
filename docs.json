@@ -225,7 +225,7 @@
             "pages": [
               "api/index",
               "api/quickstart",
-              "api/authentication"
+              "api/authentication", "api/moving-from-amadeus"
             ]
           },
           {
