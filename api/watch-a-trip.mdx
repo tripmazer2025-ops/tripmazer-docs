@@ -72,7 +72,7 @@ Each change is stored on the trip and sent to your [webhooks](/api/webhooks):
 | `flight.cancelled` | Cancelled; `trip.options` follows |
 | `flight.diverted` | Diverted; `trip.options` follows |
 | `flight.departed` | Took off, with `actual_departure` when the flight data has it. If the data never shows the departure, it comes just before `flight.landed` with `inferred: true` |
-| `flight.landed` | Landed, with `actual_arrival` when the flight data has it |
+| `flight.landed` | Landed, with `actual_arrival` when the flight data has it. Airports can be slow to report a landing: 30 minutes after a flight's own arrival time, if the rest of its record agrees, it comes with `inferred: true`, `actual_arrival: null` and `estimated_arrival` (usually within a few minutes) |
 | `trip.options` | Other ways there: `data.flights` and `data.ground` |
 | `trip.completed` | Every flight has landed, or the watch ended |
 
