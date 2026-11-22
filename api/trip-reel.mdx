@@ -36,6 +36,8 @@ A reel takes a few minutes with photos and longer with clips, so use a [webhook]
 
 Each file is a public `https` link, or an object with the `url` and any of `day` (the trip day), `place`, `caption`, `lat` and `lng`, and `taken_at`. Send `day` or `taken_at` for every file to tell the trip in order; without them, the files are used in the order you list them. The route map needs `lat` and `lng`, or a clip that carries its own GPS.
 
+You need the right to use what's in your files, like music playing in a clip.
+
 A file we can't open, or that looks like a document or screenshot, is left out and listed in `skipped` with the reason. Adult, violent or hateful content fails the whole job. A job that fails costs nothing.
 
 ## Options
@@ -45,13 +47,13 @@ A file we can't open, or that looks like a document or screenshot, is left out a
 | `destination` | Where the trip was |
 | `title` | Optional, up to 40 characters; Mazer writes one when it's left out |
 | `start_date`, `end_date` | Optional; for the trip's days on the closing card |
-| `seconds` | `15`, `30` (default) or `60`. With little footage the reel can run shorter |
+| `seconds` | `15`, `30` (default) or `60`. With little footage the reel can run shorter; kept speech can run it up to a tenth longer |
 | `aspect` | `9:16` (default), `1:1` or `16:9` |
 | `style` | The titles: `clean` (default), `bold` or `film` |
 | `look` | The colour: `natural` (default), `warm`, `cinematic`, `vivid` or `none` |
 | `map` | `false` leaves out the route map |
 | `brand` | Optional, up to 24 characters; your name on the closing card. There's no TripMazer mark |
-| `speech` | `true` keeps and captions what people say in the clips |
+| `speech` | `true` keeps and captions what people are seen saying in the clips. Sung words are captioned too |
 | `request` | Optional editing direction, like "slow and calm; end on the beach" |
 | `language` | The song's language: `en` (default), `hi`, `es`, `fr`, `de`, `ja`, `ko`, `pt` or `ar` |
 
