@@ -240,6 +240,7 @@
               "api/airport-brief",
               "api/booking-documents",
               "api/trip-story",
+              "api/trip-reel",
               "api/audio-guide",
               "api/check-on-me",
               "api/mcp",

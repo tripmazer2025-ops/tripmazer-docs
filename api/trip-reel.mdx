@@ -1,0 +1,97 @@
+---
+title: "Trip reel"
+description: "A trip's photos and clips in; a finished video with its own music, titles and a route map out."
+icon: "film"
+---
+
+Trip reel makes a short travel video, ready to post. Mazer picks the best moments, cuts them to music made for the trip, names the places, draws the route and closes with your name.
+
+<Frame caption="Made by the API from seven photos">
+  <video controls playsInline preload="none" poster="/samples/trip-reel.jpg" src="/samples/trip-reel.mp4" style={{ maxHeight: 480 }}></video>
+</Frame>
+
+```bash
+curl -X POST "$BASE/v1/jobs" \
+  -H "Authorization: Bearer $TRIPMAZER_KEY" -H "Content-Type: application/json" \
+  -d '{ "kind": "trip_reel", "input": {
+        "destination": "Bali, Indonesia",
+        "start_date": "2026-05-01", "end_date": "2026-05-06",
+        "photos": [
+          { "url": "https://example.com/tanah-lot.jpg", "day": 1, "place": "Tanah Lot", "lat": -8.6212, "lng": 115.0868 },
+          { "url": "https://example.com/uluwatu.jpg", "day": 2, "place": "Uluwatu" } ],
+        "clips": [ { "url": "https://example.com/surf.mov", "day": 2, "place": "Uluwatu" } ],
+        "seconds": 30,
+        "music": { "type": "song", "style": "acoustic" },
+        "brand": "Wayfarer Tours" } }'
+```
+
+A reel takes a few minutes with photos and longer with clips, so use a [webhook](/api/webhooks) or check the job.
+
+## Files
+
+| Input | |
+| --- | --- |
+| `photos` | Up to 30. JPEG, PNG or WebP, 12 MB each. At least 5 when there are no clips |
+| `clips` | Up to 10. MP4, MOV or WebM, 300 MB each, 5 minutes of footage in all |
+
+Each file is a public `https` link, or an object with the `url` and any of `day` (the trip day), `place`, `caption`, `lat` and `lng`, and `taken_at`. Send `day` or `taken_at` for every file to tell the trip in order; without them, the files are used in the order you list them. The route map needs `lat` and `lng`, or a clip that carries its own GPS.
+
+A file we can't open, or that looks like a document or screenshot, is left out and listed in `skipped` with the reason. Adult, violent or hateful content fails the whole job. A job that fails costs nothing.
+
+## Options
+
+| Input | |
+| --- | --- |
+| `destination` | Where the trip was |
+| `title` | Optional, up to 40 characters; Mazer writes one when it's left out |
+| `start_date`, `end_date` | Optional; for the trip's days on the closing card |
+| `seconds` | `15`, `30` (default) or `60`. With little footage the reel can run shorter |
+| `aspect` | `9:16` (default), `1:1` or `16:9` |
+| `style` | The titles: `clean` (default), `bold` or `film` |
+| `look` | The colour: `natural` (default), `warm`, `cinematic`, `vivid` or `none` |
+| `map` | `false` leaves out the route map |
+| `brand` | Optional, up to 24 characters; your name on the closing card. There's no TripMazer mark |
+| `speech` | `true` keeps and captions what people say in the clips |
+| `request` | Optional editing direction, like "slow and calm; end on the beach" |
+| `language` | The song's language: `en` (default), `hi`, `es`, `fr`, `de`, `ja`, `ko`, `pt` or `ar` |
+
+## Music
+
+`music.type` is one of:
+
+| `type` | |
+| --- | --- |
+| `song` | The default: a song with words about this trip |
+| `instrumental` | Music with no voice |
+| `own` | Your own track: `url` (MP3, M4A or WAV, 20 MB) and `rights_confirmed: true` |
+| `none` | No music; the clips keep their own sound |
+
+`style` is `travel_pop`, `lofi`, `cinematic`, `west_coast`, `afrobeats`, `acoustic`, `tropical_house`, or your own words, like "gentle sitar and tabla".
+
+Songs and instrumentals are made with Google's Lyria 3.5. Every one carries Google's inaudible AI watermark, so a social app may label the post as made with AI. You're responsible for how you use it. A song whose words can't be sung becomes an instrumental, and `music.type` in the result says so.
+
+## The result
+
+```json
+{
+  "title": "Bali, Island of Joy",
+  "seconds": 29.9,
+  "aspect": "9:16",
+  "video_url": "https://…", "cover_url": "https://…",
+  "expires_at": "2026-11-29T12:11:02Z",
+  "music": { "type": "song", "title": "Where the Island Opens Wide", "style": "Acoustic folk pop, …", "made_with": "Google Lyria 3.5", "lyrics": "[Verse 1]…" },
+  "cuts": 10,
+  "used": { "photos": 10, "clips": 0 },
+  "skipped": [ { "kind": "photo", "index": 3, "reason": "unreachable", "message": "The link didn't answer, or answered with an error." } ]
+}
+```
+
+The video is HD (1080 pixels on the short side). Download it before `expires_at`, seven days on: it's deleted then.
+
+## Your files
+
+Photos, clips and music you send are deleted from our storage within a day of the reel finishing. We look at them only to choose shots and to refuse unsafe ones, and never describe or identify anyone.
+
+Two reels run at a time for an account; more wait their turn. A reel still not done after 75 minutes fails and costs nothing.
+
+<Tip>A test key returns a sample result at once, without making a video.</Tip>
