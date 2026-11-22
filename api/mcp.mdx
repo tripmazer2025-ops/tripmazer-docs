@@ -4,10 +4,18 @@ description: "Give an AI agent the Mazer jobs as tools: Claude, ChatGPT, Cursor 
 icon: "robot"
 ---
 
-The Mazer MCP server offers the live jobs as tools. It speaks MCP over streamable HTTP and uses your API key, so test and live mode, credit, limits and the request log work exactly as they do over REST.
+The Mazer MCP server offers the live jobs as tools, so an AI app can start them and read what comes back.
 
-**Server URL:** `https://wiunqzjefneakwtlbgpp.supabase.co/functions/v1/mazer-mcp`
-**Auth:** `Authorization: Bearer tm_test_…` (or a live key)
+**Server URL:** `https://mcp.tripmazer.com/mcp`
+
+There are two ways in:
+
+| | How | Use it for |
+| --- | --- | --- |
+| **Sign in** | The app opens TripMazer, you choose the account, test or live, and the most it can spend a day | Claude, Claude Code and other apps that sign in |
+| **API key** | `Authorization: Bearer tm_test_…` (or a live key) | Your own agents and servers |
+
+Either way, test and live mode, credit, limits and the request log work exactly as they do over REST. The server speaks MCP over streamable HTTP and OAuth 2.1 with PKCE.
 
 ## Tools
 
@@ -34,28 +42,30 @@ More jobs join as they go live.
 ## Connect
 
 <Tabs>
+  <Tab title="Claude">
+    In Claude, open **Customize**, then **Connectors**, add a custom connector and paste `https://mcp.tripmazer.com/mcp`. Sign in to TripMazer when it asks.
+  </Tab>
   <Tab title="Claude Code">
 ```bash
-claude mcp add --transport http mazer https://wiunqzjefneakwtlbgpp.supabase.co/functions/v1/mazer-mcp \
-  --header "Authorization: Bearer $TRIPMAZER_KEY"
+claude mcp add --transport http mazer https://mcp.tripmazer.com/mcp
 ```
+    Then run `/mcp` and choose **Authenticate**. To use a key instead, add `--header "Authorization: Bearer $TRIPMAZER_KEY"`.
   </Tab>
   <Tab title="Cursor">
 ```json
-{
-  "mcpServers": {
-    "mazer": {
-      "url": "https://wiunqzjefneakwtlbgpp.supabase.co/functions/v1/mazer-mcp",
-      "headers": { "Authorization": "Bearer tm_test_…" }
-    }
-  }
-}
+{ "mcpServers": { "mazer": { "url": "https://mcp.tripmazer.com/mcp" } } }
 ```
+    Sign in when Cursor asks. To use a key instead, add `"headers": { "Authorization": "Bearer tm_test_…" }`.
   </Tab>
 </Tabs>
 
-Start with a test key: `watch_trip` then opens a simulated trip, and nothing is charged.
+## What you agree to
 
-<Note>
-Sign-in with OAuth, for clients that can't send a header, and listings in the AI directories come next.
-</Note>
+The page you sign in on says which app is asking and the address it answers to. Connect only an address you know.
+
+- **It can** run Mazer jobs on the account you choose, and see that account's jobs, trips and check-ins.
+- **It can't** see your keys, add credit or change settings.
+- **Test** returns samples and never charges. **Live** runs real jobs, up to the daily limit you set.
+- Only an owner or admin of the account can connect an app.
+
+Disconnect an app any time under **API keys**, **Connected apps** in the [console](https://tripmazer.com/developers/console/keys). It stops at once.
