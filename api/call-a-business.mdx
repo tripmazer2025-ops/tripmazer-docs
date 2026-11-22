@@ -15,7 +15,7 @@ curl -X POST "$BASE/v1/jobs" \
         "questions": [ "Can I check in early, around 10 am on 1 December?",
                        "Do you offer an airport pickup, and what does it cost?" ],
         "facts": [ "The booking is under Asha Rao, 1 to 3 December, one room." ],
-        "max_minutes": 5 } }'
+        "voice": "kore", "max_minutes": 5 } }'
 ```
 
 | Input | |
@@ -26,6 +26,7 @@ curl -X POST "$BASE/v1/jobs" \
 | `questions` | 1 to 8 questions |
 | `facts` | Up to 10 things the business may need, like the booking name and dates |
 | `language` | Optional; English by default |
+| `voice` | Optional; the voice that speaks. `kore` by default ([all voices](#voices)) |
 | `max_minutes` | 2 to 10 (default 6) |
 
 A call takes a few minutes, so the job answers `202` and finishes later: wait for the `job.succeeded` webhook or read `GET /v1/jobs/{id}`. The result:
@@ -54,6 +55,26 @@ A call takes a few minutes, so the job answers `202` and finishes later: wait fo
 - **Honest about what it is.** It opens as an assistant calling on your traveller's behalf, and if anyone asks whether it's an AI, it says yes straight away. It never pretends to be a person.
 - **Asks, never commits.** It doesn't book, change, cancel or agree to pay, and never reads out card details. If the business needs a payment, it says the traveller will follow up.
 - **Where it calls today:** India, the US and Canada, the UK, Singapore, Australia, Malaysia, Thailand and Indonesia.
+
+## Voices
+
+The same voices as the TripMazer app. The accent is used on calls in English; in any other language, the voice speaks without it.
+
+| `voice` | Accent |
+| --- | --- |
+| `kore` | Neutral English (default) |
+| `iapetus` | Indian English |
+| `algenib` | Manchester |
+| `leda` | Dublin Irish |
+| `aoede` | Sydney Australian |
+| `pulcherrima` | New Zealand |
+| `sadachbia` | New York |
+| `umbriel` | American Southern |
+| `algieba` | African American English |
+| `zubenelgenubi` | Egyptian English |
+| `autonoe` | Kenyan English |
+
+Any other name is refused with `invalid_input`, and no call is placed.
 
 ## Businesses Google Maps doesn't list
 
