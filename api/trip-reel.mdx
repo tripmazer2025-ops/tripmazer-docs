@@ -10,6 +10,30 @@ Trip reel makes a short travel video, ready to post. Mazer picks the best moment
   <video controls playsInline preload="none" poster="/samples/trip-reel.jpg" src="/samples/trip-reel.mp4" style={{ maxHeight: 480 }}></video>
 </Frame>
 
+## Step by step
+
+<Steps>
+  <Step title="Get a key">
+    Follow the [quickstart](/api/quickstart): create a developer account in the [console](https://tripmazer.com/developers/console), then make a **Test** key and a **Live** key under **API keys**.
+  </Step>
+  <Step title="Collect the photos and clips">
+    Ask your traveller for them in your own app, email or chat, and for their OK to make a video. Put the files where a public `https` link opens them, even one that expires after a few hours.
+  </Step>
+  <Step title="Send the job">
+    `POST /v1/jobs` with `kind: "trip_reel"` and the input below. Start with the test key: it's free and answers at once with a sample.
+  </Step>
+  <Step title="Wait for the video">
+    Add a [webhook](/api/webhooks) for `job.succeeded` and `job.failed`, or read `GET /v1/jobs/{id}` now and then. A reel takes a few minutes, and longer with clips. You're charged only when it finishes.
+  </Step>
+  <Step title="Show it to your traveller">
+    Download `video_url` to your own storage and send it from your app, email or chat. Our link stops working after seven days.
+  </Step>
+</Steps>
+
+You can also run it from the console's **Playground**, where you fill in the request and press a button, or from an AI agent with the [MCP server](/api/mcp) (`trip_reel`).
+
+## Example
+
 ```bash
 curl -X POST "$BASE/v1/jobs" \
   -H "Authorization: Bearer $TRIPMAZER_KEY" -H "Content-Type: application/json" \

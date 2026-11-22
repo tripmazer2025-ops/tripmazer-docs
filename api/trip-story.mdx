@@ -6,6 +6,30 @@ icon: "book-open"
 
 Trip story writes the trip up: a title, a short intro, one section per day with its photos placed, and a closing line. You get the parts to lay out yourself and the whole story as Markdown.
 
+## Step by step
+
+<Steps>
+  <Step title="Get a key">
+    Follow the [quickstart](/api/quickstart): create a developer account in the [console](https://tripmazer.com/developers/console), then make a **Test** key and a **Live** key under **API keys**.
+  </Step>
+  <Step title="Gather the trip">
+    The days and places you already hold, up to 12 photo links, and anything the traveller told you. Ask for their OK to publish it.
+  </Step>
+  <Step title="Send the job">
+    `POST /v1/jobs` with `kind: "trip_story"` and the input below. Start with the test key: it's free and answers at once with a sample.
+  </Step>
+  <Step title="Read the story">
+    It takes seconds: add `?wait=55` to get it in the same response, or use a [webhook](/api/webhooks). You're charged only when it finishes.
+  </Step>
+  <Step title="Check it and publish">
+    Read the story, then post `markdown` as it is or lay out `title`, `intro`, `days` and `closing` yourself. A story keeps your photo links, so keep those files online.
+  </Step>
+</Steps>
+
+You can also run it from the console's **Playground**, where you fill in the request and press a button, or from an AI agent with the [MCP server](/api/mcp) (`trip_story`).
+
+## Example
+
 ```bash
 curl -X POST "$BASE/v1/jobs?wait=55" \
   -H "Authorization: Bearer $TRIPMAZER_KEY" -H "Content-Type: application/json" \
