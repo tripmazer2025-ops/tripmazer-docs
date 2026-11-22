@@ -71,8 +71,8 @@ Each change is stored on the trip and sent to your [webhooks](/api/webhooks):
 | `flight.gate_changed` | A terminal, gate or baggage belt was assigned or changed (`data.from`, `data.to`) |
 | `flight.cancelled` | Cancelled; `trip.options` follows |
 | `flight.diverted` | Diverted; `trip.options` follows |
-| `flight.departed` | Took off |
-| `flight.landed` | Landed |
+| `flight.departed` | Took off, with `actual_departure` when the flight data has it. If the data never shows the departure, it comes just before `flight.landed` with `inferred: true` |
+| `flight.landed` | Landed, with `actual_arrival` when the flight data has it |
 | `trip.options` | Other ways there: `data.flights` and `data.ground` |
 | `trip.completed` | Every flight has landed, or the watch ended |
 
