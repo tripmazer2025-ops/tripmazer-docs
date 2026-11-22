@@ -32,10 +32,11 @@ Each request carries `X-TripMazer-Signature: t=<unix seconds>,v1=<hex>`. `v1` is
 import crypto from "node:crypto";
 
 function verify(rawBody, header, secret) {
-  const { t, v1 } = Object.fromEntries(header.split(",").map((p) => p.split("=")));
+  const { t, v1 } = Object.fromEntries(String(header ?? "").split(",").map((p) => p.split("=")));
   const expected = crypto.createHmac("sha256", secret).update(`${t}.${rawBody}`).digest("hex");
   const fresh = Math.abs(Date.now() / 1000 - Number(t)) < 300;
-  return fresh && crypto.timingSafeEqual(Buffer.from(v1), Buffer.from(expected));
+  const got = Buffer.from(v1 ?? ""), want = Buffer.from(expected);
+  return fresh && got.length === want.length && crypto.timingSafeEqual(got, want);
 }
 ```
 
@@ -43,10 +44,12 @@ function verify(rawBody, header, secret) {
 import hashlib, hmac, time
 
 def verify(raw_body: bytes, header: str, secret: str) -> bool:
-    parts = dict(p.split("=", 1) for p in header.split(","))
-    expected = hmac.new(secret.encode(), f"{parts['t']}.".encode() + raw_body, hashlib.sha256).hexdigest()
-    fresh = abs(time.time() - int(parts["t"])) < 300
-    return fresh and hmac.compare_digest(parts["v1"], expected)
+    parts = dict(p.split("=", 1) for p in (header or "").split(",") if "=" in p)
+    t, v1 = parts.get("t", ""), parts.get("v1", "")
+    if not (t.isascii() and t.isdigit()) or abs(time.time() - int(t)) > 300:
+        return False
+    expected = hmac.new(secret.encode(), f"{t}.".encode() + raw_body, hashlib.sha256).hexdigest()
+    return hmac.compare_digest(v1.encode(), expected.encode())
 ```
 </CodeGroup>
 
