@@ -205,6 +205,19 @@
         ]
       },
       {
+        "tab": "Creators",
+        "groups": [
+          {
+            "group": "TripMazer for Creators",
+            "pages": [
+              "creators/index",
+              "creators/making-guides",
+              "creators/earnings-and-payouts"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Help",
         "groups": [
           {
@@ -225,7 +238,8 @@
             "pages": [
               "api/index",
               "api/quickstart",
-              "api/authentication", "api/moving-from-amadeus"
+              "api/authentication",
+              "api/moving-from-amadeus"
             ]
           },
           {
